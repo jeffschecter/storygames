@@ -1,0 +1,171 @@
+<h1>Pattern Hack: Wuxia Revenge &amp; Romance</h1><div class="Item ItemDiscussion" id="Discussion_256">
+<div class="Discussion">
+<div class="Item-Header DiscussionHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/shreyas" title="shreyas"><img alt="shreyas" class="ProfilePhoto ProfilePhotoMedium" src="http://twoscooters.wordpress.com/files/2008/02/rj.jpg"/></a><a class="Username" href="/forums/profile/shreyas">shreyas</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta DiscussionMeta">
+<span class="MItem DateCreated">
+<a class="Permalink" href="http://story-games.com/forums/discussion/256/pattern-hack-wuxia-revenge-romance" rel="nofollow"><time datetime="2006-02-27T15:59:35+00:00" title="February 27, 2006  3:59PM">February 2006</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited February 27, 2006 3:59PM by shreyas.">edited February 2006</span> </span> <span class="MItem Category"> in <a href="http://story-games.com/forums/categories/games-and-gaming">Story Games</a></span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<p>So I have been trying to get this out of my syste—okay, lie, I have been trying to <em>make this work</em>—for a while now: The kung fu death romance. I kept tripping up on core systems.</p>
+<p>Then it occurred to me that I don't need those. We have system cores aplenty, and I can cheat and use <em>design patterns</em> (Don't forget to fill in the box on your jargon bingo card!) to hook more-or-less arbitrary games to a subsystem that does what I need.</p>
+<h1>What This Hack Does</h1>
+<p>With this, you can make insane love and death stories like those designer wuxia movies Jon and I are always swooning over. You know, the ones where Zhang Ziyi does kung fu. It sets a timer on the game, after which many of the characters will destroy themselves or each other.</p>
+<h1>What This Hack Needs</h1>
+<p>You can attach this to a game as long as it has multiple characters that come into contact with one another frequently, and an explicit stake-setting process. (I was going to account for subtler conflict patterns like <em>Polaris</em> until I realised that I do <em>not</em> want to play the child of <em>P</em> and this thing.)</p>
+<h2>Bonus</h2>
+<p>You get more out of this with a game that allows stake-alteration, either explicitly as with <em>Mere Sapnon ki Rani</em>, or implicitly as with escalation in <em>DitV</em>.</p>
+<h1>How to Use It</h1>
+<h2>Setup</h2>
+<h3>Diagram</h3>
+<p>When you're making characters, you need to set up a diagram showing the characters and the friction in their relationships. It is easier to show than to tell, so here is my (off-the-cuff) analysis of <em>Hero:</em></p>
+<p><img alt="diagram" src="http://njyar.thesmerf.com/images/story-games/hero.png"/></p>
+<p>So what this is saying is that these questions are what generates friction between the linked characters. Both the Emperor and Nameless are challenging the purity of the other's motives; Broken Sword does not think that Nameless should do it, &amp;c.</p>
+<p>When you start, scatter your characters across a disgram and link them up with such friction-creating questions. You don't need to link them very elaborately, but you <em>do</em> need to ensure that you can trace a path from one character to any other. This ensures that, when the end comes, it can touch everyone. Make sure that you have a spot along each relationship line where you can write a number. This number, the relationship's <em>tension</em>, tracks the amount of hurt that relationship is carrying.</p>
+<h3>Initial Tension</h3>
+<p>(This is something I just made up and it might well be crazy) Set the initial tension values of relationships equal to the sum of connections the characters involved have. In this case, we have these tension values:</p>
+<ul>
+<li>Nameless - Emperor: 4</li>
+<li>Nameless - Flying Snow: 5</li>
+<li>Nameless - Broken Sword: 6</li>
+<li>Broken Sword - Moon: 4</li>
+<li>Broken Sword - Flying Snow: 5</li>
+</ul>
+<h2>Stakes</h2>
+<p>Whenever you are setting the stakes for a conflict, you must include a tension increase in <em>each</em> stake; one of the characters involved suffers some hurt, increasing the tension in one of his relationships by 1.</p>
+<p>When in conflict with a character you do not have a relationship with, you can set "I gain a relationship with 1 tension with this person" as your mandatory tension gain.</p>
+<h3>Escalation</h3>
+<p>In a game with explicit escalation, increase the value of both tension increases by 1 whenever a character escalates.</p>
+<p>In a game with explicit alteration of stakes during conflict, you may <em>increase</em> the amount of hurt a conflict causes, but not decrease it.</p>
+<h4>Final Escalation</h4>
+<p>If there is a level of escalation from which there is no further extremity, then this point is particularly dangerous. If the tension that suffers hurt is greater than the current tension increase, at this stage simply double it instead. (That is to say, double it if the resultant value is greater than adding the tension increase. This is more intuitive-sounding to me, but it requires you to do both operations anyway, rather than saving you work.)</p>
+<h2>Death &amp; Grief</h2>
+<p>When a character dies, it doubles the tension of all his relationships until the end of the next conflict the other character is involved in. After the results of that conflict are applied, the grief and relationship fade away.</p>
+<h2>Breaking</h2>
+<p>When a character reacher a certain point, she can no longer withstand the accumulated tensions of her relationships. She must take immediate, extreme, and violent action.</p>
+<h3>Lashing Out</h3>
+<p>If you have one relationship that has twice as much tension as any other relationship you have, you <em>lash out.</em> That is, you take violent action directed toward a specific person. You may either lash out at the offending relationship (seeking out opportunity if necessary) in order to sever that relationship completely, or you may lash out at a third party in an attempt to raise your tension with that party, in order to rebalance your tensions.</p>
+<p>If you sever the offending relationship, then you have lost the dispute. The relationship's question is answered in the other character's favor.</p>
+<p>If you lash out at another character, you may <em>fail</em> to rebalance your tensions, in which case you must lash out again.</p>
+<h3>Crumbling</h3>
+<p>If you have twice as much tension, total, as any other character, then you completely crumble. You now go on a killing spree. You may set only two stakes from now on:</p>
+<ul>
+<li>The other character dies. This severs the relationship, prior to grief. As with severance in lashing out, you lose the dispute.</li>
+<li>You die and win the dispute.</li>
+</ul>
+<p>Other characters may attempt to pull you out of the <em>crumbled</em> state, if your tensions change enough; they must win a conflict with you, setting your relationship with them at stake. Either the relation is severed, or it is strained and you stop crumbling.</p>
+</div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</div><li class="Item Alt ItemComment" id="Comment_4573">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/szilard" title="szilard"><img alt="szilard" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/szilard">szilard</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/4573/#Comment_4573" name="Item_1" rel="nofollow"><time datetime="2006-02-27T16:58:40+00:00" title="February 27, 2006  4:58PM">February 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I think this would be clearer if you did show how it would work within/alongside another system.<br/>
+<br/>
+Side note: Something like this is how I wish Limit Breaks had been written into Exalted.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_4575">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Mike_Sands" title="Mike_Sands"><img alt="Mike_Sands" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/376/nHOYKHPGXZN6O.png"/></a><a class="Username" href="/forums/profile/Mike_Sands">Mike_Sands</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/4575/#Comment_4575" name="Item_2" rel="nofollow"><time datetime="2006-02-27T16:59:30+00:00" title="February 27, 2006  4:59PM">February 2006</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited February 27, 2006 5:00PM by Mike_Sands.">edited February 2006</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            That seems to me like it's almost a whole game right there. <br/>
+<br/>
+Just add a simple conflict resolution mechanic and maybe some character abilities and you should be done.<br/>
+<br/>
+Also, that's really cool.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_4619">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/shreyas" title="shreyas"><img alt="shreyas" class="ProfilePhoto ProfilePhotoMedium" src="http://twoscooters.wordpress.com/files/2008/02/rj.jpg"/></a><a class="Username" href="/forums/profile/shreyas">shreyas</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/4619/#Comment_4619" name="Item_3" rel="nofollow"><time datetime="2006-02-28T02:13:23+00:00" title="February 28, 2006  2:13AM">February 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<p>Stuart, hm.</p>
+<p>Okay. I'll try and run some rounds of this in <a href="/forums/search?Search=%23indierpgs&amp;Mode=like">#indierpgs</a>, and throw a log up on the web somewhere. Failing that I will write up a short example of play.</p>
+</div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_7792">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/shreyas" title="shreyas"><img alt="shreyas" class="ProfilePhoto ProfilePhotoMedium" src="http://twoscooters.wordpress.com/files/2008/02/rj.jpg"/></a><a class="Username" href="/forums/profile/shreyas">shreyas</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/7792/#Comment_7792" name="Item_4" rel="nofollow"><time datetime="2006-03-24T00:42:26+00:00" title="March 24, 2006 12:42AM">March 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<p><em>bump</em><br/>
+I'm totally using this for <a href="http://njyar.thesmerf.com/blog/2006/03/sfk-rules-pt-1/" rel="nofollow">Snow From Korea</a> now.</p>
+</div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>

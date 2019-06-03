@@ -1,0 +1,1953 @@
+<h1>Online Tabletop - Playtesting Web App</h1><div class="Item ItemDiscussion" id="Discussion_2042">
+<div class="Discussion">
+<div class="Item-Header DiscussionHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta DiscussionMeta">
+<span class="MItem DateCreated">
+<a class="Permalink" href="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app" rel="nofollow"><time datetime="2006-12-17T12:42:14+00:00" title="December 17, 2006 12:42PM">December 2006</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited December 17, 2006 12:42PM by MikeRM.">edited December 2006</span> </span> <span class="MItem Category"> in <a href="http://story-games.com/forums/categories/games-and-gaming">Story Games</a></span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                    Partially inspired by my enjoyment of the â€œBitches in the Vineyardâ€ logs, hereâ€™s a little idea.<br/><br/>Iâ€™m envisioning a web interface that would let you play a wide range of tabletop games â€“ basically anything that didnâ€™t depend on the physical arrangement of objects to work (i.e. not anything boardgamey). <br/><br/>It should support pools and attributes, with and without numbers, these numbers (when present) representing points or dice. Together with a free-text field for general background, these become an online character sheet. You should be able to see, and reference items on, other playersâ€™ sheets (to do aspect compels in FATE, for example). <br/><br/>It should, obviously, have a die roller. An interface out to Grahamâ€™s visual die roller would be cool but would require him to be willing and able to expose the features of it as web services, so that might be a later stage. Initially, a text-based die roller would do.<br/><br/>It should specifically not have rules coded into it, so that you can use it for a wide range of games without programming. You interpret the dice when you play face-to-face, so you can do it when you're playing online.<br/><br/>It should also support drawing cards from user-definable decks, playing or discarding these cards, passing them to other people, and optionally editing them (so that you can do scrip-passing in FLFS, for example). Again, these would be text-based rather than graphical.<br/><br/>It should have a chat client which clearly distinguishes in-character and out-of-character remarks, and which provides a little editor (like the one right here) to make bold, italics, hyperlinks and so forth easy to do.<br/><br/>Finally, it should have a log which records everything done using the other bits of the interface, in nice HTML. Like this:<br/><br/>GM says, â€œPenalty die for this one â€“ slippery launching surface.â€<br/>Mike uses Athletics (3).<br/>Mike uses Secret of Giant Leap.<br/>Mike spends 1 point from Vigor.<br/>Mike rolls 5df: -1 -1 -1 0 +1<br/>Mike says, â€œCrap on a <i>stick</i>.â€
+<blockquote>Sir Martlet falleth on his urse.</blockquote>
+The log should obviously scroll from the POV of the players during the game, and also be able to be archived. (Actual Play sells games, right? So if you had a complete log of your playtest games, not only to analyse at your leisure, but to post on your websiteâ€¦)<br/><br/>I canâ€™t think of any reason why this couldnâ€™t be done. We have the technology. Specifically, we have PHP, XML, AJAX and the JS DOM, and Iâ€™m not afraid to use them.<br/><br/>Responses Iâ€™m looking for:<br/><br/>â€œItâ€™s been done, and itâ€™s found over <span style="text-decoration: underline;">here</span>.â€<br/>â€œIt wouldnâ€™t work becauseâ€¦â€<br/>â€œWhat about including X feature so it can support Y game?â€<br/>â€œI would totally use this to play Z.â€<br/>â€œIâ€™d like to help out with building this.â€<br/>Other responses â€“ surprise me!                </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</div><li class="Item Alt ItemComment" id="Comment_47780">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/JasonP" title="JasonP"><img alt="JasonP" class="ProfilePhoto ProfilePhotoMedium" src="http://wishray.com/jp/the_penguin.jpg"/></a><a class="Username" href="/forums/profile/JasonP">JasonP</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47780/#Comment_47780" name="Item_1" rel="nofollow"><time datetime="2006-12-17T13:47:53+00:00" title="December 17, 2006  1:47PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I'm already working on a cross-platform portable client to do just this actually, though I've posted nothing about it and won't until it functions on at least some basic level. Though, I'm taking a different tact by using a native client for each platform (glfw/opengl, enet, php/http).                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47781">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47781/#Comment_47781" name="Item_2" rel="nofollow"><time datetime="2006-12-17T13:50:59+00:00" title="December 17, 2006  1:50PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            So that would be multiple applications open at once, rather than a single web app? Best-of-breed rather than all-in-one-easily-integrated?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47783">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/JasonP" title="JasonP"><img alt="JasonP" class="ProfilePhoto ProfilePhotoMedium" src="http://wishray.com/jp/the_penguin.jpg"/></a><a class="Username" href="/forums/profile/JasonP">JasonP</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47783/#Comment_47783" name="Item_3" rel="nofollow"><time datetime="2006-12-17T13:55:23+00:00" title="December 17, 2006  1:55PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            It'll be a single client application, I'm just saying that a native client application will exist for each platform (*nix, Mac, Win32, etc).                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47785">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47785/#Comment_47785" name="Item_4" rel="nofollow"><time datetime="2006-12-17T14:05:04+00:00" title="December 17, 2006  2:05PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            OK, gotcha.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47787">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Graham" title="Graham"><img alt="Graham" class="ProfilePhoto ProfilePhotoMedium" src="http://www.catchyourhare.com/images/LittleChef.jpg"/></a><a class="Username" href="/forums/profile/Graham">Graham</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47787/#Comment_47787" name="Item_5" rel="nofollow"><time datetime="2006-12-17T14:13:42+00:00" title="December 17, 2006  2:13PM">December 2006</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited December 17, 2006 2:16PM by Graham.">edited December 2006</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: MikeRM</cite>An interface out to Grahamâ€™s visual die roller would be cool but would require him to be willing and able to expose the features of it as web services, so that might be a later stage. Initially, a text-based die roller would do.</blockquote>
+Hey, Mike, of course I'm willing. <br/><br/>I'd also encourage people to re-use the Dice Roller code: drop me an email and tell me what you'd want to use.<br/><br/><a href="http://www.catchyourhare.com/diceroller/code.php" rel="nofollow">Have a look at the code</a>, then drop me an email and we'll sort something out.<br/><br/>Graham                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47789">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47789/#Comment_47789" name="Item_6" rel="nofollow"><time datetime="2006-12-17T14:24:05+00:00" title="December 17, 2006  2:24PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Thanks, Graham, that may save me some time - though one of my minor design goals is to avoid using a database (in favour of XML files), to make it easier to host on very minimal sites. MySQL is pretty widespread these days, though (although, importantly, I don't have it on the site I would want to develop on - I have PGSQL instead).<br/><br/>Implementation details, which may become moot if there's no uptake for the idea.<br/><br/>That's some nice concise code, by the way.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47800">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/QHudspeth" title="QHudspeth"><img alt="QHudspeth" class="ProfilePhoto ProfilePhotoMedium" src="http://quentinhudspeth.com/journal/wp-content/themes/atahualpa/images/H%20Logo%20super%20extra%20small.png"/></a><a class="Username" href="/forums/profile/QHudspeth">QHudspeth</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47800/#Comment_47800" name="Item_7" rel="nofollow"><time datetime="2006-12-17T16:30:45+00:00" title="December 17, 2006  4:30PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Jason, Mike,<br/>I'd love to see something like this come to fruition. I've got gaming friends spread all over and it'd be lovely to table-top in real time with such a program.<br/>Unfortuantely, I don't code, so I can't really help out with more than moral support.<br/><br/>Mike, I think you pretty much covered all the necessary bells and whistles, but if I think of anything, I'll post.<br/><br/>Q                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47801">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/DInDenver" title="DInDenver"><img alt="DInDenver" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/510/nMDKSOO3KDKEF.jpg"/></a><a class="Username" href="/forums/profile/DInDenver">DInDenver</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47801/#Comment_47801" name="Item_8" rel="nofollow"><time datetime="2006-12-17T16:35:56+00:00" title="December 17, 2006  4:35PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Hi!<br/>
+  Have you seen VASSAL?<br/>
+http://vassalengine.org/community/index.php<br/>
+  It is server based, so firewalls are not an issue. It is Java based so it is cross platform. It includes Chat and die roller by default. you can load various modules if you need cards, maps, play pieces etc. I cooked up a module from scratch for one of Alex's game in about an hour or so.<br/>
+Dave M<br/>
+Author of Legends of Lanasia (Still in Beta)                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47802">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47802/#Comment_47802" name="Item_9" rel="nofollow"><time datetime="2006-12-17T16:46:34+00:00" title="December 17, 2006  4:46PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            That looks pretty cool, Dave - and supports board games really well. It also looks as if it requires some programming knowledge to set up a new module, though - am I right?<br/><br/>Ease of use for completely non-technical users is one of my main goals here. That's one reason I'm leaning to the web interface - nothing to install or configure, just click a link that someone emails you and you're good to go.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47804">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/QHudspeth" title="QHudspeth"><img alt="QHudspeth" class="ProfilePhoto ProfilePhotoMedium" src="http://quentinhudspeth.com/journal/wp-content/themes/atahualpa/images/H%20Logo%20super%20extra%20small.png"/></a><a class="Username" href="/forums/profile/QHudspeth">QHudspeth</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47804/#Comment_47804" name="Item_10" rel="nofollow"><time datetime="2006-12-17T16:47:09+00:00" title="December 17, 2006  4:47PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Thought of something else useful: a shared whiteboard, like  a simple Paint program, that everyone can draw on. This would be useful for quick sketches of battle locations.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47805">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47805/#Comment_47805" name="Item_11" rel="nofollow"><time datetime="2006-12-17T16:50:31+00:00" title="December 17, 2006  4:50PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Probably a good call, Quentin - thanks. I might put that into Phase 2, though - "useful, but not essential, or could be handled out-of-band".                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47808">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/shreyas" title="shreyas"><img alt="shreyas" class="ProfilePhoto ProfilePhotoMedium" src="http://twoscooters.wordpress.com/files/2008/02/rj.jpg"/></a><a class="Username" href="/forums/profile/shreyas">shreyas</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47808/#Comment_47808" name="Item_12" rel="nofollow"><time datetime="2006-12-17T17:15:17+00:00" title="December 17, 2006  5:15PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<p>Actually, I suggest that Graham's graphical dice, and the implicit board they live on, and by extension whiteboard functionality, are the <em>most important</em> part of this sort of thing, partly because they are something that doesn't already exist in another form and partly because they are something that the loss of hurts online gaming the most.</p>
+<p>I want to play Agon online. Make it happen.</p>
+</div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47810">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47810/#Comment_47810" name="Item_13" rel="nofollow"><time datetime="2006-12-17T17:24:22+00:00" title="December 17, 2006  5:24PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I'm hearing your feedback.<br/><br/>Perhaps my problem is that I'm not especially visual, a text-based interface would work fine for me and so I don't feel a need to make it graphical.<br/><br/>Perhaps the solution to that problem is to listen to people who are saying, "No, no, there must be graphics or it will suck."<br/><br/>Or perhaps this is feature creep. I'm open to opinions either way.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47812">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/shreyas" title="shreyas"><img alt="shreyas" class="ProfilePhoto ProfilePhotoMedium" src="http://twoscooters.wordpress.com/files/2008/02/rj.jpg"/></a><a class="Username" href="/forums/profile/shreyas">shreyas</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47812/#Comment_47812" name="Item_14" rel="nofollow"><time datetime="2006-12-17T17:29:32+00:00" title="December 17, 2006  5:29PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<p>Sorry I was not clear. I mean, "This visual metaphor is the <em>foundation</em> upon which all the rest of this stuff should be built. If it is an online tabletop, then <em>let it be a tabletop</em> and not a text display."</p>
+<p>Dice rollers, fancy card dealers, spreadsheets, mappers, chat, these should all be embedded in the table. For chat, for instance: Envision the play area as a table, with icons - the users - distributed around the edge. They speak in speech bubbles, that are slightly persistent; it eliminates the weird ordering hiccups that often occur in linear chat.</p>
+</div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47813">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47813/#Comment_47813" name="Item_15" rel="nofollow"><time datetime="2006-12-17T17:40:06+00:00" title="December 17, 2006  5:40PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Ah, with you now.<br/><br/>I don't think I could do that, personally, with the skills I possess. It sounds more like a Flash app and (not being very visual) I've never got round to learning Flash. And I'm not really in the market for a learning curve just now.<br/><br/>But that would be very cool if someone else wanted to implement it.<br/><br/>(If it's any consolation - it probably isn't - I did envisage having icons representing the players and the characters appearing next to what they are saying in the log.)<br/><br/>Then again, Graham's draggable labels aren't a million miles from loading up a "board" graphic, loading up an icon each, and dragging the icons around the board, with the icons reporting their position back...<br/><br/>Hmmm. Have to think more.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47817">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/DInDenver" title="DInDenver"><img alt="DInDenver" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/510/nMDKSOO3KDKEF.jpg"/></a><a class="Username" href="/forums/profile/DInDenver">DInDenver</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47817/#Comment_47817" name="Item_16" rel="nofollow"><time datetime="2006-12-17T19:29:37+00:00" title="December 17, 2006  7:29PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Hi!<br/>
+  Regarding VASSAL: You can benefit from knowledge of Java. But if you just need maps and counters, you can make modules without any programming knowledge. But, if you need to do nifty things like Card shuffling, you'll need to get a cool, programmer to help you...<br/>
+Dave M<br/>
+Author of Legends of Lanasia (Still in Beta)                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47818">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47818/#Comment_47818" name="Item_17" rel="nofollow"><time datetime="2006-12-17T19:40:20+00:00" title="December 17, 2006  7:40PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Thanks - Shreyas, maybe you should check it out. It doesn't really do what I want (in terms of a complete play log, with no installation), but it may do what you want, or close to.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47826">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Adam_Dray" title="Adam_Dray"><img alt="Adam_Dray" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/445/n8DFU0XP50I1V.PNG"/></a><a class="Username" href="/forums/profile/Adam_Dray">Adam_Dray</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47826/#Comment_47826" name="Item_18" rel="nofollow"><time datetime="2006-12-17T21:39:16+00:00" title="December 17, 2006  9:39PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Hey, there's also IRC (#indierpgs) and FoundryMUSH (legendary.org 7777). The latter as a bunch of coded support for tabletop-style role-playing. <a href="/forums/search?Search=%23indierpgs&amp;Mode=like">#indierpgs</a> has some excellent dice support at least (I dunno what else).                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47910">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/John_Harper" title="John_Harper"><img alt="John_Harper" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/004/nT4BI8NP40ONN.png"/></a><a class="Username" href="/forums/profile/John_Harper">John_Harper</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47910/#Comment_47910" name="Item_19" rel="nofollow"><time datetime="2006-12-18T10:45:32+00:00" title="December 18, 2006 10:45AM">December 2006</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited December 18, 2006 12:21PM by John_Harper.">edited December 2006</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Graham's dice thing can handle Agon play online, I think. Just use the labels to make several "-----------------" units, then build the range strip with them.<br/><br/><span style="text-decoration: line-through;">I just made one. Use the password "agon" to take a look (<a href="http://www.catchyourhare.com/diceroller/" rel="nofollow">http://www.catchyourhare.com/diceroller/</a>).</span><br/><br/>EDIT: Apparently, the thing gets cleared after a certain time limit. So here's a screenshot of what I was doing:<br/><a href="http://www.onesevendesign.com/agon_diceroller.jpg" rel="nofollow">http://www.onesevendesign.com/agon_diceroller.jpg</a> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47912">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/PaulCzege" title="PaulCzege"><img alt="PaulCzege" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/PaulCzege">PaulCzege</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47912/#Comment_47912" name="Item_20" rel="nofollow"><time datetime="2006-12-18T11:02:17+00:00" title="December 18, 2006 11:02AM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Check out the kLoOge.Werks tool:<br/><br/><a href="http://www.kloogeinc.com/screenshots.html" rel="nofollow" target="_blank">http://www.kloogeinc.com/screenshots.html</a><br/><br/>Paul                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47916">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Jason_Morningstar" title="Jason_Morningstar"><img alt="Jason_Morningstar" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/670/nAFAIJT4NCWC8.jpg"/></a><a class="Username" href="/forums/profile/Jason_Morningstar">Jason_Morningstar</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47916/#Comment_47916" name="Item_21" rel="nofollow"><time datetime="2006-12-18T11:11:22+00:00" title="December 18, 2006 11:11AM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            John, that's very clever.  I'm grinning.  <br/><br/>Graham, how hard would it be to allow users to specify a background image?  Because then you wouldn't even have to kludge to do Agon, and you could have backgrounds with little pots to keep die pools separate and so forth.  Give me the dimensions and I'll whip up half a dozen.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47923">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47923/#Comment_47923" name="Item_22" rel="nofollow"><time datetime="2006-12-18T12:04:40+00:00" title="December 18, 2006 12:04PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Paul, that's seriously cool. Not what I had in mind, but very, very cool.<br/><br/>I think it's probably time to direct a couple of specific questions to Brand, Mo, Jessica and Nancy, particularly Mo, since their game transcripts got me thinking about this in the first place (and Mo is the one who's doing the transcripts). My questions are:<br/><br/>1. What software are you currently using?<br/><br/>2. What works well about it and what works badly?<br/><br/>See, my initial idea was, "Those transcripts are great. I wonder if I could write something that produced transcripts like that as an automatic outcome of play; that wouldn't require any downloads, installation, programming, scripting, skills or software on the part of the users beyond the skills and software needed to post to Story-Games; that supported many of the more popular games (for example, Dogs, FATE, Solar System); and, hey, that could be used to playtest <i>my</i> games. Hmm, I think I could."                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47930">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Graham" title="Graham"><img alt="Graham" class="ProfilePhoto ProfilePhotoMedium" src="http://www.catchyourhare.com/images/LittleChef.jpg"/></a><a class="Username" href="/forums/profile/Graham">Graham</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47930/#Comment_47930" name="Item_23" rel="nofollow"><time datetime="2006-12-18T12:47:23+00:00" title="December 18, 2006 12:47PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: John Harper</cite>EDIT: Apparently, the thing gets cleared after a certain time limit</blockquote>
+Gulp. No, it doesn't. John, whisper to me and tell me what happened. If I enter "agon" now, I see your Agon board, just as in the screenshot.<br/><br/>Jason, background images aren't particularly hard. Like I say, if anyone wants to have a go at changing the code, get in touch.<br/><br/>Graham                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47931">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/shreyas" title="shreyas"><img alt="shreyas" class="ProfilePhoto ProfilePhotoMedium" src="http://twoscooters.wordpress.com/files/2008/02/rj.jpg"/></a><a class="Username" href="/forums/profile/shreyas">shreyas</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47931/#Comment_47931" name="Item_24" rel="nofollow"><time datetime="2006-12-18T12:55:52+00:00" title="December 18, 2006 12:55PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<p>Okay, here's a very serious question about your design goals:</p>
+<blockquote class="UserQuote"><div class="QuoteText">
+<p>I wonder if I could write something that produced transcripts like that...</p>
+</div></blockquote>
+<p>Exactly what benefit does this provide <em>to the players while they are playing?</em></p>
+</div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47933">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47933/#Comment_47933" name="Item_25" rel="nofollow"><time datetime="2006-12-18T12:58:54+00:00" title="December 18, 2006 12:58PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: shreyas</cite>Exactly what benefit does this provide <em>to the players while they are playing?</em></blockquote>
+Fair question. My answer is: They see everything that's going on, in one place, as a coherent sequence, and they can if necessary scroll back and check what happened earlier.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_47937">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/reaction" title="reaction"><img alt="reaction" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/reaction">reaction</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47937/#Comment_47937" name="Item_26" rel="nofollow"><time datetime="2006-12-18T13:07:44+00:00" title="December 18, 2006  1:07PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: Graham Walmsley</cite><cite>Posted By: John Harper</cite>EDIT: Apparently, the thing gets cleared after a certain time limit</blockquote>
+Gulp. No, it doesn't. John, whisper to me and tell me what happened. If I enter "agon" now, I see your Agon board, just as in the screenshot.<br/><br/>Jason, background images aren't particularly hard. Like I say, if anyone wants to have a go at changing the code, get in touch.<br/><br/>Graham<br/>It didn't show up for me the first time I tried, then it did when I just tried now. Odd.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_47981">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/JasonP" title="JasonP"><img alt="JasonP" class="ProfilePhoto ProfilePhotoMedium" src="http://wishray.com/jp/the_penguin.jpg"/></a><a class="Username" href="/forums/profile/JasonP">JasonP</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/47981/#Comment_47981" name="Item_27" rel="nofollow"><time datetime="2006-12-18T14:20:06+00:00" title="December 18, 2006  2:20PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I did indeed mess with VASSAL, but found it too hard to deal with actually (and I'm quite a good progammer, though by hobby only).<br/>
+KLoOge looked neat also, but I didn't like the very rigid nature of the interface. It seemed to lack the flexibility I was looking for in design, esp. because I want to handle custom board games and such.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_48011">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Mo" title="Mo"><img alt="Mo" class="ProfilePhoto ProfilePhotoMedium" src="http://spaceanddeath.com/images/death.gif"/></a><a class="Username" href="/forums/profile/Mo">Mo</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48011/#Comment_48011" name="Item_28" rel="nofollow"><time datetime="2006-12-18T16:26:08+00:00" title="December 18, 2006  4:26PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Mike,<br><br/>Did you need us (the BitV girls) to do something, or just want us to know it was in the works?                        </br></div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_48012">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48012/#Comment_48012" name="Item_29" rel="nofollow"><time datetime="2006-12-18T16:40:40+00:00" title="December 18, 2006  4:40PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Sorry, it's got a bit lost in the thread. This was my reason for drawing your attention:
+<blockquote><cite>Posted By: MikeRM</cite>I think it's probably time to direct a couple of specific questions to Brand, Mo, Jessica and Nancy, particularly Mo, since their game transcripts got me thinking about this in the first place (and Mo is the one who's doing the transcripts). My questions are:<br/><br/>1. What software are you currently using?<br/><br/>2. What works well about it and what works badly?<br/></blockquote> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_48023">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Mo" title="Mo"><img alt="Mo" class="ProfilePhoto ProfilePhotoMedium" src="http://spaceanddeath.com/images/death.gif"/></a><a class="Username" href="/forums/profile/Mo">Mo</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48023/#Comment_48023" name="Item_30" rel="nofollow"><time datetime="2006-12-18T18:05:11+00:00" title="December 18, 2006  6:05PM">December 2006</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited December 18, 2006 6:10PM by Mo.">edited December 2006</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I'm using SimpleMu, on the Foundry MUSH.<br/><br/>It logs to text file, it has a DitV specific object that handles conflicts, conflict res, fallout and has info pages that bring up fallout etc (coded by Josh BR). It clearly differentiates IC from OOC in the same window (which is important if you want people to learn the procedures of play, because it parses the OOC in the middle of the IC action), allows me to both say and pose (speak or do an action) allows me to page other players privately, and if I wanted to take advantage of some of SimpleMu's options, I could also change the display options for each of the other players input, or set triggers to respond to specific actions in game. I can C&amp;P into the text entry, and I can call up historical input that I've put in.<br/><br/>Oh, and I also find the spell checker exceedingly helpful, because when I'm posing in a game, my typist fails me constantly. Plus, I MUSHed for years, and so could use the commands in my sleep.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_48026">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48026/#Comment_48026" name="Item_31" rel="nofollow"><time datetime="2006-12-18T18:22:09+00:00" title="December 18, 2006  6:22PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            So it's command-based?<br/><br/>In the thread where the BitV logs are posted, you say: 
+<blockquote><cite>Posted By: Mo</cite><br/>Anybody finding these useful? In what way? It's some work to edit them out, so convince me to keep doing it.</blockquote>
+Is that just because it's a text file?<br/><br/>What I'm trying to find out here is whether something like what I'm proposing would make this kind of online play easier overall (including sharing the logs), or whether the existing tools are Not Broken, Don't Fix.<br/><br/>I'm kind of leaning towards building it anyway, as a playtesting engine that gives really thorough log output for analysis (and publicity). But I'd like to have some idea of whether it would also make things easier than the currently existing tools for online gaming in general.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_48046">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/IceCreamEmperor" title="IceCreamEmperor"><img alt="IceCreamEmperor" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/IceCreamEmperor">IceCreamEmperor</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48046/#Comment_48046" name="Item_32" rel="nofollow"><time datetime="2006-12-18T22:29:56+00:00" title="December 18, 2006 10:29PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Mike, I'd suggest downloading <a href="http://simplemu.onlineroleplay.com/download.html" rel="nofollow">SimpleMU*</a> and connecting to The Foundry (address above) to check it out. You'll probably get a much clearer idea of what that environment is like, and what options are available, than by having someone try to explain the interface here.<br/><br/>Personally, hearing about an all-text thing like what you seem to be describing makes me shrug -- both IRC and telnet/MUSH can already produce something very similar, though you certainly could probably manage the text/types of info parsing better if you built it just for this sort of task. And integrating it into a browser is cool too, of course. But for me, what is missing for online play right now is the visual elements -- the actual tabletop, as Shreyas was saying. Visual communication handles a lot of complicated dice &amp; token stuff much easier than trying to reproduce it in text format. For example, at a table, when I want to know whose dice are whose, I mostly just look at their location: if they're in front of Bob, they're probably Bob's dice. In text this has to be handled with labelling, which is clumsy and fairly unwieldy compared to the ease of just moving visual objects about.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_48074">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Mo" title="Mo"><img alt="Mo" class="ProfilePhoto ProfilePhotoMedium" src="http://spaceanddeath.com/images/death.gif"/></a><a class="Username" href="/forums/profile/Mo">Mo</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48074/#Comment_48074" name="Item_33" rel="nofollow"><time datetime="2006-12-19T08:07:01+00:00" title="December 19, 2006  8:07AM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Mike,<br/><br/>Re: the commands, yeah. I'd second Daniel's suggestion. Come hang on the foundry and chat and you'll get the idea really quickly.<br/><br/>The logs are a pain in the ass to edit because they're in text and because there is often personal pages, or sidetalk or whatever to edit out. I also have to edit for comprehension because what's scrolling past you on the screen might make sense at the time, but it can be confusing to someone not doing it live. For example, you and I and Brand and Daniel could be on the Foundry, and you and I could be talking about gaming interfaces and Brand and Daniel could be discussing antidisestablishmentarianism. Our conversation is easy because I'm just scanning for your input, but if you are trying to read both threads, you have to jump up and back a lot to get full meaning.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_48163">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48163/#Comment_48163" name="Item_34" rel="nofollow"><time datetime="2006-12-19T13:51:18+00:00" title="December 19, 2006  1:51PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            OK, I'm getting a lukewarmness vibe towards the idea, at least from Shreyas and ICE, if it doesn't include a strong visual element.<br/><br/>I had a poke around and found some documentation for the MUSH thing. I can see how if you were used to it it wouldn't be daunting, but if you weren't, it definitely would be. This is command-line-based sixteen-year-old technology. I'm reasonably technical or I wouldn't be proposing to program a web app, but frankly, I wouldn't want to play a game over this interface, and I suspect I'm not alone.<br/><br/>So I'm going to go ahead despite the lukewarmness, because a) I have some spare time, b) I'd enjoy the project, and c) I think that a flexible, user-friendly playtesting web app would get some use from people who wouldn't otherwise game online (me for one, but hopefully others or it's kind of pointless), and make it easy for non-technical people to try out their game designs.<br/><br/>But I hear yez on the visual thing. I'll be bearing that in mind. I have one possible approach in mind already which should be reasonably straightforward to implement.<br/><br/>Further bulletins as events warrant (i.e. probably towards the middle to end of January). Thanks for all the responses.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_48170">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Vaxalon" title="Vaxalon"><img alt="Vaxalon" class="ProfilePhoto ProfilePhotoMedium" src="http://www.livejournal.com/userpic/42393690/1509967"/></a><a class="Username" href="/forums/profile/Vaxalon">Vaxalon</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48170/#Comment_48170" name="Item_35" rel="nofollow"><time datetime="2006-12-19T14:12:56+00:00" title="December 19, 2006  2:12PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Give me the cards you describe in the first post and I will be a VERY happy camper.  It'll let me playtest my Amber rules online...                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_48204">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48204/#Comment_48204" name="Item_36" rel="nofollow"><time datetime="2006-12-19T16:37:53+00:00" title="December 19, 2006  4:37PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Welcome back, Vax, hadn't seen you round for a while. <br/><br/>Duly noted. (But wasn't that a LARP last time I heard? Has evolution occurred?)                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_48226">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Matt" title="Matt"><img alt="Matt" class="ProfilePhoto ProfilePhotoMedium" src="http://www.livejournal.com/userpic/6464691/920923"/></a><a class="Username" href="/forums/profile/Matt">Matt</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48226/#Comment_48226" name="Item_37" rel="nofollow"><time datetime="2006-12-20T03:32:03+00:00" title="December 20, 2006  3:32AM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            One useful visual tool I've been considering co-opting ideas from for online RP is <a href="http://www.thinkature.com" rel="nofollow">Thinkature</a>, which is an online whiteboard with built in chat. If you could combine that kind of functionality with Graham's dice roller you could do all kinds of fun things. <br/><br/>Oh, Graham, looking at your dice-roller code you mention IE and its lack of PNG Alpha support. There's some <a href="http://www.google.co.uk/search?q=ie+png+alpha+hack" rel="nofollow">hacks that can fix that</a> depending on what kind you need.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_48227">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Graham" title="Graham"><img alt="Graham" class="ProfilePhoto ProfilePhotoMedium" src="http://www.catchyourhare.com/images/LittleChef.jpg"/></a><a class="Username" href="/forums/profile/Graham">Graham</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48227/#Comment_48227" name="Item_38" rel="nofollow"><time datetime="2006-12-20T03:43:12+00:00" title="December 20, 2006  3:43AM">December 2006</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited December 20, 2006 3:43AM by Graham.">edited December 2006</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Thinkature looks excellent. Add a few dice to that and it'd be superb for online play.<br/><br/>Matt, yeah, I gathered that there are ways to get IE6 to display alpha-ed PNGs. Given that IE7 supports them, though, I didn't really want to hack the code to get IE6 to work. <br/><br/>Graham                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_48320">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48320/#Comment_48320" name="Item_39" rel="nofollow"><time datetime="2006-12-20T11:26:00+00:00" title="December 20, 2006 11:26AM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Damn, Thinkature is nice. And the good news is that if you poke around, it's built on the Yahoo! User Interface Library - free for all uses under a BSD license. I am definitely swiping that.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_48375">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/tadk" title="tadk"><img alt="tadk" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nAYGI7O6LI2LV.jpg"/></a><a class="Username" href="/forums/profile/tadk">tadk</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48375/#Comment_48375" name="Item_40" rel="nofollow"><time datetime="2006-12-20T13:27:36+00:00" title="December 20, 2006  1:27PM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            A friend of mine pointed me to OpenRPG and it is pretty easy to get into <br/>
+The trees for character sheets and whatnot are XML<br/>
+The dice roller is integral<br/>
+It does feel more d20 to me, might only be due to us only playing in that game system inside it<br/>
+just tossing it out<br/>
+i would like a listing of all that are available <br/>
+instead of being lazy and pulling from this thread                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_48387">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Vaxalon" title="Vaxalon"><img alt="Vaxalon" class="ProfilePhoto ProfilePhotoMedium" src="http://www.livejournal.com/userpic/42393690/1509967"/></a><a class="Username" href="/forums/profile/Vaxalon">Vaxalon</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48387/#Comment_48387" name="Item_41" rel="nofollow"><time datetime="2006-12-20T13:51:02+00:00" title="December 20, 2006  1:51PM">December 2006</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited December 20, 2006 1:51PM by Vaxalon.">edited December 2006</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: MikeRM</cite>Welcome back, Vax, hadn't seen you round for a while.<br/><br/>Duly noted. (But wasn't that a LARP last time I heard? Has evolution occurred?)</blockquote>
+Yes, but that's just the IDEAL venue.  It'll work tabletop, too.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_48473">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Matt" title="Matt"><img alt="Matt" class="ProfilePhoto ProfilePhotoMedium" src="http://www.livejournal.com/userpic/6464691/920923"/></a><a class="Username" href="/forums/profile/Matt">Matt</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/48473/#Comment_48473" name="Item_42" rel="nofollow"><time datetime="2006-12-21T02:54:26+00:00" title="December 21, 2006  2:54AM">December 2006</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: MikeRM</cite>Damn, Thinkature is nice. And the good news is that if you poke around, it's built on the Yahoo! User Interface Library - free for all uses under a BSD license. I am definitely swiping that.</blockquote>
+Yeah, I did some digging in the code, since I'm curious that way. They also use <a href="http://www.walterzorn.com/jsgraphics/jsgraphics_e.htm" rel="nofollow">Walter Zorn's drawing library</a> (which uses loads of divs to create lines) as well. <br/><br/>If you want any help with the project, I'm up for helping out.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_50623">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50623/#Comment_50623" name="Item_43" rel="nofollow"><time datetime="2007-01-07T11:55:06+00:00" title="January  7, 2007 11:55AM">January 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: Matt</cite>If you want any help with the project, I'm up for helping out.</blockquote>
+Thanks for the offer, Matt (and the tip to the drawing lib). I've been caught up getting my hypnotherapy exams squared away, but this week I should start to work on this project in earnest. I think I may start by writing up a design and posting it somewhere so that anyone interested in taking on a piece can do so.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_50652">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50652/#Comment_50652" name="Item_44" rel="nofollow"><time datetime="2007-01-07T17:30:12+00:00" title="January  7, 2007  5:30PM">January 2007</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited January 11, 2007 4:25PM by MikeRM.">edited January 2007</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I've started a <a href="http://www.story-games.com/forums/comments.php?DiscussionID=2178" rel="nofollow">Developers' Thread</a>.<br/><br/>Hey, cool, the URLs here now have their titles at the end. Thanks, Andy!<br/><br/>EDIT: No they don't, or not any more. I've changed the link - it was 404.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_64242">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/John%20Anderson" title="John Anderson"><img alt="John Anderson" class="ProfilePhoto ProfilePhotoMedium" src="http://img2.imageshack.us/img2/7020/warningz.jpg"/></a><a class="Username" href="/forums/profile/John%20Anderson">John Anderson</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64242/#Comment_64242" name="Item_45" rel="nofollow"><time datetime="2007-04-18T01:01:16+00:00" title="April 18, 2007  1:01AM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Hi all,<br/>
+In terms of online virtual tabletops I know of <a "="" class="bbcode_url" href="http://www.fantasygrounds.com/" rel="nofollow">Fantasy Grounds</a> and <a "="" class="bbcode_url" href="http://www.battlegroundsgames.com/" rel="nofollow">Battlegrounds,</a> both of which allow extensive re-tooling for any game you wish to play. I understand that FG comes pre-loaded with D20 and is more complicated to modify than BG, while that BG does not include any rules at all. It is just a virtual tabletop with a dice roller.<br/>
+I have also been playing around with a play-by-forum site which includes a die-roller. It can be checked out <a "="" class="bbcode_url" href="http://andersonclan.proboards76.com/index.cgi" rel="nofollow">here.</a> It ain't as pretty as the commercial ventures, but it, hopefully, will do what it says on the tin.<br/>
+John                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_64290">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Ron%20Hammack" title="Ron Hammack"><img alt="Ron Hammack" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Ron%20Hammack">Ron Hammack</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64290/#Comment_64290" name="Item_46" rel="nofollow"><time datetime="2007-04-18T13:49:52+00:00" title="April 18, 2007  1:49PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<a "="" class="bbcode_url" href="http://rptools.net/doku.php?id=maptool:intro" rel="nofollow">Maptool</a> is a very nice (and free!) virtual tabletop that I've used a few times. Right now it's primarily targeted toward d20 games, but the developers have expressed their desire for it to <i>not</i> be limited to just d20. They're also very responsive to suggestions; I think a lot of the reason that it's currently so d20 focused is because that's what people have been asking for.If some of y'all popped into their forums and asked for more indie love, who knows what might happen.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_64292">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Vaxalon" title="Vaxalon"><img alt="Vaxalon" class="ProfilePhoto ProfilePhotoMedium" src="http://www.livejournal.com/userpic/42393690/1509967"/></a><a class="Username" href="/forums/profile/Vaxalon">Vaxalon</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64292/#Comment_64292" name="Item_47" rel="nofollow"><time datetime="2007-04-18T13:51:36+00:00" title="April 18, 2007  1:51PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Has anyone used the whiteboard addon for Skype?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_64297">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/fifth_child" title="fifth_child"><img alt="fifth_child" class="ProfilePhoto ProfilePhotoMedium" src="http://forum.rpg.net/image.php?u=8366&amp;dateline=1157831572"/></a><a class="Username" href="/forums/profile/fifth_child">fifth_child</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64297/#Comment_64297" name="Item_48" rel="nofollow"><time datetime="2007-04-18T14:56:30+00:00" title="April 18, 2007  2:56PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Man, if someone could combine Thinkature and Graham's dice roller, then add in a more robust chat function (preferably with the ability to say and pose, and a distinction between IC and OOC), that would be, like, heaven.  The ability to create "player spaces" around the edges of the tabletop and speech bubbles that Shreyas talked about would also be really neat.<br><br>I find stuff like that far more essential to the tabletop experience than all the grids and maps and stuff that online roleplaying apps such as klooge tend to focus on.  The important thing is to recreate the visual/tactile experience of a tabletop - that's why I really like how Graham's dice roller is so visual.                        </br></br></div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_64325">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/orklord" title="orklord"><img alt="orklord" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/919/nBSO1M13J7CVK.jpg"/></a><a class="Username" href="/forums/profile/orklord">orklord</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64325/#Comment_64325" name="Item_49" rel="nofollow"><time datetime="2007-04-18T20:43:34+00:00" title="April 18, 2007  8:43PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: Vaxalon</cite>Has anyone used the whiteboard addon for Skype?</blockquote>
+I tried... it is a one-on-one app as far as I could figure out. <img alt=":(" class="emoji" height="20" src="/forums/resources/emoji/frowning.png" title=":("/><br><br/>Now, a good whiteboard app I heard about on the Sons of Kryos forum was Thinkature.  I've used it with good success.  Also free.                        </br></div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_64337">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/John%20Anderson" title="John Anderson"><img alt="John Anderson" class="ProfilePhoto ProfilePhotoMedium" src="http://img2.imageshack.us/img2/7020/warningz.jpg"/></a><a class="Username" href="/forums/profile/John%20Anderson">John Anderson</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64337/#Comment_64337" name="Item_50" rel="nofollow"><time datetime="2007-04-18T23:49:37+00:00" title="April 18, 2007 11:49PM">April 2007</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited April 19, 2007 6:43AM by Christian_Griffen.">edited April 2007</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: fifth_child</cite> Man, if someone could combine Thinkature and Graham's dice roller, then add in a more robust chat function (preferably with the ability to say and pose, and a distinction between IC and OOC), that would be, like, heaven.  The ability to create "player spaces" around the edges of the tabletop and speech bubbles that Shreyas talked about would also be really neat.</blockquote>
+I've just been pointed towards <a href="http://www.rpgtonight.com/" rel="nofollow">RPGTonight</a>, a "a free online "virtual tabletop" site that has everything you need to play pen and paper style role playing games on the internet with anyone anywhere in the world. Our features include die rollers, a display for maps and other images, map hide and reveal features ("fog of war") moveable miniatures (thumbnail images), sound effects, text chat, voice chat, customizable character sheets, a growing collection of maps, miniatures, and sounds, and online storage for your own images and sounds. There is nothing to download, you just sign on with your fellow gamers and play."<br/><br/>I haven't used the system, but it does <i>seem</i> to offer what you're looking for...<br/><br/>John                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Online Tabletop - Playtesting Web App - Page 2 - Story Games</title>
+<link href="/forums/applications/dashboard/design/style.css?v=2.3.1" media="all" rel="stylesheet" type="text/css"/>
+<link href="/forums/plugins/ButtonBar/design/buttonbar.css?v=1.7.1" media="all" rel="stylesheet" type="text/css"/>
+<link href="/forums/themes/default/design/custom.css?v=2.3.1" media="all" rel="stylesheet" type="text/css"/>
+<link href="/forums/resources/design/vanillicon.css?v=2.3.1" media="all" rel="stylesheet" type="text/css"/>
+<link href="/forums/applications/dashboard/design/spoilers.css?v=2.3.1" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app/p2" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="Story Games" property="og:site_name"/>
+<meta content="Online Tabletop - Playtesting Web App - Page 2" itemprop="name" property="og:title"/>
+<meta content="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app/p2" property="og:url"/>
+<meta content="That does sound pretty good, though it doesn't have the interaction between the character sheets and the other elements that I was envisaging, and nor does it seem to support cards (which is important for many of our games) - maybe you could do them as miniatures or something." itemprop="description" name="description" property="og:description"/>
+<script type="text/javascript">gdn=window.gdn||{};gdn.meta={
+    "ConfirmDeleteCommentHeading": "Delete Comment",
+    "ConfirmDeleteCommentText": "Are you sure you want to delete this comment?",
+    "Spoiler": "Spoiler",
+    "show": "show",
+    "hide": "hide",
+    "emoji": {
+        "assetPath": "\/forums\/resources\/emoji",
+        "format": "<img class=\"emoji\" src=\"%1$s\" title=\"%2$s\" alt=\"%2$s\" height=\"20\" \/>",
+        "emoji": {
+            "smile": "smile.png",
+            "smiley": "smiley.png",
+            "wink": "wink.png",
+            "blush": "blush.png",
+            "neutral": "neutral.png",
+            "relaxed": "relaxed.png",
+            "grin": "grin.png",
+            "joy": "joy.png",
+            "sweat_smile": "sweat_smile.png",
+            "lol": "lol.png",
+            "innocent": "innocent.png",
+            "naughty": "naughty.png",
+            "yum": "yum.png",
+            "relieved": "relieved.png",
+            "love": "love.png",
+            "sunglasses": "sunglasses.png",
+            "smirk": "smirk.png",
+            "expressionless": "expressionless.png",
+            "unamused": "unamused.png",
+            "sweat": "sweat.png",
+            "pensive": "pensive.png",
+            "confused": "confused.png",
+            "confounded": "confounded.png",
+            "kissing": "kissing.png",
+            "kissing_heart": "kissing_heart.png",
+            "kissing_smiling_eyes": "kissing_smiling_eyes.png",
+            "kissing_closed_eyes": "kissing_closed_eyes.png",
+            "tongue": "tongue.png",
+            "disappointed": "disappointed.png",
+            "worried": "worried.png",
+            "angry": "angry.png",
+            "rage": "rage.png",
+            "cry": "cry.png",
+            "persevere": "persevere.png",
+            "triumph": "triumph.png",
+            "frowning": "frowning.png",
+            "anguished": "anguished.png",
+            "fearful": "fearful.png",
+            "weary": "weary.png",
+            "sleepy": "sleepy.png",
+            "tired_face": "tired_face.png",
+            "grimace": "grimace.png",
+            "bawling": "bawling.png",
+            "open_mouth": "open_mouth.png",
+            "hushed": "hushed.png",
+            "cold_sweat": "cold_sweat.png",
+            "scream": "scream.png",
+            "astonished": "astonished.png",
+            "flushed": "flushed.png",
+            "sleeping": "sleeping.png",
+            "dizzy": "dizzy.png",
+            "no_mouth": "no_mouth.png",
+            "mask": "mask.png",
+            "star": "star.png",
+            "cookie": "cookie.png",
+            "warning": "warning.png",
+            "mrgreen": "mrgreen.png",
+            "heart": "heart.png",
+            "heartbreak": "heartbreak.png",
+            "kiss": "kiss.png",
+            "+1": "+1.png",
+            "-1": "-1.png",
+            "grey_question": "grey_question.png",
+            "trollface": "trollface.png",
+            "error": "grey_question.png"
+        }
+    },
+    "DiscussionID": "2042",
+    "Category": "Story Games",
+    "AnalyticsTask": "tick",
+    "TagHint": "Start to type...",
+    "ButtonBarLinkUrl": "Enter your URL:",
+    "ButtonBarImageUrl": "Enter image URL:",
+    "ButtonBarBBCodeHelpText": "You can use <b><a href=\"http:\/\/en.wikipedia.org\/wiki\/BBCode\" target=\"_new\">BBCode<\/a><\/b> in your post.",
+    "ButtonBarHtmlHelpText": "You can use <b><a href=\"http:\/\/htmlguide.drgrog.com\/cheatsheet.php\" target=\"_new\">Simple HTML<\/a><\/b> in your post.",
+    "ButtonBarMarkdownHelpText": "You can use <b><a href=\"http:\/\/en.wikipedia.org\/wiki\/Markdown\" target=\"_new\">Markdown<\/a><\/b> in your post.",
+    "InputFormat": "Html",
+    "LastCommentID": 160242,
+    "TransportError": "A fatal error occurred while processing the request.<br \/>The server returned the following response: %s",
+    "TransientKey": null,
+    "WebRoot": "http:\/\/story-games.com\/forums",
+    "UrlFormat": "\/forums\/{Path}",
+    "Path": "discussion\/2042\/x\/p2",
+    "Args": "",
+    "ResolvedPath": "vanilla\/discussion\/index",
+    "ResolvedArgs": {
+        "DiscussionID": "2042",
+        "DiscussionStub": "x",
+        "Page": "p2"
+    },
+    "SignedIn": 0,
+    "ConfirmHeading": "Confirm",
+    "ConfirmText": "Are you sure you want to do that?",
+    "Okay": "Okay",
+    "Cancel": "Cancel",
+    "Search": "Search"
+};</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/js/library/jquery.form.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/js/library/jquery.popup.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/js/library/jquery.gardenhandleajaxform.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/js/library/jquery.atwho.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/js/global.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/js/library/jquery.autosize.min.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/applications/vanilla/js/autosave.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/applications/vanilla/js/discussion.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/applications/dashboard/js/spoilers.js?v=2.3.1" type="text/javascript"></script>
+<script src="/forums/plugins/Quotes/js/quotes.js?v=1.8" type="text/javascript"></script>
+<script src="/forums/plugins/ButtonBar/js/buttonbar.js?v=1.7.1" type="text/javascript"></script>
+<script src="/forums/plugins/ButtonBar/js/jquery.hotkeys.js?v=1.7.1" type="text/javascript"></script>
+</head>
+<body class="Vanilla Discussion Index Section-Discussion Section-Category-games-and-gaming" id="vanilla_discussion_index">
+<div id="Frame">
+<div class="Head" id="Head">
+<div class="Row">
+<strong class="SiteTitle"><a href="/forums/">Story Games</a></strong>
+<div class="SiteSearch"><form action="/forums/search" method="get">
+<div>
+<input accesskey="/" class="InputBox" id="Form_Search" name="Search" placeholder="Search" type="text" value=""/><input class="Button" id="Form_Go" name="" type="submit" value="Go"/>
+</div>
+</form></div>
+<ul class="SiteMenu">
+<!-- -->
+<li><a class="" href="/forums/discussions">Discussions</a></li>
+<!-- -->
+<!-- 
+               <li><a href="/forums/entry/signin" rel="nofollow" class="SignInPopup">Sign In</a></li>  -->
+</ul>
+</div>
+</div>
+<div id="Body">
+<div class="Row">
+<div class="BreadcrumbsWrapper"><span class="Breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><span class="CrumbLabel CrumbLabel HomeCrumb"><a href="http://story-games.com/forums/" itemprop="url"><span itemprop="title">Home</span></a></span> <span itemprop="child" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><span class="Crumb">›</span> <span class="CrumbLabel Category-games-and-gaming Last"><a href="//story-games.com/forums/categories/games-and-gaming" itemprop="url"><span itemprop="title">Story Games</span></a></span> </span></span></div>
+<div class="Column PanelColumn" id="Panel">
+<div class="MeBox MeBox-SignIn"><div class="SignInLinks"><a class="SignInPopup" href="/forums/entry/signin?Target=discussion%2F2042%2Fx%2Fp2" rel="nofollow">Sign In</a> <span class="Bullet">·</span> <a class="ApplyButton" href="/forums/entry/register?Target=discussion%2F2042%2Fx%2Fp2" rel="nofollow">Register</a> </div> <div class="SignInIcons"></div></div>
+<div class="Box GuestBox">
+<h4>Howdy, Stranger!</h4>
+<p>It looks like you're new here. If you want to get involved, click one of these buttons!</p>
+<p></p>
+<div class="P"><a class="Button Primary SignInPopup" href="/forums/entry/signin?Target=discussion%2F2042%2Fx%2Fp2" rel="nofollow">Sign In</a> <a class="Button ApplyButton" href="/forums/entry/register?Target=discussion%2F2042%2Fx%2Fp2" rel="nofollow">Register</a></div> </div>
+<div class="BoxFilter BoxDiscussionFilter">
+<ul class="FilterMenu">
+<li class="AllCategories"><a href="/forums/categories"><span class="Sprite SpAllCategories"></span> Categories</a></li> <li class="Discussions"><a class="" href="/forums/discussions"><span class="Sprite SpDiscussions"></span> Recent Discussions</a></li>
+</ul>
+</div>
+<div class="Box BoxCategories">
+<h4>Categories</h4> <ul class="PanelInfo PanelCategories">
+<li><a class="ItemLink" href="/forums/categories"><span class="Aside"><span class="Count"><span class="Number" title="21,319 discussions">21.3K</span></span></span> All Categories</a></li><li class="ClearFix Depth1 Active Category-games-and-gaming"><a class="ItemLink" href="http://story-games.com/forums/categories/games-and-gaming"><span class="Aside"><span class="Count"><span class="Number" title="11,149 discussions">11.1K</span></span></span> Story Games</a></li>
+<li class="ClearFix Depth1 Category-actual-play-vignettes"><a class="ItemLink" href="http://story-games.com/forums/categories/actual-play-vignettes"><span class="Aside"><span class="Count"><span class="Number" title="1,665 discussions">1.7K</span></span></span> Actual Play</a></li>
+<li class="ClearFix Depth1 Category-make-stuff"><a class="ItemLink" href="http://story-games.com/forums/categories/make-stuff"><span class="Aside"><span class="Count"><span class="Number" title="599 discussions">599</span></span></span> Make Stuff!</a></li>
+<li class="ClearFix Depth1 Category-play-advice"><a class="ItemLink" href="http://story-games.com/forums/categories/play-advice"><span class="Aside"><span class="Count"><span class="Number" title="1,465 discussions">1.5K</span></span></span> Play Advice</a></li>
+<li class="ClearFix Depth1 Category-stuff-to-watch"><a class="ItemLink" href="http://story-games.com/forums/categories/stuff-to-watch"><span class="Aside"><span class="Count"><span class="Number" title="590 discussions">590</span></span></span> Stuff to Watch</a></li>
+<li class="ClearFix Depth1 Category-directed-promotion"><a class="ItemLink" href="http://story-games.com/forums/categories/directed-promotion"><span class="Aside"><span class="Count"><span class="Number" title="2,344 discussions">2.3K</span></span></span> Directed Promotion</a></li>
+<li class="ClearFix Depth1 Category-forum-discussion"><a class="ItemLink" href="http://story-games.com/forums/categories/forum-discussion"><span class="Aside"><span class="Count"><span class="Number" title="437 discussions">437</span></span></span> Forum Discussion</a></li>
+<li class="ClearFix Depth1 Category-game-design-help"><a class="ItemLink" href="http://story-games.com/forums/categories/game-design-help"><span class="Aside"><span class="Count"><span class="Number" title="1,457 discussions">1.5K</span></span></span> Game Design Help</a></li>
+<li class="ClearFix Depth1 Category-meetups-and-conventions"><a class="ItemLink" href="http://story-games.com/forums/categories/meetups-and-conventions"><span class="Aside"><span class="Count"><span class="Number" title="1,502 discussions">1.5K</span></span></span> Meetups / Conventions</a></li>
+<li class="ClearFix Depth1 Category-the-sandbox"><a class="ItemLink" href="http://story-games.com/forums/categories/the-sandbox"><span class="Aside"><span class="Count"><span class="Number" title="60 discussions">60</span></span></span> The Sandbox</a></li>
+<li class="ClearFix Depth1 Category-the-best-of-story-games"><a class="ItemLink" href="http://story-games.com/forums/categories/the-best-of-story-games"><span class="Aside"><span class="Count"><span class="Number" title="51 discussions">51</span></span></span> The Best of Story Games</a></li>
+</ul>
+</div>
+</div>
+<div class="Column ContentColumn" id="Content"><div class="MessageList Discussion"><!-- Page Title -->
+<div class="PageTitle" id="Item_0"><div class="Options"></div><h1>Online Tabletop - Playtesting Web App</h1></div>
+</div><div class="CommentsWrap"><span class="BeforeCommentHeading"><span class="Pager NumberedPager" id="PagerBefore"><a class="Previous" href="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app" rel="prev">«</a><a class="p-1 FirstPage" href="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app" rel="prev">1</a><a class="Highlight p-2 LastPage" href="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app/p2">2</a><span class="Next">»</span></span></span><div class="DataBox DataBox-Comments"><h2 class="CommentHeading">Comments</h2> <ul class="MessageList DataList Comments">
+<li class="Item ItemComment" id="Comment_64460">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64460/#Comment_64460" name="Item_51" rel="nofollow"><time datetime="2007-04-19T14:06:47+00:00" title="April 19, 2007  2:06PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            That does sound pretty good, though it doesn't have the interaction between the character sheets and the other elements that I was envisaging, and nor does it seem to support cards (which is important for many of our games) - maybe you could do them as miniatures or something. It doesn't refresh your tabletop automatically in real time, either. Perhaps if a few of us sign up and start asking for such things (or offering to develop them - they use PHP), we can get this stuff added.<br/><br/>I see fifth_child's handle on there, experimenting.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_64466">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/fifth_child" title="fifth_child"><img alt="fifth_child" class="ProfilePhoto ProfilePhotoMedium" src="http://forum.rpg.net/image.php?u=8366&amp;dateline=1157831572"/></a><a class="Username" href="/forums/profile/fifth_child">fifth_child</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64466/#Comment_64466" name="Item_52" rel="nofollow"><time datetime="2007-04-19T14:37:37+00:00" title="April 19, 2007  2:37PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            From what I can tell it's similar to klooge and other such products - way too focused on the maps and girds and such for what I want.  It also doesn't actually have whiteboard functionality along the lines of Thinkature - you can just upload pictures and put them in the map space, no cards or freehand drawing or suchlike.<br/><br/>Really, I'm becoming more and more convinced that the ideal solution is pretty much exactly what I proposed: Thinkature plus Graham's dice roller with better chat functionality.  It being tweaked to more resemble an actual tabletop in line with Shreyas' suggestions would be totally awesome, but not completely necessary.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_64485">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64485/#Comment_64485" name="Item_53" rel="nofollow"><time datetime="2007-04-19T18:00:40+00:00" title="April 19, 2007  6:00PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Thanks for doing that investigation, Dan. <br/><br/>Do the three (Thinkature, dice roller, chat) need to be in a single app for you?<br/><br/>Also, how would cards work in that scenario?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_64498">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/fifth_child" title="fifth_child"><img alt="fifth_child" class="ProfilePhoto ProfilePhotoMedium" src="http://forum.rpg.net/image.php?u=8366&amp;dateline=1157831572"/></a><a class="Username" href="/forums/profile/fifth_child">fifth_child</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64498/#Comment_64498" name="Item_54" rel="nofollow"><time datetime="2007-04-19T20:30:14+00:00" title="April 19, 2007  8:30PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I would really prefer all three to be in the same app, yes.  I'm actually planning on running Agon online starting this weekend or next (I may even start a SG thread asking for people here to join), and what I'm probably going to do in the meantime is just use Graham's dice roller (because that range strip setup that John worked out is the shit) and a chat program, most likely AIM.  I would totally kill to have the whiteboard functionality of Thinkature, because the range strip could be a lot more aesthetically pleasing and we could use little pictures of Greek dudes for "figures" and all kinds of cool stuff.  But I figure that using three separate applications for a single game would be too much of a pain.<br/><br/>As to cards, that would be like icing on the cake.  I'd love to be able to play With Great Power... online - although that's a pretty complex card mechanic, so it might be hard to program.  I'm also a big fan of PTA, but it's easy to translate that to dice instead of cards (evens = successes, high roll narrates).                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_64572">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/John_Harper" title="John_Harper"><img alt="John_Harper" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/004/nT4BI8NP40ONN.png"/></a><a class="Username" href="/forums/profile/John_Harper">John_Harper</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64572/#Comment_64572" name="Item_55" rel="nofollow"><time datetime="2007-04-20T15:50:25+00:00" title="April 20, 2007  3:50PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Rock on, Dan! Agon online makes me very happy.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_64578">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/fifth_child" title="fifth_child"><img alt="fifth_child" class="ProfilePhoto ProfilePhotoMedium" src="http://forum.rpg.net/image.php?u=8366&amp;dateline=1157831572"/></a><a class="Username" href="/forums/profile/fifth_child">fifth_child</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64578/#Comment_64578" name="Item_56" rel="nofollow"><time datetime="2007-04-20T17:17:17+00:00" title="April 20, 2007  5:17PM">April 2007</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited April 20, 2007 5:18PM by fifth_child.">edited April 2007</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Yeah, I've got a very good geographically remote friend whom I just recently convinced to buy Agon, and he's really looking forward to playing online (he's playing Spirit of the Century with his face-to-face group), so of course I'm happy to oblige.  I need to find more players, though.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_64665">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64665/#Comment_64665" name="Item_57" rel="nofollow"><time datetime="2007-04-22T13:57:52+00:00" title="April 22, 2007  1:57PM">April 2007</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited April 22, 2007 2:02PM by MikeRM.">edited April 2007</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I woke up at quarter to five yesterday with ideas for this zooming round my head, so... when I've cleared another couple of things out of the way I may well get back to it.<br/><br/>At the moment I'm thinking that theoretically I could embed other apps, like Graham's die roller, in a panel as part of a larger screen, capture the mouse events from the player whose turn it currently is, and echo them to the other players. (Not sure how this would go license-wise with Thinkature, I suspect they wouldn't like it but I'll check it out.) The way Graham's written his app, I could scrape the die results off it and log them nice and easily. <br/><br/>I notice that Thinkature now has chat and voice chat included...<br/><br/>EDIT: And they are talking about making it embeddable in other applications.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_65652">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/renatoram" title="renatoram"><img alt="renatoram" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/807/nGBBCZSYUQ7T4.jpg"/></a><a class="Username" href="/forums/profile/renatoram">renatoram</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/65652/#Comment_65652" name="Item_58" rel="nofollow"><time datetime="2007-04-27T06:29:18+00:00" title="April 27, 2007  6:29AM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Not web based, but the Coccinella jabber client does most of what's needed: shared whiteboard, chat, sharing of sound clips. If you pair it with a voip program of some kind you are half the way through.<br/>
+<br/>
+It's even extensible with plugins, so I guess a dice roller could be hacked into it...<br/>
+<br/>
+<a href="http://hem.fyristorg.com/matben/" rel="nofollow" target="_blank">http://hem.fyristorg.com/matben/</a><br/>
+<br/>
+<br/>
+Also, MapTool can be used in a similar way, has an internal chat window and could be coupled with a voip client as well...                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_159241">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159241/#Comment_159241" name="Item_59" rel="nofollow"><time datetime="2008-07-28T20:05:46+00:00" title="July 28, 2008  8:05PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            OK, Matt and I are reviving this idea of a browser-based online tabletop, and we're planning to put together a proof-of-concept consisting of a chat client (OOC/IC) and die roller (based on Graham's one). <br><br>Later on, all going well, we can fancy it up with features like a simple whiteboard, built-in active character sheets and the ability to pass around tokens and cards.<br><br>And now, your questions pre-answered!<br><br>Q: Why browser-based?<br>A: Because browsers are platform-independent and (effectively) zero-install.<br/><br/>Q: Won't this be really laggy and suck?<br/>A: That's what the proof-of-concept is to establish. Great strides have been made in real-time data exchange between servers and browsers, under the name Comet. It should be do-able.<br/><br/>Since Matt and I are twelve time zones apart, we'll be able to tell quite quickly if it's laggy.<br/><br/>Q: Will it be pretty and graphical?<br/>A: Not initially, apart from the die-roller. Once we know it works we can use Cunning Coding Strategies to make it all-singing, all-dancing, all-graphical while still not being laggy and suckful. And Brennan Reese has volunteered his graphic design skills.<br/><br/>Q: Are you looking for any more help?<br/>A: We think we have all the skills we need, but on the other hand if you're a hot Ajax or PHP/MySQL coder, we can always hand off some of the bits to you and get more done sooner.                        </br></br></br></br></br></br></br></div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_159330">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/stryck" title="stryck"><img alt="stryck" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/stryck">stryck</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159330/#Comment_159330" name="Item_60" rel="nofollow"><time datetime="2008-07-29T08:03:12+00:00" title="July 29, 2008  8:03AM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I'd love it if you could include the option to have more than one chat window (tabs to switch between ideally) in the app, so that I can have IC and OOC separate, and also PMs separate.  I don't use any of the online clients because none of them (that I know of) do this, so I stick to IRC.  I'd love to have a more fully featured program that I could do this with.  (see mibbit.com for a well-done browser-based version of IRC that does this stuff)                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_159484">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159484/#Comment_159484" name="Item_61" rel="nofollow"><time datetime="2008-07-29T13:28:09+00:00" title="July 29, 2008  1:28PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Thanks, Stryck, that's good feedback. My current thinking is to have two side-by-side panes for IC and OOC, time-coordinated with each other:<br/><br/>2:17:30 IC remark<br/><div>2:17:40 OOC remark</div><br/>2:18:00 Another IC remark<br/><br/>One of the things about doing this as a proof-of-concept first is that we can get feedback like this. <br/><br/>I haven't thought about how to do PMs much. One idea I had was that people can pass you virtual notes - functionally the same, just a different way of looking at it.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_159488">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/stryck" title="stryck"><img alt="stryck" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/stryck">stryck</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159488/#Comment_159488" name="Item_62" rel="nofollow"><time datetime="2008-07-29T13:33:58+00:00" title="July 29, 2008  1:33PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Two panes sounds ok to me.  I like having the fiction all together and easily readable, because I'm a spaz and I can't remember things if I get distracted by talking about other things. And the logs are sweet. <img alt=":)" class="emoji" height="20" src="/forums/resources/emoji/smile.png" title=":)"/>  Would the spaces between the lines be hard coded in, so you'd have to strip them out if you wanted to post it to the web/a wiki/whatever, or could they collapse together with some sort of option?<br/><br/>what does a virtual note look like? can you respond to it linearly so you can see the whole thread of the conversation in one place?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_159517">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159517/#Comment_159517" name="Item_63" rel="nofollow"><time datetime="2008-07-29T14:34:38+00:00" title="July 29, 2008  2:34PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            More good questions.<br/><br/>Definitely there would need to be a way to have either all IC, all OOC or both produced as a postable log - as they'll be stored in a database this is relatively trivial to do.<br/><br/>What you say about the virtual note makes me realize that this isn't such a grand idea. Better to have linear PMs similar to the other two chat "channels". <br/><br/>Would you want to be able to PM several people at once?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_159541">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/stryck" title="stryck"><img alt="stryck" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/stryck">stryck</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159541/#Comment_159541" name="Item_64" rel="nofollow"><time datetime="2008-07-29T15:02:19+00:00" title="July 29, 2008  3:02PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            That would be nice but not necessary - for me at least.  I imagine GMs would find it handy.<br/><br/>Being able to make an extra channel would take care of that, or having it clearly state who you're addressing on all ends of the message. Yaplet, for instance, lets you send out multiple person messages but isn't clear who's sending, and who else is receiving.  Fixing that problem would make me like that a lot more.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_159542">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/stryck" title="stryck"><img alt="stryck" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/stryck">stryck</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159542/#Comment_159542" name="Item_65" rel="nofollow"><time datetime="2008-07-29T15:06:08+00:00" title="July 29, 2008  3:06PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Oh... another feature that the magicstar server of IRC has, is the ability to impersonate NPCs, and post 'ambience' attributed to nobody - 2 features accessible only to people with the right authority level (ops on irc)<br/>the way they do it is sort of kludgy and irritating, though (you have to type something like /npc <a href="/forums/search?Search=%23channel&amp;Mode=like">#channel</a> name blah blah blah blah )  <br/><br/>p.s. will there be different authority levels?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_159593">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159593/#Comment_159593" name="Item_66" rel="nofollow"><time datetime="2008-07-29T16:43:04+00:00" title="July 29, 2008  4:43PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            At the moment I am not envisaging different authority levels. <br/><br/>My aim is to produce something which has the generic tools necessary for playing indie-style tabletop games online, but doesn't encode any rules - just like your actual dice, for example, don't. So everyone will be able to do everything, but if the particular game you're playing has a GM, everyone else will simply refrain from doing certain things that (in that game) are considered the prerogative of the GM. Just like you wouldn't roll a D20 if the game you were playing only used D6s.<br/><br/>The "in-character" channel will have the ability to switch characters. Again, everyone will be able to do this, but in games where players only play one character, they simply won't use that feature.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_159745">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/stryck" title="stryck"><img alt="stryck" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/stryck">stryck</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159745/#Comment_159745" name="Item_67" rel="nofollow"><time datetime="2008-07-30T07:06:49+00:00" title="July 30, 2008  7:06AM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Player trust! crazy thought! <img alt=":)" class="emoji" height="20" src="/forums/resources/emoji/smile.png" title=":)"/><br/>sounds good to me.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_159750">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Dave%20Cleaver" title="Dave Cleaver"><img alt="Dave Cleaver" class="ProfilePhoto ProfilePhotoMedium" src="http://dscleaver.googlepages.com/avatar_small.jpg"/></a><a class="Username" href="/forums/profile/Dave%20Cleaver">Dave Cleaver</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159750/#Comment_159750" name="Item_68" rel="nofollow"><time datetime="2008-07-30T07:18:47+00:00" title="July 30, 2008  7:18AM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            A "quick name switcher" might be useful, like a list of previous nicks used in the IC channel or something. So you can just click on one to switch back to it.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_159889">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159889/#Comment_159889" name="Item_69" rel="nofollow"><time datetime="2008-07-30T12:59:44+00:00" title="July 30, 2008 12:59PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Dave, I'm thinking dropdown selector. Maybe with the last 5 at the top, then all in alpha order below.<br/><br/>Like what Word does with the font selector.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_159934">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/159934/#Comment_159934" name="Item_70" rel="nofollow"><time datetime="2008-07-30T16:50:19+00:00" title="July 30, 2008  4:50PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I've put some very brain-dumpy thoughts up in <a href="http://docs.google.com/Doc?id=dgkg6pcn_9fb2xz5dm" rel="nofollow">Google Docs</a>. <br/><br/>Note that some of what we've discussed above is in the initial scope, and some will be along later (all going well).                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item ItemComment" id="Comment_160185">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/160185/#Comment_160185" name="Item_71" rel="nofollow"><time datetime="2008-07-31T21:43:18+00:00" title="July 31, 2008  9:43PM">July 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            In the spirit of open design, <a href="http://docs.google.com/Doc?docid=dgkg6pcn_10hm82jcc4&amp;hl=en_GB" rel="nofollow">another document with some thoughts on how authentication, personalization and invitation might work, using OpenID.</a> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+<li class="Item Alt ItemComment" id="Comment_160242">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/stryck" title="stryck"><img alt="stryck" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/stryck">stryck</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/160242/#Comment_160242" name="Item_72" rel="nofollow"><time datetime="2008-08-01T09:51:20+00:00" title="August  1, 2008  9:51AM">August 2008</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Looks excellent so far. I like the idea of using OpenID!                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>
+</ul>
+</div><div class="P PagerWrap"><div class="Pager NumberedPager NumberedPager" id="PagerAfter"><a class="Previous" href="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app" rel="prev">«</a><a class="p-1 FirstPage" href="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app" rel="prev">1</a><a class="Highlight p-2 LastPage" href="http://story-games.com/forums/discussion/2042/online-tabletop-playtesting-web-app/p2">2</a><span class="Next">»</span></div></div></div> <div class="Foot Closed">
+<div class="Note Closed SignInOrRegister"><a class="Popup" href="/forums/entry/signin?Target=discussion%2F2042%2Fx%2Fp2%3F">Sign In</a> or <a href="/forums/entry/register?Target=discussion%2F2042%2Fx%2Fp2%3F">Register</a> to comment.                    </div>
+</div>
+</div>
+</div>
+</div>
+<div id="Foot">
+<div class="Row">
+<a class="PoweredByVanilla" href="https://open.vanillaforums.com" title="Community Software by Vanilla Forums">Forum Software
+                Powered by Vanilla</a>
+</div>
+</div>
+</div>
+</body>
+</html>

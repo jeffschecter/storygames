@@ -1,0 +1,259 @@
+<h1>[Online Tabletop] Developers' Thread</h1><div class="Item ItemDiscussion" id="Discussion_2178">
+<div class="Discussion">
+<div class="Item-Header DiscussionHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta DiscussionMeta">
+<span class="MItem DateCreated">
+<a class="Permalink" href="http://story-games.com/forums/discussion/2178/online-tabletop-developers-thread" rel="nofollow"><time datetime="2007-01-07T16:56:17+00:00" title="January  7, 2007  4:56PM">January 2007</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited January 7, 2007 4:56PM by MikeRM.">edited January 2007</span> </span> <span class="MItem Category"> in <a href="http://story-games.com/forums/categories/game-design-help">Game Design Help</a></span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                    I'm starting a new thread here for the techo aspects of <a href="http://www.story-games.com/forums/comments.php?DiscussionID=2042" rel="nofollow">Online Tabletop</a> that only people interested in helping out with the development (however minimally) will care about. This includes people who will comment on technical questions even if they don't want to do any coding.<br/><br/><b>The issues of whether to do this and what other products are already out there have already been covered in the other thread.</b><br/><br/>First question: DHTML libraries. According to <a href="http://www.sitepoint.com/article/javascript-library/2" rel="nofollow">this Sitepoint article</a>, the Big Four are: 
+<ul>
+<li><a href="http://prototype.conio.net/" rel="nofollow">Prototype</a> (as used in Ruby on Rails, and upon which Rico and script.aculo.us are built)</li>
+<li>the Yahoo <a href="http://developer.yahoo.com/yui/" rel="nofollow">YUI</a></li>
+<li><a href="http://dojotoolkit.org/" rel="nofollow">Dojo</a></li>
+<li><a href="http://mochikit.com/" rel="nofollow">MochiKit</a></li>
+</ul>
+Does anyone have any experience with any of these or any recommendations to make?<br/><br/>So far what I know I'm looking for includes:
+<ul>
+<li>easy to create self-extending forms (which add new controls as the prior selections make them relevant)</li>
+<li>rearrangeable/resizable/minimizable panels for the various parts of the interface (log, chat, tabletop, character sheets, die-rolling area etc.)</li>
+<li>tabs</li>
+<li>good support for AJAX/JSON (so that Shreyas can play Agon ;-} )</li>
+<li>rich text entry controls producing valid HTML; preferably spellchecking addable</li>
+<li>animations (appear, fade etc.)</li>
+<li>drag-and-drop</li>
+<li>easy to define a hotzone on a background image</li>
+<li>nice quick image handling</li>
+</ul>
+I realize that some of these won't be in any of the libraries (there seems a remarkable lack of rich text controls in all of them, and I'll probably have to use something else like <a href="http://www.fckeditor.net/" rel="nofollow">FCKEditor</a>).<br/><br/>(Edited to link to the libraries; also to say I'd like to use the LGPL or a similar license.)                </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</div><li class="Item Alt ItemComment" id="Comment_50648">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Graham" title="Graham"><img alt="Graham" class="ProfilePhoto ProfilePhotoMedium" src="http://www.catchyourhare.com/images/LittleChef.jpg"/></a><a class="Username" href="/forums/profile/Graham">Graham</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50648/#Comment_50648" name="Item_1" rel="nofollow"><time datetime="2007-01-07T17:03:58+00:00" title="January  7, 2007  5:03PM">January 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            If any of <a href="http://www.catchyourhare.com/shared/" rel="nofollow">these shared files</a> are useful to you, give me a shout.<br/><br/>Graham                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_50650">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50650/#Comment_50650" name="Item_2" rel="nofollow"><time datetime="2007-01-07T17:07:38+00:00" title="January  7, 2007  5:07PM">January 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Oh, and here's a brain dump of the parts of the app as I currently envisage it. If anyone wants to put their hand up to develop one of them, post here to claim it and then email me (address is in my profile) so we can discuss. Or if you know any nice, simple existing things without a lot of baggage which we can yoink for say the account setup, post that here as well.<br/><br/>(login.php)<br/>Page: Set Up Account<br/>â€¢	Usual stuff, set up account with real name or nick, password, email verification.<br/>â€¢	Upload photo/icon.<br/><br/>Page: Login<br/>â€¢	Log in as a player, username/password.<br/>â€¢	Takes you to choice of Construct Template, Start Game or Join Game (with explanations).<br/><br/>(template.php)<br/>Page: Construct Template<br/>â€¢	Available when logged in.<br/>â€¢	Specify template name (system) â€“ also able to make variant templates from existing ones.<br/>â€¢	Set up one or more character sheet templates and default number of dice to roll, for a particular game system (e.g. FATE, Solar System). <br/>â€¢	Multiple templates if, e.g., NPCs have different level of detail.<br/>â€¢	Use same code as for modifying/adding to character sheet (below).<br/>â€¢	Provide section headings and ability to add free text sections.<br/>â€¢	Enable upload of card decks as text files (backtick separated, tab separates title and description of card if both required); selection of existing card deck.<br/>â€¢	Specify if each card deck is shared or per player.<br/>â€¢	Specify if each card deck is editable.<br/>â€¢	Upload â€œboard(s)â€ and define named hotzones which will be logged when moved into.<br/><br/>(game.php)<br/>Page: Start Game<br/>â€¢	Select template.<br/>â€¢	Name game.<br/>â€¢	Select players; this emails them the URL for joining the game.<br/>â€¢	You get given URLs which you can email to people not yet registered.<br/>â€¢	Join game yourself. <br/><br/>Page: Join Game<br/>â€¢	Available when logged in.<br/>â€¢	Specify which game you are playing in.<br/>â€¢	Takes you to blank character sheet created from the template.<br/>â€¢	If multiple sheets available, gives you the choice.<br/><br/>(template.php)<br/>Page: Create/Change/View Character<br/>â€¢	Initially provides blank character sheet with headings, based on template.<br/>â€¢	Provide name, icon. (Default icon is the characterâ€™s name under a stylized face.)<br/>â€¢	Each line can have number (or leave blank for non-statted attributes) and express in points, dice, cards or dominoes.<br/>â€¢	These can be either pools or attributes; they work exactly the same.<br/>â€¢	Ability to select from a list of colours for the line.<br/>â€¢	Ability to add free-text sections for â€œbackgroundâ€.<br/>â€¢	Ability to add sections (with headings).<br/>â€¢	Ability to hide whole sheet, section, or line-by-line.<br/>â€¢	After initially created, each non-freetext line has adjustment field where you can specify a +/- value; also can delete or select.<br/>â€¢	Can edit or delete freetext.<br/>â€¢	â€œUseâ€ (button) sends signal to log saying what you are using (i.e. currently selected lines) and anything you have adjusted.<br/>â€¢	If line is expressed in dice, sends signal to die roller to roll those dice.<br/>â€¢	In â€œviewâ€ mode anything not hidden by the user can be seen by other players. <br/>â€¢	â€œReferenceâ€ button available in view mode to allow other players/GM to reference things on char sheet (sends signal to log) â€“ e.g. FATE aspect compels.<br/><br/>(randomiser.php)<br/>Page: Dice and Cards<br/>â€¢	If default number of dice is specified in template, can adjust number and click â€œRollâ€. Results appear here and in log, sorted lowest to highest.<br/>â€¢	If dice from pools rolled, results appear here, sorted lowest to highest.<br/>â€¢	Mouseover indicates the source of each die result.<br/>â€¢	Results appear in colour if colour specified.<br/>â€¢	Die results each have selection checkbox, can be â€œspentâ€ by selecting and clicking button (sends message to log).<br/>â€¢	Reroll button (message to log).<br/>â€¢	Bump button (by amount specified in field, default 1) (message to log).<br/>â€¢	Cards: can draw (specified number, default 1), play (shown to all, i.e. message to log), show to another player, pass to another player, pass randomly selected card to another player, discard (logged as â€œPlayername discards a cardâ€), edit if set as editable at template creation.<br/>â€¢	Cards arranged by suit (vertical) and value (horizontal)?<br/><br/>(chat.php)<br/>Page: Chat<br/>â€¢	Two (rich) text entry boxes, both creating HTML: In Character and Out Of Character. Sent to log by â€œPostâ€ button. Needs spell checker, ideally. FCKEditor?<br/>â€¢	Checkbox to send message to log â€œPlayername is typing responseâ€ if you are making a long response.<br/><br/>(log.php)<br/>Page: Log<br/>â€¢	HTML, receives messages from other pages.<br/>â€¢	Polls â€œwireâ€ (buffer or broker â€“ wire.php?) and updates with new data only, rather than refreshing all the time â€“ (effectively) RSS + AJAX. Use JSON. <br/>â€¢	Sends ID of last received message to PHP page, page responds with all messages created since that ID, then AJAX adds to bottom of log using DOM.<br/>â€¢	Provide Refresh button.<br/>â€¢	Can be archived/downloaded after game (URL provided).<br/>â€¢	Buttons to replay movements?<br/><br/>(tabletop.php)<br/>Page: Tabletop<br/>â€¢	Includes icons of players and characters, which switch when they are talking.<br/>â€¢	Speech bubbles as players/characters talk (Shreyas Sampatâ€™s idea).<br/>â€¢	Show openly rolled dice, played cards etc. and shared stacks of tokens.<br/>â€¢	Drag-and-drop destination.<br/>â€¢	Possible to define hotzones and name them so that the log can reflect what is put where.<br/>â€¢	Can upload a background image (board) and define the size, then create hotzones on it.<br/><br/>I've decided to go with a database abstraction layer (I'm using <a href="http://www.jvmultimedia.com/portal/node/6" rel="nofollow">ez_sql</a>, version 1.26 because my main site uses PGSQL but most people have MySQL). <br/><br/>My csidemedia.com site is down for unknown reasons at the moment but when it comes back up I'll post some more stuff there.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_50655">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/misuba" title="misuba"><img alt="misuba" class="ProfilePhoto ProfilePhotoMedium" src="http://gibberish.com/gifs/misuba_cartoon.jpg"/></a><a class="Username" href="/forums/profile/misuba">misuba</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50655/#Comment_50655" name="Item_3" rel="nofollow"><time datetime="2007-01-07T18:41:08+00:00" title="January  7, 2007  6:41PM">January 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote><cite>Posted By: MikeRM</cite>So far what I know I'm looking for includes:<br/><br/><br/>easy to create self-extending forms (which add new controls as the prior selections make them relevant)<br/>rearrangeable/resizable/minimizable panels for the various parts of the interface (log, chat, tabletop, character sheets, die-rolling area etc.)<br/>tabs<br/>good support for AJAX/JSON (so that Shreyas can play Agon ;-} )<br/>rich text entry controls producing valid HTML; preferably spellchecking addable<br/>animations (appear, fade etc.)<br/>drag-and-drop<br/>easy to define a hotzone on a background image<br/>nice quick image handling<br/><br/></blockquote>
+I think YUI gets you the lion's share of all this. Certainly it does the best job of the panels thing, via yui-ext.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_50660">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50660/#Comment_50660" name="Item_4" rel="nofollow"><time datetime="2007-01-07T19:13:09+00:00" title="January  7, 2007  7:13PM">January 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Thanks, Mike (and Graham from earlier).<br/><br/>My site's back up. As a first step I've set up database tables as per <a href="http://www.csidemedia.com/ott/ott_sql.txt" rel="nofollow">this .txt file</a>.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_50688">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Matt" title="Matt"><img alt="Matt" class="ProfilePhoto ProfilePhotoMedium" src="http://www.livejournal.com/userpic/6464691/920923"/></a><a class="Username" href="/forums/profile/Matt">Matt</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50688/#Comment_50688" name="Item_5" rel="nofollow"><time datetime="2007-01-08T04:07:02+00:00" title="January  8, 2007  4:07AM">January 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Hi Mike, libraries wise, I'd pick one that matches your own coding style, and has a small footprint. I've noodled around with all of them in the past, I seem to remember prototype's documentation being a bit lacking, though this may have improved. <a href="http://jquery.com/" rel="nofollow">JQuery</a> is also worth a look, especially if you're familiar with CSS, they're in process of a slight rewrite at the moment though.<br/><br/>For a chat app, it might also be worth looking at Comet (buzzword alert), where you use one long lived HTTP connection to act as a message stream. In apps with repeated polling it can have advantages (all those poll headers build up bandwidth over time). But has its disadvantages too (you tie up one of your requests, proxies can have issues).<br/><br/>Also, if you're planning graphic drawing tools, <a href="http://sourceforge.net/projects/excanvas/" rel="nofollow">IECanvas</a> is an interesting option. Decidedly non-standard (it's WHATWG's canvas element with a wrapper for IE compatibility), but useful. Some of the libraries have drawing functionality too.<br/><br/>For wysiwyg editors, <a href="http://tinymce.moxiecode.com/" rel="nofollow">TinyMCE</a> is my current fave. It has limited Safari/Opera support.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_50745">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/JDCorley" title="JDCorley"><img alt="JDCorley" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/JDCorley">JDCorley</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50745/#Comment_50745" name="Item_6" rel="nofollow"><time datetime="2007-01-08T11:44:24+00:00" title="January  8, 2007 11:44AM">January 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Looks like you're on your way - you might be able to find some tilled ground at:<br/>
+<br/>
+<a href="http://www.openrpg.com/" rel="nofollow" target="_blank">http://www.openrpg.com/</a><br/>
+<br/>
+in the development section.<br/>
+<br/>
+Although a commercial product (i.e. not open-source, although the player version is free), you also might be able to get some ideas from:<br/>
+<br/>
+<a href="http://www.nbos.com/products/screenmonkey/screenmonkey.htm" rel="nofollow" target="_blank">http://www.nbos.com/products/screenmonkey/screenmonkey.htm</a><br/>
+<br/>
+These are the two most robust finished projects that I've looked at.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_50801">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/50801/#Comment_50801" name="Item_7" rel="nofollow"><time datetime="2007-01-08T18:56:13+00:00" title="January  8, 2007  6:56PM">January 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            OK, after a lot of evaluation I've come all the way back round to YUI. Dojo has by far the best widgets, but implementing it looks like a mission. If I really, really want to use anything of theirs I might just have to look at their code and pinch ideas.<br><br>TinyMCE looks good, Matt, thanks. I couldn't find any drawing program that looked better than Walter's, except maybe <a href="http://www.cumulatelabs.com/draw/draw.html?release=0.3.5b" rel="nofollow">Cumulate Draw</a>, which is probably overkill.                        </br></br></div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_64168">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/JDCorley" title="JDCorley"><img alt="JDCorley" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/JDCorley">JDCorley</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64168/#Comment_64168" name="Item_8" rel="nofollow"><time datetime="2007-04-17T11:20:19+00:00" title="April 17, 2007 11:20AM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Hey, it's been a few months - how's it coming?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_64186">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/MikeRM" title="MikeRM"><img alt="MikeRM" class="ProfilePhoto ProfilePhotoMedium" src="http://www.csidemedia.com/files/Mike-32x32.jpg"/></a><a class="Username" href="/forums/profile/MikeRM">MikeRM</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/64186/#Comment_64186" name="Item_9" rel="nofollow"><time datetime="2007-04-17T13:53:25+00:00" title="April 17, 2007  1:53PM">April 2007</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            It's not; when JasonP came along with <a href="http://www.story-games.com/forums/comments.php?DiscussionID=2213" rel="nofollow">basically the same idea</a> I relinquished the responsibility with a sigh of relief.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>

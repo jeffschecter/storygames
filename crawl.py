@@ -24,7 +24,11 @@ gflags.DEFINE_integer(
 gflags.DEFINE_string(
     "out_dir", "storygames",
     "Directory to write scraped threads.")
-
+gflags.DEFINE_integer(
+    "fetch_recent_pages", None,
+    "When defined, fetch this many recent pages of discussions, rather than"
+    "all threads in a numeric range.")
+ 
 
 # ---------------------------------------------------------------------------- #
 # Parsing.                                                                     #
@@ -52,16 +56,6 @@ def load_url(url):
         return True, bs4.BeautifulSoup(doc.content, features="html.parser")
     except Exception as e:
         return False, str(e)
-
-
-def get_latest_discussion_id():
-    success, soup = load_url(FLAGS.root)
-    if not success:
-        raise RuntimeError("Failed to fetch main page.")
-    thread_ids = [
-        int(node["href"].partition("/discussion/")[-1].partition("/")[0])
-        for node in soup.select('a[href*="/discussion/"]')]
-    return max(thread_ids)
 
 
 def get_raw_page(thread_id, page=1):
@@ -103,16 +97,62 @@ def process_thread(thread_id):
     print("processed {}".format(thread_id))
 
 
+def async_crawl(to_fetch):
+    tpool = pool.ThreadPool(FLAGS.poolsize)
+    tpool.map(process_thread, to_fetch)
+    tpool.close()
+
+
+# ---------------------------------------------------------------------------- #
+# Finding recent threads.                                                      #
+# ---------------------------------------------------------------------------- #
+
+def get_latest_discussion_id():
+    success, soup = load_url(FLAGS.root)
+    if not success:
+        raise RuntimeError("Failed to fetch main page.")
+    thread_ids = [
+        int(node["href"].partition("/discussion/")[-1].partition("/")[0])
+        for node in soup.select('a[href*="/discussion/"]')]
+    return max(thread_ids)
+
+
+def get_recent_discussions(pages):
+    thread_ids = []
+    for page_number in range(pages):
+        print("Checking recent dicussions, page {}".format(page_number + 1))
+        success, soup = load_url(FLAGS.root + "discussions/p{}".format(
+            page_number + 1))
+
+        # Complain loudly
+        if not success:
+            raise RuntimeError(
+                "Failure fetching recent discussions: " + soup)
+
+        # Or find all the threads on the page
+        page_threads = [
+            int(node["href"].partition("/discussion/")[-1].partition("/")[0])
+            for node in soup.select('a[href*="forums/discussion/"]')]
+        thread_ids += page_threads
+
+    return thread_ids
+
+
+
 # ---------------------------------------------------------------------------- #
 # Driver.                                                                      #
 # ---------------------------------------------------------------------------- #
 
 def main():
-    latest = FLAGS.latest or get_latest_discussion_id()
-    to_fetch = list(range(latest, FLAGS.earliest - 1, -1))
-    tpool = pool.ThreadPool(FLAGS.poolsize)
-    tpool.map(process_thread, to_fetch)
-    tpool.close()
+    # Find threads to fetch
+    if FLAGS.fetch_recent_pages:
+        to_fetch = get_recent_discussions(FLAGS.fetch_recent_pages)
+    else:
+        latest = FLAGS.latest or get_latest_discussion_id()
+        to_fetch = list(range(latest, FLAGS.earliest - 1, -1))
+
+    # Get' em
+    async_crawl(to_fetch)
 
 
 if __name__ == "__main__":

@@ -150,6 +150,7 @@ def main():
     else:
         latest = FLAGS.latest or get_latest_discussion_id()
         to_fetch = list(range(latest, FLAGS.earliest - 1, -1))
+    print("Fetching {} threads".format(len(to_fetch)))
 
     # Get' em
     async_crawl(to_fetch)

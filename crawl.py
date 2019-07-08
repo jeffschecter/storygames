@@ -26,7 +26,7 @@ gflags.DEFINE_string(
     "Directory to write scraped threads.")
 gflags.DEFINE_integer(
     "fetch_recent_pages", None,
-    "When defined, fetch this many recent pages of discussions, rather than"
+    "When defined, fetch this many recent pages of discussions, rather than "
     "all threads in a numeric range.")
  
 
@@ -157,5 +157,8 @@ def main():
 
 
 if __name__ == "__main__":
-    FLAGS(sys.argv)
-    main()
+    try:
+        FLAGS(sys.argv)
+        main()
+    except:
+        print FLAGS

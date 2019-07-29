@@ -1,1 +1,422 @@
-<h1>Scheduling game days in the grim dark future of the year 2097 where there is only D&amp;D</h1><div class="Item ItemDiscussion" id="Discussion_22062">\n<div class="Discussion">\n<div class="Item-Header DiscussionHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta DiscussionMeta">\n<span class="MItem DateCreated">\n<a class="Permalink" href="http://story-games.com/forums/discussion/22062/scheduling-game-days-in-the-grim-dark-future-of-the-year-2097-where-there-is-only-d-d" rel="nofollow"><time datetime="2019-05-08T11:16:25+00:00" title="May  8, 2019 11:16AM">May 8</time></a> </span>\n<span class="MItem Category"> in <a href="http://story-games.com/forums/categories/make-stuff">Make Stuff!</a></span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p></p><p>have you written about your mechanics for scheduling games? I\u2019d love to see that! Always a challenge to get people together. <img alt=":)" class="emoji" height="20" src="/forums/resources/emoji/smile.png" title=":)"/></p></div></blockquote><p>They\u2019re kinda complicated.</p><p>We have \u201cmain day\u201d and \u201cextra days\u201d. I\u2019m gonna start how we determine \u201cmain days\u201d.</p><p>So first of all we use a fork of dudle.rb, which in turn was an unofficial clone of the \u201cDoodle\u201d scheduling software. It\u2019s a grid: proposed dates along the X axis, people along the Y axis. You put in your name on a row and for each column you check \u201cyes\u201d, \u201cmaybe\u201d, or \u201cno.\u201d</p><p>The polls come up (through the life-changing magic of <code>cron</code> jobs) every Monday morning at 1000. The polls cover seven days, stretching from Wednesday to Tuesday <small>(this is confusing af, why oh why did I start the weeks at Wednesday, not a day go by when I don\u2019t regret that choice. And we have three players who hate the Wednesday start and one who insists on it. Changing would be a very big hassle at this point too)</small>; that means each poll come up 9 days before the first available day and 16 days before the last available day.</p><p>Then there are two deadlines. First deadline is Saturday evening at 2200. So people have over five days available to vote.</p><p>Then the preliminary date is selected using this kinda weird algo:</p><p>\u2714: 1 point<br/>+0.01 points for each \u2714 on the same horizontal line<br/>+0.001 point for each cell (regardless of symbol) directly vertically below it, and for each <strong>?</strong> on the same horizontal line<br/>\u2718: 0 points (or minus a thousand points if DM)<br/><strong>?</strong>: 0.1 points</p><p>I\u2019m gonna explain that exact same thing using other words, here:</p><p>Let\u2019s use an example where Alice proposed Monday, Wednesday, Thursday, and Friday, and Bob only proposed Tuesday.</p><p>First we look at which day has the most \u2714. If there\u2019s a tie for most, the first tiebreaker is most <strong>?</strong>. This means that in the \u201cAlice/Bob\u201d example, did any of the other people (Carol &amp; Ted for example) disambiguate which day to select? If they didn\u2019t, let\u2019s say that counting up \u2714 and <strong>?</strong> it\u2019s between Monday and Tuesday. Then we look at the second tiebreaker. Who has been most generous? In this case, clearly Alice. So it\u2019s gonna be Monday.</p><p>The fourth tiebreaker lends equal weight to voting early, and to being generous with <strong>?</strong>. In other words, it values generosity with \u2714 much more.</p><p>Then as a fifth tiebreaker (not using that point system), it\u2019s Sandra\u2019s favorite days! Which are Saturday, Sunday, Wednesday, Thursday, Friday, Monday, Tuesday in that order. (Here\u2019s how I came up with that order: I like playing on weekends over weekdays, so Sat &amp; Sun are first, and I think scheduling the mainday earlier is better than later (helps wrt getting a lot of extra days in). And polls start on Wednesday which is why I value them higher than Thursdays.)</p><p>So <a href="https://idiomdrottning.org/proposebot/" rel="nofollow">a bot</a> does that calculation for us on Saturday evening and reports his or her findings. (The bots post on our website using names cribbed randomly from a list of prominent NPCs the players have rescued/killed/been killed by/met/sassed.)</p><p>Then people whine and moan and complain and pester each other all through Sunday. I\u2019m usually in bed reading a book and/or dropping acid while this is going; it used to be worst day of week but now my robot overlord does it all\u2665</p><p>Then on Monday morning, at 1000 (same time as the next poll go up), the robot calls it.</p><p>The robot now has two \u201cgrids\u201d to work from. As it stood on Saturday evening, and as it stood on Monday morning.</p><p>Often the one on Monday morning has more voters (which the proposebot snarkily refers to as \u201clate contributors\u201d), people who came in on Sunday and kinda drunkenly voted. (Sorry, not sorry, Alice!)</p><p>But the Saturday votes carry a heck of a lot more weight. Vote on time next time, Alice!</p><p>If Saturday voters (people who voted on time) were convinced during The Great Sunday of Pleading to show mercy, and open up their votes, that can change the outcome significantly. Because the Monday vote uses a ternary IOR mask of the Saturday people\u2019s votes on Saturday and their votes on Monday. That means that if you have turned a \u2718 into a <strong>?</strong> or \u2714, or if they have turned a <strong>?</strong> into a \u2714, that is taken into account. If you have changed votes in the other direction, tough titties, that is ignored. The proposebot appreciated your original Saturday generosity and chooses to look the other way for your temporary stinginess in the Great Sunday War&amp;Quarrel.</p><p>However, the Monday schedule as a whole does serve one purpose. It changes the fifth tiebreaker (Sandra\u2019s ranked list of favorite days) to instead be \u201cWhat would the day have been if everyone voted in time?\u201d (Also the late votes are great because it gives something clear &amp; visual for the Sunday Arguments to be about.)</p><p>So the main day is selected (by bot) on Monday morning at 1000, two days before the first possible day for that poll.</p><p>I def need those two days so I can hook up with hot guys in jeans the rest of the week! Wouldn\u2019t want any empty slots in the calendar where I would have to \u201cread\u201d or \u201cknit\u201d or \u201cedition war\u201d.</p><p>Then we select extra days during a method that\u2019s kinda more complicated, called \u201ctalking to each other\u201d, and I\u2019m hoping to streamline it in the future. It\u2019s error prone and weird things come up in the last minute. But the bots ensure that we play at least once per week and it\u2019s usually two or three extra days on top of that.</p> </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</div><li class="Item Alt ItemComment" id="Comment_483025">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483025/#Comment_483025" name="Item_1" rel="nofollow"><time datetime="2019-05-08T11:33:06+00:00" title="May  8, 2019 11:33AM">May 8</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Don't get misled by the self-deprecating jokes sprinkled throughout\u2014this is actually how we do it T_T<br/>yes i have a problem                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_483051">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483051/#Comment_483051" name="Item_2" rel="nofollow"><time datetime="2019-05-09T01:45:51+00:00" title="May  9, 2019  1:45AM">May 9</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            That is spectacular! (And very funny. <img alt=":)" class="emoji" height="20" src="/forums/resources/emoji/smile.png" title=":)"/> )<br/><br/>I may have to reread it a few times to make sure I understood it.<br/><br/>Fascinating! Seems like a solid idea, on the face of it.<br/><br/>How many people miss sessions, using this system, and how often?                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_483052">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483052/#Comment_483052" name="Item_3" rel="nofollow"><time datetime="2019-05-09T01:59:55+00:00" title="May  9, 2019  1:59AM">May 9</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Also, are people\u2019s choices/votes publicly visible, or do you have to input them \u201cblind\u201d?<br/><br/>I find it interesting that ( if I am understanding correctly), the least busy people get a slight priority in terms of picking a day.  Many people would have done that the other way around!                         </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_483056">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483056/#Comment_483056" name="Item_4" rel="nofollow"><time datetime="2019-05-09T05:31:37+00:00" title="May  9, 2019  5:31AM">May 9</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited May 9, 2019 5:40AM by 2097.">edited May 9</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>How many people miss sessions, using this system, and how often?</p></div></blockquote>\nWe have five players + DM and there are often one or two missing. We have one player who miss a lot\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>Also, are people\u2019s choices/votes publicly visible, or do you have to input them \u201cblind\u201d?</p></div></blockquote>\nThey are visible. The system is pretty resilient to gaming though. It's easy to force a specific day if you are last to vote but by then you might only have one or two days to choose from in your forcing. And you look pretty scummy.\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>I find it interesting that ( if I am understanding correctly), the least busy people get a slight priority in terms of picking a day.  Many people would have done that the other way around! </p></div></blockquote>\nIsn't that pretty evil?                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_483071">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483071/#Comment_483071" name="Item_5" rel="nofollow"><time datetime="2019-05-09T12:39:20+00:00" title="May  9, 2019 12:39PM">May 9</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Interesting question! Do we value honouring each person\u2019s schedule, or do we value getting together as often as possible? <br/><br/>And do we worry about whether people aren\u2019t using the system honestly, or assume everyone is a \u201cgood actor\u201d?<br/><br/>What an interesting process you've got here! So much to consider.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_483076">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Hopeless_Wanderer" title="Hopeless_Wanderer"><img alt="Hopeless_Wanderer" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Hopeless_Wanderer">Hopeless_Wanderer</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483076/#Comment_483076" name="Item_6" rel="nofollow"><time datetime="2019-05-09T15:26:54+00:00" title="May  9, 2019  3:26PM">May 9</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            I think I would be afraid to miss one of Sandra's sessions.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_483085">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483085/#Comment_483085" name="Item_7" rel="nofollow"><time datetime="2019-05-09T21:11:37+00:00" title="May  9, 2019  9:11PM">May 9</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited May 9, 2019 9:16PM by 2097.">edited May 9</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Hopeless_Wanderer" rel="nofollow">Hopeless_Wanderer</a> said:</div><div class="QuoteText"><p>I think I would be afraid to miss one of Sandra\u2019s sessions.</p></div></blockquote><p>Oh Hopey\u2665<br/>You haven\u2019t begin to know the terror that happens when you <i>attend</i> a session. <a href="/forums/search?Search=%23cruella&amp;Mode=like">#cruella</a><br/>I have to salute the bravery of my D&amp;D dorx who go to the dungeon week after week.<br/>To find out how to make peace with their days in the dungeon\u2026? (Hint: it\u2019s more dungeon.)</p> </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_483087">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483087/#Comment_483087" name="Item_8" rel="nofollow"><time datetime="2019-05-09T21:13:38+00:00" title="May  9, 2019  9:13PM">May 9</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Scheduling is only the beginning. We have such sights to show you\u2665                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_483088">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483088/#Comment_483088" name="Item_9" rel="nofollow"><time datetime="2019-05-09T21:14:16+00:00" title="May  9, 2019  9:14PM">May 9</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Also you're docked 200 xp if you're late                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_483094">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Guy%20Srinivasan" title="Guy Srinivasan"><img alt="Guy Srinivasan" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Guy%20Srinivasan">Guy Srinivasan</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483094/#Comment_483094" name="Item_10" rel="nofollow"><time datetime="2019-05-09T22:36:41+00:00" title="May  9, 2019 10:36PM">May 9</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            this is 100% awesome                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_483095">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483095/#Comment_483095" name="Item_11" rel="nofollow"><time datetime="2019-05-10T00:27:48+00:00" title="May 10, 2019 12:27AM">May 10</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            No kidding!                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_483105">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Deliverator" title="Deliverator"><img alt="Deliverator" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/109/nKP8VPA3YE5G4.png"/></a><a class="Username" href="/forums/profile/Deliverator">Deliverator</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483105/#Comment_483105" name="Item_12" rel="nofollow"><time datetime="2019-05-10T04:46:53+00:00" title="May 10, 2019  4:46AM">May 10</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>Do we value honouring each person\u2019s schedule, or do we value getting together as often as possible?</p></div></blockquote>\nI have to say, if the game is resilient to absences (which 5E kinda is, maybe the way Sandra does it is moreso than the way I do it), getting together as often as possible should definitely be the priority, in my view.<br/><br/>I've simply gotten fucked over way too many times by one person getting busy at the last second to really take any other argument seriously. \n<blockquote>And do we worry about whether people aren\u2019t using the system honestly, or assume everyone is a \u201cgood actor\u201d?</blockquote>\nI feel about this the way I feel about any other kind of cheating: if someone is going to do that, then they are definitely not someone I want to roleplay with.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_483106">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483106/#Comment_483106" name="Item_13" rel="nofollow"><time datetime="2019-05-10T05:32:26+00:00" title="May 10, 2019  5:32AM">May 10</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited May 10, 2019 5:34AM by 2097.">edited May 10</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<p><a href="/forums/profile/Deliverator">@Deliverator</a> \u2665 I was scared you had quit S-G</p><p>Not throwing shade on any of my current players, but</p><p>The system <b>is</b> set up to be resilient to several types of bad acting (to trying to force a favorite day through instead of offering up all available free days, and to missing deadlines) but is vulnerable to things like editing each other\u2019s votes, tampering with each other\u2019s accounts, writing thing in each other\u2019s names. The latter, though, is more blatant &amp; more detectable &amp; more unambiguously grounds for kicking someone out.</p> <blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Deliverator" rel="nofollow">Deliverator</a> said:</div><div class="QuoteText"><p>I feel about this the way I feel about any other kind of cheating: if someone is going to do that, then they are definitely not someone I want to roleplay with.</p></div></blockquote><p>That\u2019s a standard answer I get a lot online both re roleplaying games &amp; boardgames. Our group has declined the game \u201cRoll for the Galaxy\u201d, a game we would otherwise love, because it has many points-of-play where it depends on the \u201chonor system\u201d.</p><p>I see it as good design to minimize such points. I guess I\u2019ve just been cheated enough in my day. Several of us share the same philosophy, and that does not mean that any of us would ever cheat. And I\u2019m not saying it\u2019s about \u201cgiven the opportunity\u201d, either. It\u2019s just a design principle.</p><p>I give people gradually more trust but I get suspicious of people asking for more trust than I\u2019ve given them. To me that\u2019s my number one flag, variants on</p><ul><li>Don\u2019t you trust me?</li><li>Can\u2019t we trust each other?</li></ul><p>etc.</p><p>My home RPG group grew out of people I met playing board games at a game store. (What a weird hobby going from rando strangers tossing dice to now talking of maybe moving into a big house so we can D&amp;D every day. <a href="/forums/search?Search=%23cultleader2097&amp;Mode=like">#cultleader2097</a> <a href="/forums/search?Search=%23msfrost2097&amp;Mode=like">#msfrost2097</a> ) We definitely had problems with cheaters who we eventually had to part ways with. Some of the players who have joined later haven\u2019t been through that to the same extent and are therefore occasionally starting it up with \u201cCan\u2019t we trust each other to roll our stats at home\u201d or w/e along with the old stand-by \u201cI trust everyone I\u2019m playing with because I wouldn\u2019t want to be playing with cheaters\u201d. Usually leading to icy stares from yours truly.</p><p>By the way, maybe I have a bit too much neurodivergence today b/c lack of sleep but\u2026</p><p>\u201cI wouldn\u2019t want to play with cheaters anyway.\u201d Yes\u2026?<br/>\u201cAnd therefore I can assume that the people I play with aren\u2019t cheaters.\u201d Wait, why\u2026?<br/>\u201cBecause otherwise I wouldn\u2019t want to play with them, see statement one!\u201d Hold on, I\u2019m just not sure that holds, logically<br/>\u201cBut I <i>do</i> want to play with these folx. Since I <i>want</i> to play with them, and I <i>don\u2019t</i> want to play with cheaters, ergo they can\u2019t be cheaters! Simple logic, Sandra!\u201d</p><p>\u2026</p><p>Oh, OK\u2026 still not sure I follow along, maybe I\u2019m not the most logical tool in the shed.</p><p>Of course, that\u2019s not to throw shade on anyone. For example I trust everyone here on S-G. Here is my account password: <code>sandraisthebest</code> I trust you to never use it. It\u2019s just in case I forget, I can ask you guys. I wouldn\u2019t want to discuss RPG stuff with untrustworthy people.</p> </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_483110">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483110/#Comment_483110" name="Item_14" rel="nofollow"><time datetime="2019-05-10T07:42:12+00:00" title="May 10, 2019  7:42AM">May 10</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited May 10, 2019 7:42AM by DeReel.">edited May 10</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<img alt=":neutral:" class="emoji" height="20" src="/forums/resources/emoji/neutral.png" title=":neutral:"/> writing it down rn                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_483112">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483112/#Comment_483112" name="Item_15" rel="nofollow"><time datetime="2019-05-10T07:48:54+00:00" title="May 10, 2019  7:48AM">May 10</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            keep it secret keep it safe\u2665\u2665\u2665                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_483128">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Deliverator" title="Deliverator"><img alt="Deliverator" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/109/nKP8VPA3YE5G4.png"/></a><a class="Username" href="/forums/profile/Deliverator">Deliverator</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483128/#Comment_483128" name="Item_16" rel="nofollow"><time datetime="2019-05-10T14:28:54+00:00" title="May 10, 2019  2:28PM">May 10</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Nah, I just go in and out of using it, much like you. ;-)<br/><br/>I think what I mean is, it's not actually that hard to tell if someone is cheating. The tells are pretty obvious. So I just have trouble envisioning a scenario in my own life where someone was cheating the *scheduling system* and not otherwise well on their way to being kicked out of the group.<br/><br/>Matt                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_483137">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/483137/#Comment_483137" name="Item_17" rel="nofollow"><time datetime="2019-05-10T18:24:06+00:00" title="May 10, 2019  6:24PM">May 10</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Deliverator" rel="nofollow">Deliverator</a> said:</div><div class="QuoteText"><p>I think what I mean is, it's not actually that hard to tell if someone is cheating. The tells are pretty obvious.</p></div></blockquote>\nI guess I've become more aware of it but I've been conned pretty severely tbh                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li>
+<h1>Scheduling game days in the grim dark future of the year 2097 where there is only D&amp;D</h1><div class="Item ItemDiscussion" id="Discussion_22062">
+<div class="Discussion">
+<div class="Item-Header DiscussionHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta DiscussionMeta">
+<span class="MItem DateCreated">
+<a class="Permalink" href="http://story-games.com/forums/discussion/22062/scheduling-game-days-in-the-grim-dark-future-of-the-year-2097-where-there-is-only-d-d" rel="nofollow"><time datetime="2019-05-08T11:16:25+00:00" title="May  8, 2019 11:16AM">May 8</time></a> </span>
+<span class="MItem Category"> in <a href="http://story-games.com/forums/categories/make-stuff">Make Stuff!</a></span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p></p><p>have you written about your mechanics for scheduling games? I’d love to see that! Always a challenge to get people together. <img alt=":)" class="emoji" height="20" src="/forums/resources/emoji/smile.png" title=":)"/></p></div></blockquote><p>They’re kinda complicated.</p><p>We have “main day” and “extra days”. I’m gonna start how we determine “main days”.</p><p>So first of all we use a fork of dudle.rb, which in turn was an unofficial clone of the “Doodle” scheduling software. It’s a grid: proposed dates along the X axis, people along the Y axis. You put in your name on a row and for each column you check “yes”, “maybe”, or “no.”</p><p>The polls come up (through the life-changing magic of <code>cron</code> jobs) every Monday morning at 1000. The polls cover seven days, stretching from Wednesday to Tuesday <small>(this is confusing af, why oh why did I start the weeks at Wednesday, not a day go by when I don’t regret that choice. And we have three players who hate the Wednesday start and one who insists on it. Changing would be a very big hassle at this point too)</small>; that means each poll come up 9 days before the first available day and 16 days before the last available day.</p><p>Then there are two deadlines. First deadline is Saturday evening at 2200. So people have over five days available to vote.</p><p>Then the preliminary date is selected using this kinda weird algo:</p><p>✔: 1 point<br/>+0.01 points for each ✔ on the same horizontal line<br/>+0.001 point for each cell (regardless of symbol) directly vertically below it, and for each <strong>?</strong> on the same horizontal line<br/>✘: 0 points (or minus a thousand points if DM)<br/><strong>?</strong>: 0.1 points</p><p>I’m gonna explain that exact same thing using other words, here:</p><p>Let’s use an example where Alice proposed Monday, Wednesday, Thursday, and Friday, and Bob only proposed Tuesday.</p><p>First we look at which day has the most ✔. If there’s a tie for most, the first tiebreaker is most <strong>?</strong>. This means that in the “Alice/Bob” example, did any of the other people (Carol &amp; Ted for example) disambiguate which day to select? If they didn’t, let’s say that counting up ✔ and <strong>?</strong> it’s between Monday and Tuesday. Then we look at the second tiebreaker. Who has been most generous? In this case, clearly Alice. So it’s gonna be Monday.</p><p>The fourth tiebreaker lends equal weight to voting early, and to being generous with <strong>?</strong>. In other words, it values generosity with ✔ much more.</p><p>Then as a fifth tiebreaker (not using that point system), it’s Sandra’s favorite days! Which are Saturday, Sunday, Wednesday, Thursday, Friday, Monday, Tuesday in that order. (Here’s how I came up with that order: I like playing on weekends over weekdays, so Sat &amp; Sun are first, and I think scheduling the mainday earlier is better than later (helps wrt getting a lot of extra days in). And polls start on Wednesday which is why I value them higher than Thursdays.)</p><p>So <a href="https://idiomdrottning.org/proposebot/" rel="nofollow">a bot</a> does that calculation for us on Saturday evening and reports his or her findings. (The bots post on our website using names cribbed randomly from a list of prominent NPCs the players have rescued/killed/been killed by/met/sassed.)</p><p>Then people whine and moan and complain and pester each other all through Sunday. I’m usually in bed reading a book and/or dropping acid while this is going; it used to be worst day of week but now my robot overlord does it all♥</p><p>Then on Monday morning, at 1000 (same time as the next poll go up), the robot calls it.</p><p>The robot now has two “grids” to work from. As it stood on Saturday evening, and as it stood on Monday morning.</p><p>Often the one on Monday morning has more voters (which the proposebot snarkily refers to as “late contributors”), people who came in on Sunday and kinda drunkenly voted. (Sorry, not sorry, Alice!)</p><p>But the Saturday votes carry a heck of a lot more weight. Vote on time next time, Alice!</p><p>If Saturday voters (people who voted on time) were convinced during The Great Sunday of Pleading to show mercy, and open up their votes, that can change the outcome significantly. Because the Monday vote uses a ternary IOR mask of the Saturday people’s votes on Saturday and their votes on Monday. That means that if you have turned a ✘ into a <strong>?</strong> or ✔, or if they have turned a <strong>?</strong> into a ✔, that is taken into account. If you have changed votes in the other direction, tough titties, that is ignored. The proposebot appreciated your original Saturday generosity and chooses to look the other way for your temporary stinginess in the Great Sunday War&amp;Quarrel.</p><p>However, the Monday schedule as a whole does serve one purpose. It changes the fifth tiebreaker (Sandra’s ranked list of favorite days) to instead be “What would the day have been if everyone voted in time?” (Also the late votes are great because it gives something clear &amp; visual for the Sunday Arguments to be about.)</p><p>So the main day is selected (by bot) on Monday morning at 1000, two days before the first possible day for that poll.</p><p>I def need those two days so I can hook up with hot guys in jeans the rest of the week! Wouldn’t want any empty slots in the calendar where I would have to “read” or “knit” or “edition war”.</p><p>Then we select extra days during a method that’s kinda more complicated, called “talking to each other”, and I’m hoping to streamline it in the future. It’s error prone and weird things come up in the last minute. But the bots ensure that we play at least once per week and it’s usually two or three extra days on top of that.</p> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</div><li class="Item Alt ItemComment" id="Comment_483025">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483025/#Comment_483025" name="Item_1" rel="nofollow"><time datetime="2019-05-08T11:33:06+00:00" title="May  8, 2019 11:33AM">May 8</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Don't get misled by the self-deprecating jokes sprinkled throughout—this is actually how we do it T_T<br/>yes i have a problem                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_483051">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483051/#Comment_483051" name="Item_2" rel="nofollow"><time datetime="2019-05-09T01:45:51+00:00" title="May  9, 2019  1:45AM">May 9</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            That is spectacular! (And very funny. <img alt=":)" class="emoji" height="20" src="/forums/resources/emoji/smile.png" title=":)"/> )<br/><br/>I may have to reread it a few times to make sure I understood it.<br/><br/>Fascinating! Seems like a solid idea, on the face of it.<br/><br/>How many people miss sessions, using this system, and how often?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_483052">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483052/#Comment_483052" name="Item_3" rel="nofollow"><time datetime="2019-05-09T01:59:55+00:00" title="May  9, 2019  1:59AM">May 9</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Also, are people’s choices/votes publicly visible, or do you have to input them “blind”?<br/><br/>I find it interesting that ( if I am understanding correctly), the least busy people get a slight priority in terms of picking a day.  Many people would have done that the other way around!                         </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_483056">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483056/#Comment_483056" name="Item_4" rel="nofollow"><time datetime="2019-05-09T05:31:37+00:00" title="May  9, 2019  5:31AM">May 9</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited May 9, 2019 5:40AM by 2097.">edited May 9</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>How many people miss sessions, using this system, and how often?</p></div></blockquote>
+We have five players + DM and there are often one or two missing. We have one player who miss a lot
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>Also, are people’s choices/votes publicly visible, or do you have to input them “blind”?</p></div></blockquote>
+They are visible. The system is pretty resilient to gaming though. It's easy to force a specific day if you are last to vote but by then you might only have one or two days to choose from in your forcing. And you look pretty scummy.
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>I find it interesting that ( if I am understanding correctly), the least busy people get a slight priority in terms of picking a day.  Many people would have done that the other way around! </p></div></blockquote>
+Isn't that pretty evil?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_483071">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483071/#Comment_483071" name="Item_5" rel="nofollow"><time datetime="2019-05-09T12:39:20+00:00" title="May  9, 2019 12:39PM">May 9</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Interesting question! Do we value honouring each person’s schedule, or do we value getting together as often as possible? <br/><br/>And do we worry about whether people aren’t using the system honestly, or assume everyone is a “good actor”?<br/><br/>What an interesting process you've got here! So much to consider.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_483076">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Hopeless_Wanderer" title="Hopeless_Wanderer"><img alt="Hopeless_Wanderer" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Hopeless_Wanderer">Hopeless_Wanderer</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483076/#Comment_483076" name="Item_6" rel="nofollow"><time datetime="2019-05-09T15:26:54+00:00" title="May  9, 2019  3:26PM">May 9</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I think I would be afraid to miss one of Sandra's sessions.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_483085">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483085/#Comment_483085" name="Item_7" rel="nofollow"><time datetime="2019-05-09T21:11:37+00:00" title="May  9, 2019  9:11PM">May 9</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited May 9, 2019 9:16PM by 2097.">edited May 9</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Hopeless_Wanderer" rel="nofollow">Hopeless_Wanderer</a> said:</div><div class="QuoteText"><p>I think I would be afraid to miss one of Sandra’s sessions.</p></div></blockquote><p>Oh Hopey♥<br/>You haven’t begin to know the terror that happens when you <i>attend</i> a session. <a href="/forums/search?Search=%23cruella&amp;Mode=like">#cruella</a><br/>I have to salute the bravery of my D&amp;D dorx who go to the dungeon week after week.<br/>To find out how to make peace with their days in the dungeon…? (Hint: it’s more dungeon.)</p> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_483087">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483087/#Comment_483087" name="Item_8" rel="nofollow"><time datetime="2019-05-09T21:13:38+00:00" title="May  9, 2019  9:13PM">May 9</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Scheduling is only the beginning. We have such sights to show you♥                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_483088">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483088/#Comment_483088" name="Item_9" rel="nofollow"><time datetime="2019-05-09T21:14:16+00:00" title="May  9, 2019  9:14PM">May 9</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Also you're docked 200 xp if you're late                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_483094">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Guy%20Srinivasan" title="Guy Srinivasan"><img alt="Guy Srinivasan" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Guy%20Srinivasan">Guy Srinivasan</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483094/#Comment_483094" name="Item_10" rel="nofollow"><time datetime="2019-05-09T22:36:41+00:00" title="May  9, 2019 10:36PM">May 9</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            this is 100% awesome                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_483095">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483095/#Comment_483095" name="Item_11" rel="nofollow"><time datetime="2019-05-10T00:27:48+00:00" title="May 10, 2019 12:27AM">May 10</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            No kidding!                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_483105">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Deliverator" title="Deliverator"><img alt="Deliverator" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/109/nKP8VPA3YE5G4.png"/></a><a class="Username" href="/forums/profile/Deliverator">Deliverator</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483105/#Comment_483105" name="Item_12" rel="nofollow"><time datetime="2019-05-10T04:46:53+00:00" title="May 10, 2019  4:46AM">May 10</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>Do we value honouring each person’s schedule, or do we value getting together as often as possible?</p></div></blockquote>
+I have to say, if the game is resilient to absences (which 5E kinda is, maybe the way Sandra does it is moreso than the way I do it), getting together as often as possible should definitely be the priority, in my view.<br/><br/>I've simply gotten fucked over way too many times by one person getting busy at the last second to really take any other argument seriously. 
+<blockquote>And do we worry about whether people aren’t using the system honestly, or assume everyone is a “good actor”?</blockquote>
+I feel about this the way I feel about any other kind of cheating: if someone is going to do that, then they are definitely not someone I want to roleplay with.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_483106">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483106/#Comment_483106" name="Item_13" rel="nofollow"><time datetime="2019-05-10T05:32:26+00:00" title="May 10, 2019  5:32AM">May 10</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited May 10, 2019 5:34AM by 2097.">edited May 10</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<p><a href="/forums/profile/Deliverator">@Deliverator</a> ♥ I was scared you had quit S-G</p><p>Not throwing shade on any of my current players, but</p><p>The system <b>is</b> set up to be resilient to several types of bad acting (to trying to force a favorite day through instead of offering up all available free days, and to missing deadlines) but is vulnerable to things like editing each other’s votes, tampering with each other’s accounts, writing thing in each other’s names. The latter, though, is more blatant &amp; more detectable &amp; more unambiguously grounds for kicking someone out.</p> <blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Deliverator" rel="nofollow">Deliverator</a> said:</div><div class="QuoteText"><p>I feel about this the way I feel about any other kind of cheating: if someone is going to do that, then they are definitely not someone I want to roleplay with.</p></div></blockquote><p>That’s a standard answer I get a lot online both re roleplaying games &amp; boardgames. Our group has declined the game “Roll for the Galaxy”, a game we would otherwise love, because it has many points-of-play where it depends on the “honor system”.</p><p>I see it as good design to minimize such points. I guess I’ve just been cheated enough in my day. Several of us share the same philosophy, and that does not mean that any of us would ever cheat. And I’m not saying it’s about “given the opportunity”, either. It’s just a design principle.</p><p>I give people gradually more trust but I get suspicious of people asking for more trust than I’ve given them. To me that’s my number one flag, variants on</p><ul><li>Don’t you trust me?</li><li>Can’t we trust each other?</li></ul><p>etc.</p><p>My home RPG group grew out of people I met playing board games at a game store. (What a weird hobby going from rando strangers tossing dice to now talking of maybe moving into a big house so we can D&amp;D every day. <a href="/forums/search?Search=%23cultleader2097&amp;Mode=like">#cultleader2097</a> <a href="/forums/search?Search=%23msfrost2097&amp;Mode=like">#msfrost2097</a> ) We definitely had problems with cheaters who we eventually had to part ways with. Some of the players who have joined later haven’t been through that to the same extent and are therefore occasionally starting it up with “Can’t we trust each other to roll our stats at home” or w/e along with the old stand-by “I trust everyone I’m playing with because I wouldn’t want to be playing with cheaters”. Usually leading to icy stares from yours truly.</p><p>By the way, maybe I have a bit too much neurodivergence today b/c lack of sleep but…</p><p>“I wouldn’t want to play with cheaters anyway.” Yes…?<br/>“And therefore I can assume that the people I play with aren’t cheaters.” Wait, why…?<br/>“Because otherwise I wouldn’t want to play with them, see statement one!” Hold on, I’m just not sure that holds, logically<br/>“But I <i>do</i> want to play with these folx. Since I <i>want</i> to play with them, and I <i>don’t</i> want to play with cheaters, ergo they can’t be cheaters! Simple logic, Sandra!”</p><p>…</p><p>Oh, OK… still not sure I follow along, maybe I’m not the most logical tool in the shed.</p><p>Of course, that’s not to throw shade on anyone. For example I trust everyone here on S-G. Here is my account password: <code>sandraisthebest</code> I trust you to never use it. It’s just in case I forget, I can ask you guys. I wouldn’t want to discuss RPG stuff with untrustworthy people.</p> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_483110">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483110/#Comment_483110" name="Item_14" rel="nofollow"><time datetime="2019-05-10T07:42:12+00:00" title="May 10, 2019  7:42AM">May 10</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited May 10, 2019 7:42AM by DeReel.">edited May 10</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<img alt=":neutral:" class="emoji" height="20" src="/forums/resources/emoji/neutral.png" title=":neutral:"/> writing it down rn                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_483112">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483112/#Comment_483112" name="Item_15" rel="nofollow"><time datetime="2019-05-10T07:48:54+00:00" title="May 10, 2019  7:48AM">May 10</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            keep it secret keep it safe♥♥♥                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_483128">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Deliverator" title="Deliverator"><img alt="Deliverator" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/109/nKP8VPA3YE5G4.png"/></a><a class="Username" href="/forums/profile/Deliverator">Deliverator</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483128/#Comment_483128" name="Item_16" rel="nofollow"><time datetime="2019-05-10T14:28:54+00:00" title="May 10, 2019  2:28PM">May 10</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Nah, I just go in and out of using it, much like you. ;-)<br/><br/>I think what I mean is, it's not actually that hard to tell if someone is cheating. The tells are pretty obvious. So I just have trouble envisioning a scenario in my own life where someone was cheating the *scheduling system* and not otherwise well on their way to being kicked out of the group.<br/><br/>Matt                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_483137">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/483137/#Comment_483137" name="Item_17" rel="nofollow"><time datetime="2019-05-10T18:24:06+00:00" title="May 10, 2019  6:24PM">May 10</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Deliverator" rel="nofollow">Deliverator</a> said:</div><div class="QuoteText"><p>I think what I mean is, it's not actually that hard to tell if someone is cheating. The tells are pretty obvious.</p></div></blockquote>
+I guess I've become more aware of it but I've been conned pretty severely tbh                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>

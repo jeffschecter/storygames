@@ -161,4 +161,4 @@ if __name__ == "__main__":
         FLAGS(sys.argv)
         main()
     except:
-        print FLAGS
+        print(FLAGS)

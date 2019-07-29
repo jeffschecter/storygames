@@ -1,1 +1,322 @@
-<h1>Distributing spotlight with an N-ary thue morse sequence</h1><div class="Item ItemDiscussion" id="Discussion_22152">\n<div class="Discussion">\n<div class="Item-Header DiscussionHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta DiscussionMeta">\n<span class="MItem DateCreated">\n<a class="Permalink" href="http://story-games.com/forums/discussion/22152/distributing-spotlight-with-an-n-ary-thue-morse-sequence" rel="nofollow"><time datetime="2019-06-17T08:09:16+00:00" title="June 17, 2019  8:09AM">June 17</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 17, 2019 8:10AM by 2097.">edited June 17</span> </span> <span class="MItem Category"> in <a href="http://story-games.com/forums/categories/make-stuff">Make Stuff!</a></span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                    So change p to the number of participants and assign a number to each participant (one poor sucker is gonna get number zero) and save this into a file named whatever you want and then run it with a command line argument of the number of iterations you want to print:<br/><br/><code>#!/bin/sh<br/>p=6<br/>for i in `seq 0 $1`<br/>do<br/>    echo -n "$(echo "${p}o${i}f"|dc|sed 's/\\(.\\)/\\1 /g')  [+lbx]sa[2z&gt;a]dsbx${p}%n"|dc<br/>done<br/>echo</code><br/><br/>For example save it as <code>spotlight_number.sh</code> and then <code>chmod +x spotlight_number.sh</code> and from then on just <code>spotlight_number.sh 200</code> to get 200 turns. If later you want to continue where you left off, change the 0 in the file to the number you want to start at.<br/><br/> </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</div><li class="Item Alt ItemComment" id="Comment_486267">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486267/#Comment_486267" name="Item_1" rel="nofollow"><time datetime="2019-06-17T08:11:11+00:00" title="June 17, 2019  8:11AM">June 17</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Print it on scrap paper &amp; check off each number you use\u2665                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486268">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486268/#Comment_486268" name="Item_2" rel="nofollow"><time datetime="2019-06-17T08:15:57+00:00" title="June 17, 2019  8:15AM">June 17</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Or better yet, memorize the sequence, save on printing, better for the environment                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486269">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486269/#Comment_486269" name="Item_3" rel="nofollow"><time datetime="2019-06-17T08:23:09+00:00" title="June 17, 2019  8:23AM">June 17</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            When it's time for a new round, skip the player who started the first round. <small>Many board games already do that much, using a first-player-token of some kind, like that gross knife in <i>Dead of Winter</i>.</small> Next lev is that when everyone's been skipped once, skip two steps. (That's gonna happen once every Pth round.) When everyone's been <b>double</b>-skipped once, skip three steps. (That's gonna be a while.) Etc. The sequence doesn't repeat if I understand it correctly.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486271">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486271/#Comment_486271" name="Item_4" rel="nofollow"><time datetime="2019-06-17T10:35:16+00:00" title="June 17, 2019 10:35AM">June 17</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            I do the first player token thing in my game. What is the "skip 2/3/..." for ?                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486272">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486272/#Comment_486272" name="Item_5" rel="nofollow"><time datetime="2019-06-17T10:46:44+00:00" title="June 17, 2019 10:46AM">June 17</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            First, everyone gets to go once. That's a round.<br/>Then, everyone gets to start a round. That's a meta round.<br/>Then, everyone gets to start a meta round. That's a meta meta round.<br/>Then, everyone gets to start a meta meta round. That's a meta meta meta round. Etc                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486273">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486273/#Comment_486273" name="Item_6" rel="nofollow"><time datetime="2019-06-17T10:59:19+00:00" title="June 17, 2019 10:59AM">June 17</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 17, 2019 11:00AM by DeReel.">edited June 17</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Oh, I just need the meta then, not even a straight round. ;P                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486389">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486389/#Comment_486389" name="Item_7" rel="nofollow"><time datetime="2019-06-18T16:43:53+00:00" title="June 18, 2019  4:43PM">June 18</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 18, 2019 4:44PM by Paul_T.">edited June 18</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            For those of us who can\u2019t read that code, can you give an example of what that would look like, with, say, 3 players?<br/><br/>Or is it just something like:<br/><br/>1,2,3<br/>2,3,1<br/>3,2,1<br/>2,1,3 (?)<br/>Etc ?<br/><br/>I\u2019m guessing not that, since you say the sequence doesn\u2019t repeat. (But I also don\u2019t know how you can memorize a sequence that doesn\u2019t repeat!)                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486391">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Guy%20Srinivasan" title="Guy Srinivasan"><img alt="Guy Srinivasan" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Guy%20Srinivasan">Guy Srinivasan</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486391/#Comment_486391" name="Item_8" rel="nofollow"><time datetime="2019-06-18T17:34:47+00:00" title="June 18, 2019  5:34PM">June 18</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Here is the result of running the above with p=3:<br/><br/>01212020112020101220101212012020101220101<br/><br/>Or, decomposed by yrs truly,<br/><br/>0,<br/><br/>===<br/><br/>1,<br/><br/>2,<br/><br/>===<br/><br/>1,2,0,<br/>2,0,1,<br/><br/>===<br/><br/>1,2,0,<br/>2,0,1,<br/>0,1,2,<br/><br/>2,0,1,<br/>0,1,2,<br/>1,2,0,<br/><br/>===<br/><br/>1,2,0,  2,0,1,  0,1,2,<br/>2,0,1,  0,1,2,  1,2,0,<br/><br/>1,2,0,  2,0,1,  0,1,2,<br/>2,0,1,  0,1,2,  1,2,0,<br/>0,1,2,  1,2,0,  2,0,1,<br/><br/>2,0,1,  0,1,2,  1,2,0,<br/>0,1,2,  1,2,0,  2,0,1,<br/>1,2,0,  2,0,1,  0,1,2,<br/><br/>===<br/><br/>etc.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486392">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Guy%20Srinivasan" title="Guy Srinivasan"><img alt="Guy Srinivasan" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Guy%20Srinivasan">Guy Srinivasan</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486392/#Comment_486392" name="Item_9" rel="nofollow"><time datetime="2019-06-18T17:36:19+00:00" title="June 18, 2019  5:36PM">June 18</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>But I also don\u2019t know how you can memorize a sequence that doesn\u2019t repeat!</p></div></blockquote>\nYou memorize the generation logic. For example, it is very easy to memorize this infinite non-repeating sequence:<br/>0,1,<br/>0,0,1,<br/>0,0,0,1,<br/>0,0,0,0,1, ...                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486393">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486393/#Comment_486393" name="Item_10" rel="nofollow"><time datetime="2019-06-18T18:23:00+00:00" title="June 18, 2019  6:23PM">June 18</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Yes, I see! Thanks. Very interesting!                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486398">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486398/#Comment_486398" name="Item_11" rel="nofollow"><time datetime="2019-06-18T19:25:40+00:00" title="June 18, 2019  7:25PM">June 18</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<img alt="image" src="https://idiomdrottning.org/ternary_thue_morse.png"/> </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486744">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Adam_Dray" title="Adam_Dray"><img alt="Adam_Dray" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/445/n8DFU0XP50I1V.PNG"/></a><a class="Username" href="/forums/profile/Adam_Dray">Adam_Dray</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486744/#Comment_486744" name="Item_12" rel="nofollow"><time datetime="2019-07-07T02:43:07+00:00" title="July  7, 2019  2:43AM">July 7</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Neat idea. I think it ignores other issues at the table, though. Equal spotlight time isn't always the best thing for the game, I think. <br/><br/>Gorgeous fractal.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486754">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486754/#Comment_486754" name="Item_13" rel="nofollow"><time datetime="2019-07-07T05:41:51+00:00" title="July  7, 2019  5:41AM">July 7</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            I wanted to use it specifically for scene caller sequence in Hillfolk\u2665                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li>
+<h1>Distributing spotlight with an N-ary thue morse sequence</h1><div class="Item ItemDiscussion" id="Discussion_22152">
+<div class="Discussion">
+<div class="Item-Header DiscussionHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta DiscussionMeta">
+<span class="MItem DateCreated">
+<a class="Permalink" href="http://story-games.com/forums/discussion/22152/distributing-spotlight-with-an-n-ary-thue-morse-sequence" rel="nofollow"><time datetime="2019-06-17T08:09:16+00:00" title="June 17, 2019  8:09AM">June 17</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 17, 2019 8:10AM by 2097.">edited June 17</span> </span> <span class="MItem Category"> in <a href="http://story-games.com/forums/categories/make-stuff">Make Stuff!</a></span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                    So change p to the number of participants and assign a number to each participant (one poor sucker is gonna get number zero) and save this into a file named whatever you want and then run it with a command line argument of the number of iterations you want to print:<br/><br/><code>#!/bin/sh<br/>p=6<br/>for i in `seq 0 $1`<br/>do<br/>    echo -n "$(echo "${p}o${i}f"|dc|sed 's/\(.\)/\1 /g')  [+lbx]sa[2z&gt;a]dsbx${p}%n"|dc<br/>done<br/>echo</code><br/><br/>For example save it as <code>spotlight_number.sh</code> and then <code>chmod +x spotlight_number.sh</code> and from then on just <code>spotlight_number.sh 200</code> to get 200 turns. If later you want to continue where you left off, change the 0 in the file to the number you want to start at.<br/><br/> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</div><li class="Item Alt ItemComment" id="Comment_486267">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486267/#Comment_486267" name="Item_1" rel="nofollow"><time datetime="2019-06-17T08:11:11+00:00" title="June 17, 2019  8:11AM">June 17</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Print it on scrap paper &amp; check off each number you use♥                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486268">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486268/#Comment_486268" name="Item_2" rel="nofollow"><time datetime="2019-06-17T08:15:57+00:00" title="June 17, 2019  8:15AM">June 17</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Or better yet, memorize the sequence, save on printing, better for the environment                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486269">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486269/#Comment_486269" name="Item_3" rel="nofollow"><time datetime="2019-06-17T08:23:09+00:00" title="June 17, 2019  8:23AM">June 17</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            When it's time for a new round, skip the player who started the first round. <small>Many board games already do that much, using a first-player-token of some kind, like that gross knife in <i>Dead of Winter</i>.</small> Next lev is that when everyone's been skipped once, skip two steps. (That's gonna happen once every Pth round.) When everyone's been <b>double</b>-skipped once, skip three steps. (That's gonna be a while.) Etc. The sequence doesn't repeat if I understand it correctly.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486271">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486271/#Comment_486271" name="Item_4" rel="nofollow"><time datetime="2019-06-17T10:35:16+00:00" title="June 17, 2019 10:35AM">June 17</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I do the first player token thing in my game. What is the "skip 2/3/..." for ?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486272">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486272/#Comment_486272" name="Item_5" rel="nofollow"><time datetime="2019-06-17T10:46:44+00:00" title="June 17, 2019 10:46AM">June 17</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            First, everyone gets to go once. That's a round.<br/>Then, everyone gets to start a round. That's a meta round.<br/>Then, everyone gets to start a meta round. That's a meta meta round.<br/>Then, everyone gets to start a meta meta round. That's a meta meta meta round. Etc                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486273">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486273/#Comment_486273" name="Item_6" rel="nofollow"><time datetime="2019-06-17T10:59:19+00:00" title="June 17, 2019 10:59AM">June 17</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 17, 2019 11:00AM by DeReel.">edited June 17</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Oh, I just need the meta then, not even a straight round. ;P                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486389">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486389/#Comment_486389" name="Item_7" rel="nofollow"><time datetime="2019-06-18T16:43:53+00:00" title="June 18, 2019  4:43PM">June 18</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 18, 2019 4:44PM by Paul_T.">edited June 18</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            For those of us who can’t read that code, can you give an example of what that would look like, with, say, 3 players?<br/><br/>Or is it just something like:<br/><br/>1,2,3<br/>2,3,1<br/>3,2,1<br/>2,1,3 (?)<br/>Etc ?<br/><br/>I’m guessing not that, since you say the sequence doesn’t repeat. (But I also don’t know how you can memorize a sequence that doesn’t repeat!)                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486391">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Guy%20Srinivasan" title="Guy Srinivasan"><img alt="Guy Srinivasan" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Guy%20Srinivasan">Guy Srinivasan</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486391/#Comment_486391" name="Item_8" rel="nofollow"><time datetime="2019-06-18T17:34:47+00:00" title="June 18, 2019  5:34PM">June 18</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Here is the result of running the above with p=3:<br/><br/>01212020112020101220101212012020101220101<br/><br/>Or, decomposed by yrs truly,<br/><br/>0,<br/><br/>===<br/><br/>1,<br/><br/>2,<br/><br/>===<br/><br/>1,2,0,<br/>2,0,1,<br/><br/>===<br/><br/>1,2,0,<br/>2,0,1,<br/>0,1,2,<br/><br/>2,0,1,<br/>0,1,2,<br/>1,2,0,<br/><br/>===<br/><br/>1,2,0,  2,0,1,  0,1,2,<br/>2,0,1,  0,1,2,  1,2,0,<br/><br/>1,2,0,  2,0,1,  0,1,2,<br/>2,0,1,  0,1,2,  1,2,0,<br/>0,1,2,  1,2,0,  2,0,1,<br/><br/>2,0,1,  0,1,2,  1,2,0,<br/>0,1,2,  1,2,0,  2,0,1,<br/>1,2,0,  2,0,1,  0,1,2,<br/><br/>===<br/><br/>etc.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486392">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Guy%20Srinivasan" title="Guy Srinivasan"><img alt="Guy Srinivasan" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Guy%20Srinivasan">Guy Srinivasan</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486392/#Comment_486392" name="Item_9" rel="nofollow"><time datetime="2019-06-18T17:36:19+00:00" title="June 18, 2019  5:36PM">June 18</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>But I also don’t know how you can memorize a sequence that doesn’t repeat!</p></div></blockquote>
+You memorize the generation logic. For example, it is very easy to memorize this infinite non-repeating sequence:<br/>0,1,<br/>0,0,1,<br/>0,0,0,1,<br/>0,0,0,0,1, ...                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486393">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486393/#Comment_486393" name="Item_10" rel="nofollow"><time datetime="2019-06-18T18:23:00+00:00" title="June 18, 2019  6:23PM">June 18</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Yes, I see! Thanks. Very interesting!                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486398">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486398/#Comment_486398" name="Item_11" rel="nofollow"><time datetime="2019-06-18T19:25:40+00:00" title="June 18, 2019  7:25PM">June 18</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<img alt="image" src="https://idiomdrottning.org/ternary_thue_morse.png"/> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486744">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Adam_Dray" title="Adam_Dray"><img alt="Adam_Dray" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/445/n8DFU0XP50I1V.PNG"/></a><a class="Username" href="/forums/profile/Adam_Dray">Adam_Dray</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486744/#Comment_486744" name="Item_12" rel="nofollow"><time datetime="2019-07-07T02:43:07+00:00" title="July  7, 2019  2:43AM">July 7</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Neat idea. I think it ignores other issues at the table, though. Equal spotlight time isn't always the best thing for the game, I think. <br/><br/>Gorgeous fractal.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486754">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486754/#Comment_486754" name="Item_13" rel="nofollow"><time datetime="2019-07-07T05:41:51+00:00" title="July  7, 2019  5:41AM">July 7</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I wanted to use it specifically for scene caller sequence in Hillfolk♥                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>

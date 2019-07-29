@@ -1,1 +1,530 @@
-<h1>A definition of game state</h1><div class="Item ItemDiscussion" id="Discussion_22144">\n<div class="Discussion">\n<div class="Item-Header DiscussionHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta DiscussionMeta">\n<span class="MItem DateCreated">\n<a class="Permalink" href="http://story-games.com/forums/discussion/22144/a-definition-of-game-state" rel="nofollow"><time datetime="2019-06-14T08:39:31+00:00" title="June 14, 2019  8:39AM">June 14</time></a> </span>\n<span class="MItem Category"> in <a href="http://story-games.com/forums/categories/games-and-gaming">Story Games</a></span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                    I seem to have converged on a definition of game state, so, for clarity, I'll record it here. This might or might not be the same concept that others have in mind.<br/><br/>Game state is the current state of the game.<br/><br/>It is not really even jargon.<br/><br/>This is the same as the state of a system more generally.<br/><br/>---<br/><br/>I'll start with a simple example from physics. Consider a single planet or particle (or other point mass) in an otherwise empty universe. The state of the system is the location and velocity (momentum, speed in common parlance) of the particle - these describe the system completely and make it possible to predict its future course.<br/><br/>A more complicated similar system could have several particles, which would have mass and electric charge, as well as locations and velocities. This information describes the system fully and can be used to predict its future behaviour.<br/><br/>(Physicists actually use the state space, which is a space consisting of all the possible states of a given system. <a href="https://en.wikipedia.org/wiki/State_space_" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/State_space_</a>(physics) )<br/><br/>A non-physical example is Conway's game of life: you have a square grid with some squares black, others white. At the next step the colour of each square is determined via simple rules by the colours of its neighbours. <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/Conway's_Game_of_Life</a><br/><br/>The state of the system in Life is simply the colour of each square.<br/><br/>The physical example had a continuous time, the abstract example discrete time. I will be sloppy and refer to the next game state even with continuous time. The alternatives are more cumbersome and do not add clarity.<br/><br/>---<br/><br/>The examples above were deterministic. We can add in random factors. The random factor is in the transition from one state to the next.<br/><br/>An example of a discrete time random (or stochastic) system is the "game" snakes and ladders <a href="https://en.wikipedia.org/wiki/Snakes_and_Ladders" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/Snakes_and_Ladders</a> , a zero player game. The state of the game is the position of the player tokens and information about turn order, and the transition into the next state is rolling a die, moving a token, and going up or down by ladders or snakes, if one happens to a square with one.<br/><br/>A famous continuous time example is Brownian motion: <a href="https://en.wikipedia.org/wiki/Brownian_motion" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/Brownian_motion</a><br/><br/>The next state of a random system is no longer defined by its previous state, but the previous state and the random factor do determine the next state.<br/><br/>---<br/><br/>To get a game, we need to add in players. A game with one player is called a control problem. A game with several is a proper game. Players add their input, or make their moves, as the game transitions from state to state. Games can be random or deterministic. Being "deterministic", in this usage, allows for player input, but there is no random input. (Of course, the players could choose to make their moves randomly. This is fine. But there is no obligatory random input.)<br/><br/>A deterministic control problem is parking a car. The state of the system consists of the position and orientation of the car and its physical properties, as well as the physical properties of the environment. Maybe we can assume there is enough fuel, maybe the amount of fuel is also part of the state. The state of the system and the performance of the driver determine how the system develops.<br/><br/>A player building a GURPS character can also be seen as a control problem. The state is the points that have been spent and what has been bought with them, as well as the total number of available points. The choices of the player, when combined with the state, determine what kind of character gets built.<br/><br/>The state of chess includes the position of all pieces, information about castling and repeated moves, and whose turn it is next. This, together with a player decision, is enough to determine the next game state.<br/><br/>The state of football, a sport where people manipulate a ball mostly by using their feet as the name implies, includes the physical state of the playing field, as well as information about game time, goals scored, fouls and substitutions. (And possibly some other details that I am forgetting now.) When combined with player performance, this is enough to determine how the game continues.<br/><br/>In Burning wheel, the game state includes the parts of the game world that have been determined thus far, the stats of all entities that have been determined thus far, who is the game master, who are the player and which has which character, what has been determined of the game world thus far, is someone in the middle of an ongoing extended conflict mechanism, are there linked rolls whose effect on the following rolls have not been determined yet, and any other resolution whose effect has not yet entered play. And probably other stuff. This, when combined with player performance (including choices) and random input mandated by the rules system, determines how the game progresses.<br/><br/>---<br/><br/>What about human judgement? Roleplaying games, much like football, have human judgment. This is fine. We can either take the human judgment as part of the rules system, or we can consider anyone making judgments as an additional player. This would mean that the referees in football would count as players. This is a question of modelling and should be done with a purpose in mind - for some purposes we might want to accept the fuzziness of human judgement as fuzziness of the rules system and not worry about it too much, while in other cases we should consider the human fuzziness as essential and important.<br/><br/>---<br/><br/>What about errors and mistakes? Either they cause the game to stop, they are not critical, or they are fixed in some way to make continuing the game possible. The game has to have a game state in order for it to continue. Sometimes a game state with contradictions or omissions is not critical (humans are flexible in this way) and game can continue regardless, while some of the time the state needs to be seriously discussed.<br/><br/>It might be that the location of a pawn in a game is uncertain (due to the cat), but the game is check-mate regardless, so we can simply ignore the pawn. Or it might be that in one location it is check-mate while in another the game continues, and in this case we'll have to deal with the error in some way. Or maybe it is late and we decide to play another match next day, saying the cat won this one.<br/><br/>---<br/><br/>What about consent, credibility, and so on? In game studies a game is usually defined as voluntary activity with arbitrary goals and restrictions that the players choose to engage in. (This is different from the definition as a particular type of system, above, but there is lots of overlap.)<br/><br/>This means that any game, in the game studies sense, relies on players accepting the game state, rules, and objectives of play. Playing the game, as an activity, requires this. This is also true of playing in the sense of leikki/lek, unstructured play typical of children, for which English does not really have a distinct word, as well as peli/spel, the structured play which typically has rules and objectives. Roleplaying lives somewhere on that continuum.<br/><br/>In particular, shared imagined space is a subset of game state, since it is used as a factor when determining how play continues. The transition in time from one game state to the next often relies on the system in the Forge sense. Often the credibility has been given ahead of time for some participant to do particular things, possibly privately and without informing anyone else. However, as per the previous point, as a type of play, roleplaying always requires at least passive consent of everyone with respect to everything going on.<br/><br/>---<br/><br/>Game state: The time-dependent state of a game, which, when combined with player performance and random input, determines how the play continues.                </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</div><li class="Item Alt ItemComment" id="Comment_486028">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486028/#Comment_486028" name="Item_1" rel="nofollow"><time datetime="2019-06-14T08:47:33+00:00" title="June 14, 2019  8:47AM">June 14</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            We really liked the (kinda circular) definition "all operands of the rules". In nomic games (which D&amp;D and AW both are) that also includes all rules, since the rules are also operands.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486031">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486031/#Comment_486031" name="Item_2" rel="nofollow"><time datetime="2019-06-14T09:07:55+00:00" title="June 14, 2019  9:07AM">June 14</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            That requires defining what rules are and does not really work for games of physical performance, but for roleplaying games, it should give more or less the same outcome, I think. Freeform games are a good test case for what you mean by rules.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486032">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486032/#Comment_486032" name="Item_3" rel="nofollow"><time datetime="2019-06-14T09:13:21+00:00" title="June 14, 2019  9:13AM">June 14</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Ah, I see, good point.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486052">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Jeph" title="Jeph"><img alt="Jeph" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/396/nMA3E0EWQEIUQ.gif"/></a><a class="Username" href="/forums/profile/Jeph">Jeph</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486052/#Comment_486052" name="Item_4" rel="nofollow"><time datetime="2019-06-14T15:25:25+00:00" title="June 14, 2019  3:25PM">June 14</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Oh, I like this a lot.<br/><br/>I agree that it's usually much equivalent to "all the operands of the rules" for most RPGs. That's like saying "All the things changed by the dynamics of a system."                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486057">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486057/#Comment_486057" name="Item_5" rel="nofollow"><time datetime="2019-06-14T15:58:47+00:00" title="June 14, 2019  3:58PM">June 14</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Interesting! What are some examples of things that we interact with in play that are NOT part of this definition? Where are its boundaries, in other words?                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486058">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Jeph" title="Jeph"><img alt="Jeph" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/396/nMA3E0EWQEIUQ.gif"/></a><a class="Username" href="/forums/profile/Jeph">Jeph</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486058/#Comment_486058" name="Item_6" rel="nofollow"><time datetime="2019-06-14T16:08:10+00:00" title="June 14, 2019  4:08PM">June 14</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 14, 2019 4:14PM by Jeph.">edited June 14</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Lighting and music in the room, maybe.<br/><br/>The privately-held opinions that players hold about the SIS, and plans for future actions. "I really don't like Alice, I'm going to poison her first chance I get!"<br/><br/>Meta-level communication between players. After my buddy slays the dragon, I say, "Nice!"<br/><br/>EDIT: I'd also argue that in <a href="/forums/profile/Silmenume">@Silmenume</a> 's game, when the GM says "Roll a 20-sided," sometimes that's an interaction that has nothing to do with rules or game state\u2014sometime's it's purely semiotic, a communicative gesture that says "listen up" or "spotlight's on you, now."                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486059">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486059/#Comment_486059" name="Item_7" rel="nofollow"><time datetime="2019-06-14T16:31:56+00:00" title="June 14, 2019  4:31PM">June 14</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 14, 2019 4:33PM by Thanuir.">edited June 14</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>Interesting! What are some examples of things that we interact with in play that are NOT part of this definition? Where are its boundaries, in other words?</p></div></blockquote>\nA necessary question.<br/><br/>1. The rules of the game, either in the traditional sense or the Forge definition of system, describe how the game state evolves. They are not in the game state. The entities defined by the rules are in the game state. (I believe the terminology in dynamical systems community would the dynamics of the system, but I am not in that community and might be wrong. Rules are the dynamics of the system. That sounds fancy.)<br/><br/>So: The rule to roll initiative when a combat starts is not in the game state. The result of the roll and/or the resulting initiative order are, as is the variable "Are we in combat or not". (It does not matter if consider the results of the rolls, the order, or both are there, unless there are further complications.) The rule describing how narrative power is shared is not in the game state, but the outcomes and of using that power are.<br/><br/>2. The skill and desires of the players are not in the game state. They determine what kinds of transitions the players cause between the states. The player is a huge black box, intentionally.<br/><br/>3. In a non-physical game, the physical location can generally be abstracted away, but this is a modelling question. If there is so much noise that we need to use gestures, then the environment better be included in some way, or the model is bad.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486060">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/lumpley" title="lumpley"><img alt="lumpley" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/lumpley">lumpley</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486060/#Comment_486060" name="Item_8" rel="nofollow"><time datetime="2019-06-14T16:43:01+00:00" title="June 14, 2019  4:43PM">June 14</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Thanuir: I understood from 2097's references to Nomic that the rules of the game are, or at least conceivably are, themselves part of the game state.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486062">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486062/#Comment_486062" name="Item_9" rel="nofollow"><time datetime="2019-06-14T17:09:31+00:00" title="June 14, 2019  5:09PM">June 14</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 14, 2019 5:10PM by Thanuir.">edited June 14</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Supposing the rules can be changed during play, then yes, certainly to that extent.<br/><br/>I am not sure if it is otherwise useful.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486063">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/lumpley" title="lumpley"><img alt="lumpley" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/lumpley">lumpley</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486063/#Comment_486063" name="Item_10" rel="nofollow"><time datetime="2019-06-14T17:26:47+00:00" title="June 14, 2019  5:26PM">June 14</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Yep! I'm with you.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486071">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486071/#Comment_486071" name="Item_11" rel="nofollow"><time datetime="2019-06-14T21:02:07+00:00" title="June 14, 2019  9:02PM">June 14</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Yeah, for sure in games that <i>are</i> nomic. Jury still out on if it does in games that aren't. Like, is Microscope really nomic? It tells you to create new "declarations" a la prolog but it doesn't modify <i>itself</i> the way 2097e or AW or <abbr title="Common Lisp">CL</abbr> does.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486106">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/EricJ" title="EricJ"><img alt="EricJ" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/EricJ">EricJ</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486106/#Comment_486106" name="Item_12" rel="nofollow"><time datetime="2019-06-15T02:38:48+00:00" title="June 15, 2019  2:38AM">June 15</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            I admire the attempt to ground roleplaying games in the concept of state space. In life, I'm a champion for the concept of 'state space' and extol its wonders to clarify thinking and presentation.<br/><br/>However, there are some pretty big problems with using the concept in social games which I'll try to outline.<br/><br/>First of all, state spaces are properly used to model systems. They are used in cases where we believe that a system's dynamics are properly dependent on the state space, but also in cases where we do not. Something like a dynamical system is an example of the former, the stock market the latter.<br/><br/>One of the major problems with state spaces is their reliance on measurement. This leads to endless problems in various cases. In quantum mechanics, systems are not necessarily independent, and don't have to map to classical observables. In some games, the participants won't have access to the same 'game state' because the state of the game is mediated by each participant's unique cognition.<br/><br/>This is why in games like football, you have referees. It grants some semblance of a true 'state space' since we map the state of the game to the referee's particular reference. To some extent, this can be successful, if you assume that each participant can query the referee about the game state freely.<br/><br/>However, the default state for games is you can't. It's closer to something like the poker game in "The Sting" where you have two players trying to cheat each other and get away with it. The only game state then is political.<br/><br/>RPGs are closer to what Wittgenstein calls a "language game." <a href="https://en.wikipedia.org/wiki/Language_game_(philosophy)" rel="nofollow">https://en.wikipedia.org/wiki/Language_game_(philosophy)</a> One of his points is that two participants can use the same word to refer to different entities and the game still functions. This is his famous beetle argument. <a href="https://en.wikipedia.org/wiki/Private_language_argument#The_beetle-in-a-box" rel="nofollow">https://en.wikipedia.org/wiki/Private_language_argument#The_beetle-in-a-box</a><br/><br/>*Usually* we make allowances for this. A player will say, "I want to butt into their conversation." The GM will respond, "I thought you were going to sleep?" The player will say, "I meant that *if nothing was going to happen*."<br/><br/>The notion of state space is still very useful, but it's better to understand it's limitations.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486107">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/AsIf" title="AsIf"><img alt="AsIf" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/228/nAGHQTW523VF0.jpg"/></a><a class="Username" href="/forums/profile/AsIf">AsIf</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486107/#Comment_486107" name="Item_13" rel="nofollow"><time datetime="2019-06-15T02:53:15+00:00" title="June 15, 2019  2:53AM">June 15</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            /nodding.  Very small elements of play - like a single task resolution - might be modeled effectively as state spaces, but beyond one or two dice rolls it would get prohibitively complex and multidimensional.<br/><br/>I'm leaning toward Assemblage Theory or Actor Network Theory, but my thoughts on this are not yet coherent enough to post.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486113">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486113/#Comment_486113" name="Item_14" rel="nofollow"><time datetime="2019-06-15T05:14:06+00:00" title="June 15, 2019  5:14AM">June 15</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<a href="/forums/profile/EricJ">@EricJ</a> , <a href="http://story-games.com/forums/discussion/comment/485772/#Comment_485772" rel="nofollow">read this post</a>.<br/><br/>The game state is a big ball of mud full of contradictions that we are commited to do our <small> ultimately futile</small> best to resolve. And I love it\u2665                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486115">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486115/#Comment_486115" name="Item_15" rel="nofollow"><time datetime="2019-06-15T05:28:56+00:00" title="June 15, 2019  5:28AM">June 15</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<a href="/forums/profile/EricJ">@EricJ</a> <br/><br/>I do think that language games are a good method for defining roleplaying games and a useful perspective to have (you might enjoy this article of Jonne Arjoranta: <a href="https://scholar.google.dk/scholar?cluster=13877568669943894545&amp;hl=no&amp;as_sdt=0,5&amp;sciodt=0,5" rel="nofollow" target="_blank">https://scholar.google.dk/scholar?cluster=13877568669943894545&amp;hl=no&amp;as_sdt=0,5&amp;sciodt=0,5</a> ). That does not mean other perspectives are useless, of course, as having several perspectives at one's disposal allows picking the most useful one for a particular purpose.<br/><br/>Since roleplaying games are time-dependent systems, they by definition have a state that is in good enough a condition for the game to progress.<br/><br/>We are happy in that we are not trying to model roleplaying with a mathematical model, and we are not trying to prove theorems about it, either; rather, we want a useful concept that allows us to refer to, for example, parts of the fiction that have been established but not shared yet. These are in the game state, so it satisfies this requirement.<br/><br/>I am not, thus far, using state space for anything. Only the game state and some discussion of the transition (for people who require the Forge system to make an appearance); that is, the look is more at the level of a single trajectory locally in time.<br/><br/>I believe the limitations are essentially the same as with the sharedness of shared imagined space, which, I hope, people have thought about already.<br/><br/>---<br/><br/>Unrelated to this, the game rules should be thought of as parts of the state space to the extent that they time-dependent. Football transitioning from normal play to the penalty rounds, for example, has the rules change completely. If the rules allow for changing themselves, this is the case.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486133">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Aviatrix" title="Aviatrix"><img alt="Aviatrix" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/765/nILPDIVNSI4FL.jpg"/></a><a class="Username" href="/forums/profile/Aviatrix">Aviatrix</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486133/#Comment_486133" name="Item_16" rel="nofollow"><time datetime="2019-06-15T08:50:54+00:00" title="June 15, 2019  8:50AM">June 15</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            "Facts" in rpgs are rules. If the chair in front of the hardholder's desk is red, that's a rule and until it interacts with another rule, it's always red. Rules that interact only with themselves are what we usually call "facts" (like the hardholder's chair is red.) When a fact encounters another fact, we must look to the rules to figure out what happens (Dremmer hits the chair with his grenade launcher; the MC checks his Principles [which are rules] and says it disintegrates) or we must generate a new rule using existing procedures. ("Dremmer, you'll need a steady hand to do this without hurting yourself, roll Act Under Fire.")<br/><br/>If I played a game of AW and no one ever used the Open Your Mind to the Psychic Maelstrom rule, that rule would <i>still</i> exist in the world, even if it never entered the SIS. It's a rule of the game; I don't think that's controversial. If the MC prepped a rule ("When you point the BFG at anyone you have an emotion about, Roll +Hot) but it never got used because your friend moved to Asia to teach English and the campaign ended, it would still exist in the "game state" (because we have a rule for it: Always say what your prep demands).<br/><br/>This is, I think, the model for all RPGs. The question is "what are the rules for generating new rules?" Sandra is talking about a model where all the facts of the game are governed by existing rules (the module/prep) and the procedures for governing the entry of new content into the game are tightly restricted and controlled, giving precedence in all cases to the existing body of rules/facts. That is, subjective content can't enter the game without it is made objective by the rules procedures. This is in fact only a qualitative distinction from the procedure in, say, AW, where "ask the player to come up with something" is in fact one of the rule procedures. San's game doesn't allow that as a rule generation procedure. Her further contention (that I agree with) is that there is a "Blorb Event Horizon" where the experience of the game becomes very different when there is enough accumulated weight of existing rules coupled with tightly controlled procedures to generate the new rules.<br/><br/>When you give the same rules weight to "there's a piece of pie in the refrigerator" as you do to "when you threaten someone with violence roll +Hard" IMHO all lot of these questions become much easier to resolve.                         </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486135">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486135/#Comment_486135" name="Item_17" rel="nofollow"><time datetime="2019-06-15T11:02:26+00:00" title="June 15, 2019 11:02AM">June 15</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 15, 2019 11:03AM by DeReel.">edited June 15</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            This is super neat as it compels some assumptions about "world factoids" out of the woods. <br/>Like what are the rules in play that distinguish 3D goblins and dragons roaming in from a nearby province. What gears and clutch are at work there ? Various themes are obviously treated differently (exploration, mobility, darwinism, ecology fiction, politics fiction, combat, etc.) Problem is : they function in networks and going through a series of them activates multiple possibly contradictory rules. Saying goblins are foremost a limitation to mobility and dragons are primarily a political concern might be enough. The way I do it is for one setting to determine the flux of actual causality. Like if I roll goblins, am I allowed to create a fictional cause for them, or if I roll dragon do I have to simulate the tickling down consequences of its roaming. A few causes (crisis, landscape, w/e) can create settings this way. There's no one way of world building, but primary gears to be defined.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486139">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486139/#Comment_486139" name="Item_18" rel="nofollow"><time datetime="2019-06-15T17:59:05+00:00" title="June 15, 2019  5:59PM">June 15</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 15, 2019 6:02PM by Thanuir.">edited June 15</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<a href="/forums/profile/Aviatrix">@Aviatrix</a> I am pretty much on board with what you write, though I think that defining "rules" is something best done on a case-by-case basis.<br/><br/>I can see use in the definition you give, but I also see use in defining rules and facts separately; often rules remain fairly static while facts change constantly. Rules are often found in a rulebook while many facts are not. Many facts are something characters can directly discussed, while rules are often not, though there are plenty of exceptions to all ways here.<br/><br/>So I do not feel necessary to commit to any global relationship between rules and facts. Case-by-case works well enough, for me.                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486145">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Aviatrix" title="Aviatrix"><img alt="Aviatrix" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/765/nILPDIVNSI4FL.jpg"/></a><a class="Username" href="/forums/profile/Aviatrix">Aviatrix</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486145/#Comment_486145" name="Item_19" rel="nofollow"><time datetime="2019-06-15T19:17:28+00:00" title="June 15, 2019  7:17PM">June 15</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            Think of them as logical rules and maybe that helps. That's why I called them rules. Like, think of it: if the chair in the hardholder's office is established, via whatever game procedure that is appropriate, as red, you can't contradict that anymore than the Battlebabe can decide to roll Seize By Force using Cool. (Oh, how I wish she could!) <i>Functionally the ability to contradict the content is the same</i>, i.e., only through the operation of another rule. (The Battlebabe can take a move to roll Go Aggro with Cool, for example.)<br/><br/>If you run something from a module/published campaign as Sandra often does, well, you have a lot of rules there; everything in the published text is a rule. Same goes for home prep, since that is an established rule generation procedure in most games. Including Apocalypse World.<br/><br/>That you can swap "fact" for "rule" and vice versa in most sentences that use one or the other is kind of giving the game away <img alt=";)" class="emoji" height="20" src="/forums/resources/emoji/wink.png" title=";)"/> </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486146">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Aviatrix" title="Aviatrix"><img alt="Aviatrix" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/765/nILPDIVNSI4FL.jpg"/></a><a class="Username" href="/forums/profile/Aviatrix">Aviatrix</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486146/#Comment_486146" name="Item_20" rel="nofollow"><time datetime="2019-06-15T19:20:17+00:00" title="June 15, 2019  7:20PM">June 15</time></a> </span>\n<span class="MItem"> <span class="DateUpdated" title="Edited June 15, 2019 7:24PM by Aviatrix.">edited June 15</span> </span> </div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<a href="/forums/profile/DeReel">@DeReel</a>, contradictions arising from rules conflicts are resolved using the game's rule generation procedures. For these purposes let us consider things like "the social contract" a part of the game's rule generation procedures...uh, mostly because they are. When a contradiction arises, that remains the base case for the generation of a new rule: Joe's Girl is healthy and that's a rule; Dremmer shoots her with a shotgun, because he's the Gunlugger and bored, so now we have a contradiction (she can't be both healthy and injured); we generate a new rule ("She takes 3 harm and dies") using the game's procedures.<br/><br/>Look folks, I'm not saying anything radical here nor is this supposed to be a contradiction of what Sandra is saying. It was the way that her work resolved in my head in a sudden crystal realization; it was my Golden Path but find your own Leto if you need to. Sandra has written extensively and repeatedly on the theory here; I trust her work <img alt=":)" class="emoji" height="20" src="/forums/resources/emoji/smile.png" title=":)"/> </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item Alt ItemComment" id="Comment_486157">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486157/#Comment_486157" name="Item_21" rel="nofollow"><time datetime="2019-06-15T21:44:00+00:00" title="June 15, 2019  9:44PM">June 15</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n                            I perfectly agree with what you're saying. Your idea is crystal clear and very true. I applied it to a practical case I encounter often where "factoids" and "generative rules" are at stake  (setting creation) mostly to see if something was coming out of factoid/rule distinction. Not much right now, but I'll keep shaking the boggle box.                         </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li><li class="Item ItemComment" id="Comment_486186">\n<div class="Comment">\n<div class="Options">\n</div>\n<div class="Item-Header CommentHeader">\n<div class="AuthorWrap">\n<span class="Author">\n<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>\n<span class="AuthorInfo">\n</span>\n</div>\n<div class="Meta CommentMeta CommentInfo">\n<span class="MItem DateCreated">\n<a class="Permalink" href="/forums/discussion/comment/486186/#Comment_486186" name="Item_22" rel="nofollow"><time datetime="2019-06-16T05:55:53+00:00" title="June 16, 2019  5:55AM">June 16</time></a> </span>\n</div>\n</div>\n<div class="Item-BodyWrap">\n<div class="Item-Body">\n<div class="Message">\n<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Aviatrix" rel="nofollow">Aviatrix</a> said:</div><div class="QuoteText"><p>Think of them as logical rules and maybe that helps. That's why I called them rules. Like, think of it: if the chair in the hardholder's office is established, via whatever game procedure that is appropriate, as red, you can't contradict that anymore than the Battlebabe can decide to roll Seize By Force using Cool. (Oh, how I wish she could!) <i>Functionally the ability to contradict the content is the same</i>, i.e., only through the operation of another rule. (The Battlebabe can take a move to roll Go Aggro with Cool, for example.)</p></div></blockquote>\nI understand that perspective completely and sometimes use a definition of rules that includes facts. Sometimes I also use a definition of rules which does not include facts, because I find that useful, too.<br/><br/>Words are always used in a particular context, and definitions are selected so that they are useful for the task at hand. One, in general, does not need to have a single, fixed definition one uses; rather, one should understand what definition is being used in a particular discussion so as to be able to participate constructively.<br/><br/>If I made a strong commitment to "facts are rules", in all cases, then I would feel the need to correct the mistake of people who are using rules in the common rpg sense, which typically does not include many facts about the game world they are using. This would not improve those discussions at all, and, if fact, would only create confusion and chaos. In particular, then one would have to come up with a new name for the kinds of rules that they are talking about, i.e., the dynamics of the system when considered from this perspective. But then, in order to use that phrase, one would have to first explain what the phrase means. And that would not improve those conversations, either.<br/><br/>So I would just write that I am discussing rules (including facts established in this particular game) right now, which then allows me to say that the fiction and game setting are subsets of rules. Or maybe, in another conversation, I am discussing the "rulings, not rules" ethos of OSR versus the "rules, not rulings" ethos of D&amp;D 3, and if necessary, clarify that by rules I do not mean the facts established in a particular game. Those would be rulings, but the distinction I am trying to make does not care about them, so including them in the definition would simply make it more confusing. Rather, the distinction concerns the resolution methods used in play.<br/><br/>---<br/><br/>In this thread, I have a given a definition of game state. Since it is a simple extrapolation of a definition used in another domain (dynamical systems etc.), I think it is justified. I do not think the term is used in other meanings in the context of roleplaying, but if it turns out it is, than I will simply notice which definition I am using when using the term.<br/><br/>Just like: This game is clearly simulationist (in the threefold sense, not GNS), while that other one is gamist (in the GNS sense, not threefold).                        </div>\n<div class="Reactions"></div> </div>\n</div>\n</div>\n</li>
+<h1>A definition of game state</h1><div class="Item ItemDiscussion" id="Discussion_22144">
+<div class="Discussion">
+<div class="Item-Header DiscussionHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta DiscussionMeta">
+<span class="MItem DateCreated">
+<a class="Permalink" href="http://story-games.com/forums/discussion/22144/a-definition-of-game-state" rel="nofollow"><time datetime="2019-06-14T08:39:31+00:00" title="June 14, 2019  8:39AM">June 14</time></a> </span>
+<span class="MItem Category"> in <a href="http://story-games.com/forums/categories/games-and-gaming">Story Games</a></span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                    I seem to have converged on a definition of game state, so, for clarity, I'll record it here. This might or might not be the same concept that others have in mind.<br/><br/>Game state is the current state of the game.<br/><br/>It is not really even jargon.<br/><br/>This is the same as the state of a system more generally.<br/><br/>---<br/><br/>I'll start with a simple example from physics. Consider a single planet or particle (or other point mass) in an otherwise empty universe. The state of the system is the location and velocity (momentum, speed in common parlance) of the particle - these describe the system completely and make it possible to predict its future course.<br/><br/>A more complicated similar system could have several particles, which would have mass and electric charge, as well as locations and velocities. This information describes the system fully and can be used to predict its future behaviour.<br/><br/>(Physicists actually use the state space, which is a space consisting of all the possible states of a given system. <a href="https://en.wikipedia.org/wiki/State_space_" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/State_space_</a>(physics) )<br/><br/>A non-physical example is Conway's game of life: you have a square grid with some squares black, others white. At the next step the colour of each square is determined via simple rules by the colours of its neighbours. <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/Conway's_Game_of_Life</a><br/><br/>The state of the system in Life is simply the colour of each square.<br/><br/>The physical example had a continuous time, the abstract example discrete time. I will be sloppy and refer to the next game state even with continuous time. The alternatives are more cumbersome and do not add clarity.<br/><br/>---<br/><br/>The examples above were deterministic. We can add in random factors. The random factor is in the transition from one state to the next.<br/><br/>An example of a discrete time random (or stochastic) system is the "game" snakes and ladders <a href="https://en.wikipedia.org/wiki/Snakes_and_Ladders" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/Snakes_and_Ladders</a> , a zero player game. The state of the game is the position of the player tokens and information about turn order, and the transition into the next state is rolling a die, moving a token, and going up or down by ladders or snakes, if one happens to a square with one.<br/><br/>A famous continuous time example is Brownian motion: <a href="https://en.wikipedia.org/wiki/Brownian_motion" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/Brownian_motion</a><br/><br/>The next state of a random system is no longer defined by its previous state, but the previous state and the random factor do determine the next state.<br/><br/>---<br/><br/>To get a game, we need to add in players. A game with one player is called a control problem. A game with several is a proper game. Players add their input, or make their moves, as the game transitions from state to state. Games can be random or deterministic. Being "deterministic", in this usage, allows for player input, but there is no random input. (Of course, the players could choose to make their moves randomly. This is fine. But there is no obligatory random input.)<br/><br/>A deterministic control problem is parking a car. The state of the system consists of the position and orientation of the car and its physical properties, as well as the physical properties of the environment. Maybe we can assume there is enough fuel, maybe the amount of fuel is also part of the state. The state of the system and the performance of the driver determine how the system develops.<br/><br/>A player building a GURPS character can also be seen as a control problem. The state is the points that have been spent and what has been bought with them, as well as the total number of available points. The choices of the player, when combined with the state, determine what kind of character gets built.<br/><br/>The state of chess includes the position of all pieces, information about castling and repeated moves, and whose turn it is next. This, together with a player decision, is enough to determine the next game state.<br/><br/>The state of football, a sport where people manipulate a ball mostly by using their feet as the name implies, includes the physical state of the playing field, as well as information about game time, goals scored, fouls and substitutions. (And possibly some other details that I am forgetting now.) When combined with player performance, this is enough to determine how the game continues.<br/><br/>In Burning wheel, the game state includes the parts of the game world that have been determined thus far, the stats of all entities that have been determined thus far, who is the game master, who are the player and which has which character, what has been determined of the game world thus far, is someone in the middle of an ongoing extended conflict mechanism, are there linked rolls whose effect on the following rolls have not been determined yet, and any other resolution whose effect has not yet entered play. And probably other stuff. This, when combined with player performance (including choices) and random input mandated by the rules system, determines how the game progresses.<br/><br/>---<br/><br/>What about human judgement? Roleplaying games, much like football, have human judgment. This is fine. We can either take the human judgment as part of the rules system, or we can consider anyone making judgments as an additional player. This would mean that the referees in football would count as players. This is a question of modelling and should be done with a purpose in mind - for some purposes we might want to accept the fuzziness of human judgement as fuzziness of the rules system and not worry about it too much, while in other cases we should consider the human fuzziness as essential and important.<br/><br/>---<br/><br/>What about errors and mistakes? Either they cause the game to stop, they are not critical, or they are fixed in some way to make continuing the game possible. The game has to have a game state in order for it to continue. Sometimes a game state with contradictions or omissions is not critical (humans are flexible in this way) and game can continue regardless, while some of the time the state needs to be seriously discussed.<br/><br/>It might be that the location of a pawn in a game is uncertain (due to the cat), but the game is check-mate regardless, so we can simply ignore the pawn. Or it might be that in one location it is check-mate while in another the game continues, and in this case we'll have to deal with the error in some way. Or maybe it is late and we decide to play another match next day, saying the cat won this one.<br/><br/>---<br/><br/>What about consent, credibility, and so on? In game studies a game is usually defined as voluntary activity with arbitrary goals and restrictions that the players choose to engage in. (This is different from the definition as a particular type of system, above, but there is lots of overlap.)<br/><br/>This means that any game, in the game studies sense, relies on players accepting the game state, rules, and objectives of play. Playing the game, as an activity, requires this. This is also true of playing in the sense of leikki/lek, unstructured play typical of children, for which English does not really have a distinct word, as well as peli/spel, the structured play which typically has rules and objectives. Roleplaying lives somewhere on that continuum.<br/><br/>In particular, shared imagined space is a subset of game state, since it is used as a factor when determining how play continues. The transition in time from one game state to the next often relies on the system in the Forge sense. Often the credibility has been given ahead of time for some participant to do particular things, possibly privately and without informing anyone else. However, as per the previous point, as a type of play, roleplaying always requires at least passive consent of everyone with respect to everything going on.<br/><br/>---<br/><br/>Game state: The time-dependent state of a game, which, when combined with player performance and random input, determines how the play continues.                </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</div><li class="Item Alt ItemComment" id="Comment_486028">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486028/#Comment_486028" name="Item_1" rel="nofollow"><time datetime="2019-06-14T08:47:33+00:00" title="June 14, 2019  8:47AM">June 14</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            We really liked the (kinda circular) definition "all operands of the rules". In nomic games (which D&amp;D and AW both are) that also includes all rules, since the rules are also operands.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486031">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486031/#Comment_486031" name="Item_2" rel="nofollow"><time datetime="2019-06-14T09:07:55+00:00" title="June 14, 2019  9:07AM">June 14</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            That requires defining what rules are and does not really work for games of physical performance, but for roleplaying games, it should give more or less the same outcome, I think. Freeform games are a good test case for what you mean by rules.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486032">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486032/#Comment_486032" name="Item_3" rel="nofollow"><time datetime="2019-06-14T09:13:21+00:00" title="June 14, 2019  9:13AM">June 14</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Ah, I see, good point.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486052">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Jeph" title="Jeph"><img alt="Jeph" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/396/nMA3E0EWQEIUQ.gif"/></a><a class="Username" href="/forums/profile/Jeph">Jeph</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486052/#Comment_486052" name="Item_4" rel="nofollow"><time datetime="2019-06-14T15:25:25+00:00" title="June 14, 2019  3:25PM">June 14</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Oh, I like this a lot.<br/><br/>I agree that it's usually much equivalent to "all the operands of the rules" for most RPGs. That's like saying "All the things changed by the dynamics of a system."                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486057">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Paul_T" title="Paul_T"><img alt="Paul_T" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Paul_T">Paul_T</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486057/#Comment_486057" name="Item_5" rel="nofollow"><time datetime="2019-06-14T15:58:47+00:00" title="June 14, 2019  3:58PM">June 14</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Interesting! What are some examples of things that we interact with in play that are NOT part of this definition? Where are its boundaries, in other words?                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486058">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Jeph" title="Jeph"><img alt="Jeph" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/396/nMA3E0EWQEIUQ.gif"/></a><a class="Username" href="/forums/profile/Jeph">Jeph</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486058/#Comment_486058" name="Item_6" rel="nofollow"><time datetime="2019-06-14T16:08:10+00:00" title="June 14, 2019  4:08PM">June 14</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 14, 2019 4:14PM by Jeph.">edited June 14</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Lighting and music in the room, maybe.<br/><br/>The privately-held opinions that players hold about the SIS, and plans for future actions. "I really don't like Alice, I'm going to poison her first chance I get!"<br/><br/>Meta-level communication between players. After my buddy slays the dragon, I say, "Nice!"<br/><br/>EDIT: I'd also argue that in <a href="/forums/profile/Silmenume">@Silmenume</a> 's game, when the GM says "Roll a 20-sided," sometimes that's an interaction that has nothing to do with rules or game state—sometime's it's purely semiotic, a communicative gesture that says "listen up" or "spotlight's on you, now."                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486059">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486059/#Comment_486059" name="Item_7" rel="nofollow"><time datetime="2019-06-14T16:31:56+00:00" title="June 14, 2019  4:31PM">June 14</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 14, 2019 4:33PM by Thanuir.">edited June 14</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Paul_T" rel="nofollow">Paul_T</a> said:</div><div class="QuoteText"><p>Interesting! What are some examples of things that we interact with in play that are NOT part of this definition? Where are its boundaries, in other words?</p></div></blockquote>
+A necessary question.<br/><br/>1. The rules of the game, either in the traditional sense or the Forge definition of system, describe how the game state evolves. They are not in the game state. The entities defined by the rules are in the game state. (I believe the terminology in dynamical systems community would the dynamics of the system, but I am not in that community and might be wrong. Rules are the dynamics of the system. That sounds fancy.)<br/><br/>So: The rule to roll initiative when a combat starts is not in the game state. The result of the roll and/or the resulting initiative order are, as is the variable "Are we in combat or not". (It does not matter if consider the results of the rolls, the order, or both are there, unless there are further complications.) The rule describing how narrative power is shared is not in the game state, but the outcomes and of using that power are.<br/><br/>2. The skill and desires of the players are not in the game state. They determine what kinds of transitions the players cause between the states. The player is a huge black box, intentionally.<br/><br/>3. In a non-physical game, the physical location can generally be abstracted away, but this is a modelling question. If there is so much noise that we need to use gestures, then the environment better be included in some way, or the model is bad.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486060">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/lumpley" title="lumpley"><img alt="lumpley" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/lumpley">lumpley</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486060/#Comment_486060" name="Item_8" rel="nofollow"><time datetime="2019-06-14T16:43:01+00:00" title="June 14, 2019  4:43PM">June 14</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Thanuir: I understood from 2097's references to Nomic that the rules of the game are, or at least conceivably are, themselves part of the game state.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486062">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486062/#Comment_486062" name="Item_9" rel="nofollow"><time datetime="2019-06-14T17:09:31+00:00" title="June 14, 2019  5:09PM">June 14</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 14, 2019 5:10PM by Thanuir.">edited June 14</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Supposing the rules can be changed during play, then yes, certainly to that extent.<br/><br/>I am not sure if it is otherwise useful.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486063">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/lumpley" title="lumpley"><img alt="lumpley" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/lumpley">lumpley</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486063/#Comment_486063" name="Item_10" rel="nofollow"><time datetime="2019-06-14T17:26:47+00:00" title="June 14, 2019  5:26PM">June 14</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Yep! I'm with you.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486071">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486071/#Comment_486071" name="Item_11" rel="nofollow"><time datetime="2019-06-14T21:02:07+00:00" title="June 14, 2019  9:02PM">June 14</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Yeah, for sure in games that <i>are</i> nomic. Jury still out on if it does in games that aren't. Like, is Microscope really nomic? It tells you to create new "declarations" a la prolog but it doesn't modify <i>itself</i> the way 2097e or AW or <abbr title="Common Lisp">CL</abbr> does.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486106">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/EricJ" title="EricJ"><img alt="EricJ" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/EricJ">EricJ</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486106/#Comment_486106" name="Item_12" rel="nofollow"><time datetime="2019-06-15T02:38:48+00:00" title="June 15, 2019  2:38AM">June 15</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I admire the attempt to ground roleplaying games in the concept of state space. In life, I'm a champion for the concept of 'state space' and extol its wonders to clarify thinking and presentation.<br/><br/>However, there are some pretty big problems with using the concept in social games which I'll try to outline.<br/><br/>First of all, state spaces are properly used to model systems. They are used in cases where we believe that a system's dynamics are properly dependent on the state space, but also in cases where we do not. Something like a dynamical system is an example of the former, the stock market the latter.<br/><br/>One of the major problems with state spaces is their reliance on measurement. This leads to endless problems in various cases. In quantum mechanics, systems are not necessarily independent, and don't have to map to classical observables. In some games, the participants won't have access to the same 'game state' because the state of the game is mediated by each participant's unique cognition.<br/><br/>This is why in games like football, you have referees. It grants some semblance of a true 'state space' since we map the state of the game to the referee's particular reference. To some extent, this can be successful, if you assume that each participant can query the referee about the game state freely.<br/><br/>However, the default state for games is you can't. It's closer to something like the poker game in "The Sting" where you have two players trying to cheat each other and get away with it. The only game state then is political.<br/><br/>RPGs are closer to what Wittgenstein calls a "language game." <a href="https://en.wikipedia.org/wiki/Language_game_(philosophy)" rel="nofollow">https://en.wikipedia.org/wiki/Language_game_(philosophy)</a> One of his points is that two participants can use the same word to refer to different entities and the game still functions. This is his famous beetle argument. <a href="https://en.wikipedia.org/wiki/Private_language_argument#The_beetle-in-a-box" rel="nofollow">https://en.wikipedia.org/wiki/Private_language_argument#The_beetle-in-a-box</a><br/><br/>*Usually* we make allowances for this. A player will say, "I want to butt into their conversation." The GM will respond, "I thought you were going to sleep?" The player will say, "I meant that *if nothing was going to happen*."<br/><br/>The notion of state space is still very useful, but it's better to understand it's limitations.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486107">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/AsIf" title="AsIf"><img alt="AsIf" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/228/nAGHQTW523VF0.jpg"/></a><a class="Username" href="/forums/profile/AsIf">AsIf</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486107/#Comment_486107" name="Item_13" rel="nofollow"><time datetime="2019-06-15T02:53:15+00:00" title="June 15, 2019  2:53AM">June 15</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            /nodding.  Very small elements of play - like a single task resolution - might be modeled effectively as state spaces, but beyond one or two dice rolls it would get prohibitively complex and multidimensional.<br/><br/>I'm leaning toward Assemblage Theory or Actor Network Theory, but my thoughts on this are not yet coherent enough to post.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486113">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/2097" title="2097"><img alt="2097" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/107/nO4LZ6SDEDHCJ.png"/></a><a class="Username" href="/forums/profile/2097">2097</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486113/#Comment_486113" name="Item_14" rel="nofollow"><time datetime="2019-06-15T05:14:06+00:00" title="June 15, 2019  5:14AM">June 15</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<a href="/forums/profile/EricJ">@EricJ</a> , <a href="http://story-games.com/forums/discussion/comment/485772/#Comment_485772" rel="nofollow">read this post</a>.<br/><br/>The game state is a big ball of mud full of contradictions that we are commited to do our <small> ultimately futile</small> best to resolve. And I love it♥                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486115">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486115/#Comment_486115" name="Item_15" rel="nofollow"><time datetime="2019-06-15T05:28:56+00:00" title="June 15, 2019  5:28AM">June 15</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<a href="/forums/profile/EricJ">@EricJ</a> <br/><br/>I do think that language games are a good method for defining roleplaying games and a useful perspective to have (you might enjoy this article of Jonne Arjoranta: <a href="https://scholar.google.dk/scholar?cluster=13877568669943894545&amp;hl=no&amp;as_sdt=0,5&amp;sciodt=0,5" rel="nofollow" target="_blank">https://scholar.google.dk/scholar?cluster=13877568669943894545&amp;hl=no&amp;as_sdt=0,5&amp;sciodt=0,5</a> ). That does not mean other perspectives are useless, of course, as having several perspectives at one's disposal allows picking the most useful one for a particular purpose.<br/><br/>Since roleplaying games are time-dependent systems, they by definition have a state that is in good enough a condition for the game to progress.<br/><br/>We are happy in that we are not trying to model roleplaying with a mathematical model, and we are not trying to prove theorems about it, either; rather, we want a useful concept that allows us to refer to, for example, parts of the fiction that have been established but not shared yet. These are in the game state, so it satisfies this requirement.<br/><br/>I am not, thus far, using state space for anything. Only the game state and some discussion of the transition (for people who require the Forge system to make an appearance); that is, the look is more at the level of a single trajectory locally in time.<br/><br/>I believe the limitations are essentially the same as with the sharedness of shared imagined space, which, I hope, people have thought about already.<br/><br/>---<br/><br/>Unrelated to this, the game rules should be thought of as parts of the state space to the extent that they time-dependent. Football transitioning from normal play to the penalty rounds, for example, has the rules change completely. If the rules allow for changing themselves, this is the case.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486133">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Aviatrix" title="Aviatrix"><img alt="Aviatrix" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/765/nILPDIVNSI4FL.jpg"/></a><a class="Username" href="/forums/profile/Aviatrix">Aviatrix</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486133/#Comment_486133" name="Item_16" rel="nofollow"><time datetime="2019-06-15T08:50:54+00:00" title="June 15, 2019  8:50AM">June 15</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            "Facts" in rpgs are rules. If the chair in front of the hardholder's desk is red, that's a rule and until it interacts with another rule, it's always red. Rules that interact only with themselves are what we usually call "facts" (like the hardholder's chair is red.) When a fact encounters another fact, we must look to the rules to figure out what happens (Dremmer hits the chair with his grenade launcher; the MC checks his Principles [which are rules] and says it disintegrates) or we must generate a new rule using existing procedures. ("Dremmer, you'll need a steady hand to do this without hurting yourself, roll Act Under Fire.")<br/><br/>If I played a game of AW and no one ever used the Open Your Mind to the Psychic Maelstrom rule, that rule would <i>still</i> exist in the world, even if it never entered the SIS. It's a rule of the game; I don't think that's controversial. If the MC prepped a rule ("When you point the BFG at anyone you have an emotion about, Roll +Hot) but it never got used because your friend moved to Asia to teach English and the campaign ended, it would still exist in the "game state" (because we have a rule for it: Always say what your prep demands).<br/><br/>This is, I think, the model for all RPGs. The question is "what are the rules for generating new rules?" Sandra is talking about a model where all the facts of the game are governed by existing rules (the module/prep) and the procedures for governing the entry of new content into the game are tightly restricted and controlled, giving precedence in all cases to the existing body of rules/facts. That is, subjective content can't enter the game without it is made objective by the rules procedures. This is in fact only a qualitative distinction from the procedure in, say, AW, where "ask the player to come up with something" is in fact one of the rule procedures. San's game doesn't allow that as a rule generation procedure. Her further contention (that I agree with) is that there is a "Blorb Event Horizon" where the experience of the game becomes very different when there is enough accumulated weight of existing rules coupled with tightly controlled procedures to generate the new rules.<br/><br/>When you give the same rules weight to "there's a piece of pie in the refrigerator" as you do to "when you threaten someone with violence roll +Hard" IMHO all lot of these questions become much easier to resolve.                         </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486135">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486135/#Comment_486135" name="Item_17" rel="nofollow"><time datetime="2019-06-15T11:02:26+00:00" title="June 15, 2019 11:02AM">June 15</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 15, 2019 11:03AM by DeReel.">edited June 15</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            This is super neat as it compels some assumptions about "world factoids" out of the woods. <br/>Like what are the rules in play that distinguish 3D goblins and dragons roaming in from a nearby province. What gears and clutch are at work there ? Various themes are obviously treated differently (exploration, mobility, darwinism, ecology fiction, politics fiction, combat, etc.) Problem is : they function in networks and going through a series of them activates multiple possibly contradictory rules. Saying goblins are foremost a limitation to mobility and dragons are primarily a political concern might be enough. The way I do it is for one setting to determine the flux of actual causality. Like if I roll goblins, am I allowed to create a fictional cause for them, or if I roll dragon do I have to simulate the tickling down consequences of its roaming. A few causes (crisis, landscape, w/e) can create settings this way. There's no one way of world building, but primary gears to be defined.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486139">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486139/#Comment_486139" name="Item_18" rel="nofollow"><time datetime="2019-06-15T17:59:05+00:00" title="June 15, 2019  5:59PM">June 15</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 15, 2019 6:02PM by Thanuir.">edited June 15</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<a href="/forums/profile/Aviatrix">@Aviatrix</a> I am pretty much on board with what you write, though I think that defining "rules" is something best done on a case-by-case basis.<br/><br/>I can see use in the definition you give, but I also see use in defining rules and facts separately; often rules remain fairly static while facts change constantly. Rules are often found in a rulebook while many facts are not. Many facts are something characters can directly discussed, while rules are often not, though there are plenty of exceptions to all ways here.<br/><br/>So I do not feel necessary to commit to any global relationship between rules and facts. Case-by-case works well enough, for me.                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486145">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Aviatrix" title="Aviatrix"><img alt="Aviatrix" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/765/nILPDIVNSI4FL.jpg"/></a><a class="Username" href="/forums/profile/Aviatrix">Aviatrix</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486145/#Comment_486145" name="Item_19" rel="nofollow"><time datetime="2019-06-15T19:17:28+00:00" title="June 15, 2019  7:17PM">June 15</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            Think of them as logical rules and maybe that helps. That's why I called them rules. Like, think of it: if the chair in the hardholder's office is established, via whatever game procedure that is appropriate, as red, you can't contradict that anymore than the Battlebabe can decide to roll Seize By Force using Cool. (Oh, how I wish she could!) <i>Functionally the ability to contradict the content is the same</i>, i.e., only through the operation of another rule. (The Battlebabe can take a move to roll Go Aggro with Cool, for example.)<br/><br/>If you run something from a module/published campaign as Sandra often does, well, you have a lot of rules there; everything in the published text is a rule. Same goes for home prep, since that is an established rule generation procedure in most games. Including Apocalypse World.<br/><br/>That you can swap "fact" for "rule" and vice versa in most sentences that use one or the other is kind of giving the game away <img alt=";)" class="emoji" height="20" src="/forums/resources/emoji/wink.png" title=";)"/> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486146">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Aviatrix" title="Aviatrix"><img alt="Aviatrix" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/765/nILPDIVNSI4FL.jpg"/></a><a class="Username" href="/forums/profile/Aviatrix">Aviatrix</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486146/#Comment_486146" name="Item_20" rel="nofollow"><time datetime="2019-06-15T19:20:17+00:00" title="June 15, 2019  7:20PM">June 15</time></a> </span>
+<span class="MItem"> <span class="DateUpdated" title="Edited June 15, 2019 7:24PM by Aviatrix.">edited June 15</span> </span> </div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<a href="/forums/profile/DeReel">@DeReel</a>, contradictions arising from rules conflicts are resolved using the game's rule generation procedures. For these purposes let us consider things like "the social contract" a part of the game's rule generation procedures...uh, mostly because they are. When a contradiction arises, that remains the base case for the generation of a new rule: Joe's Girl is healthy and that's a rule; Dremmer shoots her with a shotgun, because he's the Gunlugger and bored, so now we have a contradiction (she can't be both healthy and injured); we generate a new rule ("She takes 3 harm and dies") using the game's procedures.<br/><br/>Look folks, I'm not saying anything radical here nor is this supposed to be a contradiction of what Sandra is saying. It was the way that her work resolved in my head in a sudden crystal realization; it was my Golden Path but find your own Leto if you need to. Sandra has written extensively and repeatedly on the theory here; I trust her work <img alt=":)" class="emoji" height="20" src="/forums/resources/emoji/smile.png" title=":)"/> </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item Alt ItemComment" id="Comment_486157">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/DeReel" title="DeReel"><img alt="DeReel" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/uploads/userpics/149/nNS7SNDJ10GP6.jpeg"/></a><a class="Username" href="/forums/profile/DeReel">DeReel</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486157/#Comment_486157" name="Item_21" rel="nofollow"><time datetime="2019-06-15T21:44:00+00:00" title="June 15, 2019  9:44PM">June 15</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+                            I perfectly agree with what you're saying. Your idea is crystal clear and very true. I applied it to a practical case I encounter often where "factoids" and "generative rules" are at stake  (setting creation) mostly to see if something was coming out of factoid/rule distinction. Not much right now, but I'll keep shaking the boggle box.                         </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li><li class="Item ItemComment" id="Comment_486186">
+<div class="Comment">
+<div class="Options">
+</div>
+<div class="Item-Header CommentHeader">
+<div class="AuthorWrap">
+<span class="Author">
+<a class="PhotoWrap" href="/forums/profile/Thanuir" title="Thanuir"><img alt="Thanuir" class="ProfilePhoto ProfilePhotoMedium" src="http://story-games.com/forums/applications/dashboard/design/images/defaulticon.png"/></a><a class="Username" href="/forums/profile/Thanuir">Thanuir</a> </span>
+<span class="AuthorInfo">
+</span>
+</div>
+<div class="Meta CommentMeta CommentInfo">
+<span class="MItem DateCreated">
+<a class="Permalink" href="/forums/discussion/comment/486186/#Comment_486186" name="Item_22" rel="nofollow"><time datetime="2019-06-16T05:55:53+00:00" title="June 16, 2019  5:55AM">June 16</time></a> </span>
+</div>
+</div>
+<div class="Item-BodyWrap">
+<div class="Item-Body">
+<div class="Message">
+<blockquote class="UserQuote"><div class="QuoteAuthor"><a href="/forums/profile/Aviatrix" rel="nofollow">Aviatrix</a> said:</div><div class="QuoteText"><p>Think of them as logical rules and maybe that helps. That's why I called them rules. Like, think of it: if the chair in the hardholder's office is established, via whatever game procedure that is appropriate, as red, you can't contradict that anymore than the Battlebabe can decide to roll Seize By Force using Cool. (Oh, how I wish she could!) <i>Functionally the ability to contradict the content is the same</i>, i.e., only through the operation of another rule. (The Battlebabe can take a move to roll Go Aggro with Cool, for example.)</p></div></blockquote>
+I understand that perspective completely and sometimes use a definition of rules that includes facts. Sometimes I also use a definition of rules which does not include facts, because I find that useful, too.<br/><br/>Words are always used in a particular context, and definitions are selected so that they are useful for the task at hand. One, in general, does not need to have a single, fixed definition one uses; rather, one should understand what definition is being used in a particular discussion so as to be able to participate constructively.<br/><br/>If I made a strong commitment to "facts are rules", in all cases, then I would feel the need to correct the mistake of people who are using rules in the common rpg sense, which typically does not include many facts about the game world they are using. This would not improve those discussions at all, and, if fact, would only create confusion and chaos. In particular, then one would have to come up with a new name for the kinds of rules that they are talking about, i.e., the dynamics of the system when considered from this perspective. But then, in order to use that phrase, one would have to first explain what the phrase means. And that would not improve those conversations, either.<br/><br/>So I would just write that I am discussing rules (including facts established in this particular game) right now, which then allows me to say that the fiction and game setting are subsets of rules. Or maybe, in another conversation, I am discussing the "rulings, not rules" ethos of OSR versus the "rules, not rulings" ethos of D&amp;D 3, and if necessary, clarify that by rules I do not mean the facts established in a particular game. Those would be rulings, but the distinction I am trying to make does not care about them, so including them in the definition would simply make it more confusing. Rather, the distinction concerns the resolution methods used in play.<br/><br/>---<br/><br/>In this thread, I have a given a definition of game state. Since it is a simple extrapolation of a definition used in another domain (dynamical systems etc.), I think it is justified. I do not think the term is used in other meanings in the context of roleplaying, but if it turns out it is, than I will simply notice which definition I am using when using the term.<br/><br/>Just like: This game is clearly simulationist (in the threefold sense, not GNS), while that other one is gamist (in the GNS sense, not threefold).                        </div>
+<div class="Reactions"></div> </div>
+</div>
+</div>
+</li>

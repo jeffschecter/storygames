@@ -41,12 +41,16 @@
       tempStr += `<?xml version="1.0" encoding="UTF-8"?>\n`;
       tempStr += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
 
+      tempStr += `  <url>\n`;
+      tempStr += `    <loc>https://rickard80.github.io/index.html</loc>\n`;
+      tempStr += `  </url>\n`;
+
       for (rowStr of listArr) {
         if (rowStr) {
           row = new Row(rowStr);
 
           tempStr += `  <url>\n`;
-          tempStr += `    <loc>https://raw.githubusercontent.com/Rickard80/storygames/master/storygames/${row.id}.html</loc>\n`;
+          tempStr += `    <loc>https://rickard80.github.io/storygames/${row.id}.html</loc>\n`;
           tempStr += `  </url>\n`;
         }
       }

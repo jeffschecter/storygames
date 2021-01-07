@@ -37,12 +37,13 @@
       let tempStr = "";
       let row = {};
       let year = 0;
+      let domainOrigin = 'https://rickard80.github.io/storygames/';
 
       tempStr += `<?xml version="1.0" encoding="UTF-8"?>\n`;
       tempStr += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
 
       tempStr += `  <url>\n`;
-      tempStr += `    <loc>https://rickard80.github.io/index.html</loc>\n`;
+      tempStr += `    <loc>${domainOrigin}index.html</loc>\n`;
       tempStr += `  </url>\n`;
 
       for (rowStr of listArr) {
@@ -50,7 +51,7 @@
           row = new Row(rowStr);
 
           tempStr += `  <url>\n`;
-          tempStr += `    <loc>https://rickard80.github.io/storygames/${row.id}.html</loc>\n`;
+          tempStr += `    <loc>${domainOrigin}archive/${row.id}.html</loc>\n`;
           tempStr += `  </url>\n`;
         }
       }

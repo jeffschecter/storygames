@@ -1,0 +1,95 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  position: sticky;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  background-color: rgba(230, 230, 230, 0.96);
+}
+
+footer > * {
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+footer > #index {
+  border: none;
+  width: 60px;
+  padding: 0.125rem 0.3rem;
+  margin: 0.5rem 0px;
+}
+
+/* Chrome fix */
+footer > #index::-webkit-inner-spin-button,
+footer > #index::-webkit-outer-spin-button {
+   opacity: 1;
+
+}
+
+footer > .page {
+  text-decoration: underline;
+}
+
+.show-content > footer > .page {
+  text-decoration: none;
+}
+
+.show-content > footer > .list {
+  text-decoration: underline;
+}
+
+content > .loading {
+  text-align: center;
+}
+
+content {
+  flex: 1 1 auto; /* auto fill height */
+  display: block;
+  max-width: 800px;
+  margin: 0px auto;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+#list > h2 {
+  margin-top: 1rem;
+}
+
+#list > .row {
+  display: flex;
+  cursor: pointer;
+  padding: 0.125rem;
+  transition: background-color 200ms;
+}
+
+#list > .row:hover {
+  background-color: #abdafb;
+  transition: background-color 0ms;
+}
+
+#list .row > div:nth-child(1) { /* index */
+  padding-right: 0.5rem;
+}
+
+#list > .row > div:nth-child(2) { /* title */
+  flex: 1 1 auto;
+  font-size: 14px;
+}
+
+#page {
+  display: none;
+}
+
+.show-content > #page {
+  display: block;
+}
+
+.show-content > #list {
+  display: none;
+}

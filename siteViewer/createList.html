@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <script type="text/javascript">
+    class Row {
+      constructor(str) {
+        this.value = str;
+        this.id = this.extractId(str);
+        this.author = this.extractAuthor(str);
+        this.title = this.extractTitle(str);
+        this.year = this.extractYear(str);
+      }
+
+      extractId(str) {
+        return str.match(/^\d+/)[0];
+      }
+
+      extractAuthor(str) {
+        return str.match(/(?<=^\d+. ).+?(?= -)/)[0];
+      }
+
+      extractTitle(str) {
+        return str.match(/(?<=^.+. - ).+?(?= \(\d+-)/)[0]
+        .replaceAll('\"', '\\\"');
+      }
+
+      extractYear(str) {
+        return str.match(/\d+(?=-\d+-\d+\))/)[0];
+      }
+    }
+
+    function createList() {
+      var tempArray = document.getElementById("theList").value.split("\n");
+      var arrayname = document.getElementById("nameOfArray").value
+      var arraystart = document.getElementById("startOfArray").value;
+      var tempString = "";
+      var row = ""
+
+      for (var i = 0; i < tempArray.length; i++) {
+        if (tempArray[i]) {
+          row = new Row(tempArray[i]);
+
+          tempString += arrayname;
+          tempString += `[${i+arraystart/1}]={`;
+          tempString += `id:${row.id},`;
+          tempString += `author:"${row.author}",`;
+          tempString += `title:"${row.title}",`;
+          tempString += `year:${row.year}`;
+          tempString += '};\n';
+        }
+      }
+
+      document.getElementById("theList").value = tempString;
+    }
+
+  </script>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    section {
+      display: inline-block;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <p>Name of Array
+    <input id="nameOfArray"size="15" value="list" type="text"></p>
+
+
+    <p>Start of Array
+    <input id="startOfArray"size="4" value="0" type="text"></p>
+
+    <p><input type="button" value="Create list" onClick="createList()" /></p>
+
+    <textarea id="theList" onfocus="this.select()" rows="200" cols="50">Paste the whole list</textarea>
+  </section>
+
+</body>
+</html>

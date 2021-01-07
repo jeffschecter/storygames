@@ -2,7 +2,7 @@ const LAST_VISITED = "last-visited";
 const DEFAULT_HEADLINE = "Story Games Index";
 const LIST_INDEX = 0;
 
-const domainOrigin = 'https://rickard80.github.io/storygames/';
+const domainOrigin = 'https://rickard80.github.io/storygames/archive/';
 
 let headline = DEFAULT_HEADLINE;
 var lastIndex = 0;

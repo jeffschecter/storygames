@@ -49,7 +49,7 @@ content > .loading {
 }
 
 content {
-  flex: 1 1 auto; /* auto fill height */
+  flex: 1 1 auto; /* auto fill height to push sticky to bottom */
   display: block;
   max-width: 800px;
   margin: 0px auto;
@@ -73,7 +73,7 @@ content {
   transition: background-color 0ms;
 }
 
-#list .row > div:nth-child(1) { /* index */
+#list .row > div:nth-child(1) {   /* index */
   padding-right: 0.5rem;
 }
 

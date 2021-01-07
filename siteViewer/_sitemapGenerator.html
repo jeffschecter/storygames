@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <script type="text/javascript">
+    class Row {
+      constructor(str) {
+        this.value = str;
+        this.id = this.extractId(str);
+        this.author = this.extractAuthor(str);
+        this.title = this.extractTitle(str);
+        this.year = this.extractYear(str);
+      }
+
+      extractId(str) {
+        return str.match(/^\d+/)[0];
+      }
+
+      extractAuthor(str) {
+        return str.match(/(?<=^\d+. ).+?(?= -)/)[0];
+      }
+
+      extractTitle(str) {
+        return str.match(/(?<=^.+. - ).+?(?= \(\d+-)/)[0]
+        .replaceAll('\"', '&quot;');
+      }
+
+      extractYear(str) {
+        return str.match(/\d+(?=-\d+-\d+\))/)[0];
+      }
+    }
+
+    function createList() {
+      const theListEl = document.getElementById("theList");
+      let listArr = theListEl.value.split("\n");
+      let tempStr = "";
+      let row = {};
+      let year = 0;
+
+      tempStr += `<?xml version="1.0" encoding="UTF-8"?>\n`;
+      tempStr += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
+
+      for (rowStr of listArr) {
+        if (rowStr) {
+          row = new Row(rowStr);
+
+          tempStr += `  <url>\n`;
+          tempStr += `    <loc>https://raw.githubusercontent.com/Rickard80/storygames/master/storygames/${row.id}.html</loc>\n`;
+          tempStr += `  </url>\n`;
+        }
+      }
+
+      tempStr += `</urlset>\n`;
+
+      theListEl.value = tempStr;
+    }
+
+  </script>
+</head>
+<body>
+
+  <center>
+    <div>
+      <input type="button" style="margin-bottom: 1rem" value="Generate" onClick="createList()" />
+    </div>
+
+    <textarea id="theList" text="Paste the whole list" rows="50" cols="50"></textarea>
+  </center>
+
+</body>
+</html>

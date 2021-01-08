@@ -11,8 +11,20 @@ var showContent = false;
 
 var indexInput = null;
 
+function googleSearch(keywords) {
+  const API_KEY = 'AIzaSyCQmwK7JeBoXmmPiwROOf0G0ATkwEuRy30';
+  const SEARCH_ENGINE_ID = '72ea68d1161039cae';
+
+  fetchData(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${keywords}`, function() {
+    if (this.readyState == 4 && this.status == 200 && this.responseText) {
+      let response = JSON.parse(this.responseText)
+      console.log('Google Search', response);
+    }
+  });
+}
+
 function switchTab(event) {
-  let className = event.currentTarget.classList[0];
+  let className = event.target.classList[0];
   let showList = className == 'list';
   let state = (showList) ? LIST_INDEX : currentPageIndex;
   let index = (showList) ? '' : currentPageIndex
@@ -27,6 +39,12 @@ function setBodyClass(className) {
 
   document.querySelector('body').classList.toggle('show-content', showContent);
   setDocumentTitle(showContent ? headline : DEFAULT_HEADLINE);
+
+  setTimeout(() => {
+    if (className == 'list' && currentPageIndex) {
+      scrollToListItem();
+    }
+  }, 1000)
 }
 
 function updateLocation(state, title, index) {
@@ -48,8 +66,16 @@ function setDocumentTitle(title) {
   document.title = `SGI :: ${title}`;
 }
 
-function loadDoc(pageIndex, increase) {
+function fetchData(url, callbackFn) {
   var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    callbackFn.apply(this);
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+function loadDoc(pageIndex, increase) {
   let pageEl = document.getElementById("page");
 
   currentPageIndex = parseInt(pageIndex);
@@ -58,38 +84,46 @@ function loadDoc(pageIndex, increase) {
   pageEl.innerHTML = "<h1 class='loading'>Loading...</h1>"
   setBodyClass('page');
 
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-console.log('document loaded:', pageIndex);
+  fetchData(`${domainOrigin}${pageIndex}.html`, function() {
+      if (this.readyState == 4 && this.status == 200) {
+    console.log('document loaded:', pageIndex);
 
-      let responseText = this.responseText;
-      responseText = cleanFromLineBreaks(responseText);
-      responseText = replaceAnchorLink(responseText);
-      responseText = changeInternalLinks(responseText);
+        let responseText = this.responseText;
+        responseText = cleanFromLineBreaks(responseText);
+        responseText = replaceAnchorLink(responseText);
+        responseText = changeInternalLinks(responseText);
 
-      let headlinePattern = /(?<=<h1>).*?(?=<\/h1)/;
-      headline = responseText.match(headlinePattern);
-      setDocumentTitle(headline);
+        let headlinePattern = /(?<=<h1>).*?(?=<\/h1)/;
+        headline = responseText.match(headlinePattern);
+        setDocumentTitle(headline);
 
-      pageEl.innerHTML = responseText;
+        pageEl.innerHTML = responseText;
 
-      if (location.hash) {
-        scrollToAnchor();
+        if (location.hash) {
+          scrollToAnchor();
+        }
+      } else if (this.readyState == 4) {
+        let modification = (increase) ? 1 : -1;
+        let newIndex = checkRange(pageIndex + modification);
+
+        updateURL(newIndex, null, newIndex, "replace");
+        loadDoc(newIndex, increase);
       }
-
-    } else if (this.readyState == 4) {
-      let modification = (increase) ? 1 : -1;
-      let newIndex = checkRange(pageIndex + modification);
-
-      updateURL(newIndex, null, newIndex, "replace");
-      loadDoc(newIndex, increase);
-    }
-  };
-
-  xhttp.open("GET", `${domainOrigin}${pageIndex}.html`, true);
-  xhttp.send();
+  });
 
   localStorage.setItem(LAST_VISITED, pageIndex);
+}
+
+function scrollToListItem() {
+  let listIndexes = document.getElementById('list').querySelectorAll('.row > div:first-child');
+  var id = '';
+  for (let indexEl of listIndexes) {
+    id = indexEl.textContent
+    if (id.substring(0, id.length-1) == currentPageIndex) {
+      indexEl.scrollIntoView();
+      break;
+    }
+  }
 }
 
 function scrollToAnchor() {
@@ -168,6 +202,11 @@ function setClickListeners() {
   setMenuClickListeners();
 
   window.addEventListener('popstate', catchBrowserNavigation);
+
+  let googleSearchBar = document.querySelector('form input');
+  if (googleSearchBar) {
+    googleSearchBar.placeholder = "Search"
+  }
 }
 
 function catchBrowserNavigation(event) {
@@ -180,10 +219,10 @@ function catchBrowserNavigation(event) {
       jumpToLinkPage = pageIndex && linkedIndex == currentPageIndex;
 
   if (goToList) {
-// console.log('invalidSiteNavigation')
+// console.log('goToList')
     setBodyClass('list')
   } else if (historyStoredListPage) {
-// console.log('invalidSiteNavigation')
+// console.log('historyStoredListPage')
     setBodyClass('list');
   } else if (newDoc) {
 // console.log('newDoc')
@@ -196,8 +235,6 @@ function catchBrowserNavigation(event) {
 // console.log('new hash and new doc')
       loadDoc(linkedIndex);
     }
-//   } else if (jumpToLinkPage) {
-// console.log('jumpToLinkPage')
   } else {
     setBodyClass('page');
 // console.log('else, scrollTo')
@@ -227,6 +264,7 @@ function getIndexFrom(textContent) {
 
 function setMenuClickListeners() {
   const menuListItems = document.querySelectorAll('footer > div');
+  const searchBarInput = document.getElementById('search');
 
   menuListItems.forEach((menuItem) => {
     let className = menuItem.classList[0];
@@ -237,5 +275,9 @@ function setMenuClickListeners() {
     let newIndex = checkRange(event.target.value);
     loadDoc(newIndex, currentPageIndex < newIndex);
     updateLocation(newIndex, null, newIndex);
+  });
+
+  searchBarInput.addEventListener('change', (event) => {
+    googleSearch(event.currentTarget.value);
   });
 }

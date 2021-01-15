@@ -262,11 +262,11 @@ function setListClickListeners() {
   document.addEventListener('click', (event) => {
     let target = event.target;
     let aElem = (target.tagName == 'A') ? target : (target.parentNode && target.parentNode.tagName == 'A') ? target.parentNode : null;
-    let isInsideList = aElem && aElem.parentNode.id == 'list';
+    let href = aElem && aElem.href.match(/\?\d+$/);
+    let isInternalLink = (href) ? href[0] : false;
 
-    if (isInsideList) {
-      let pageIndex = getIndexFrom(aElem.firstChild.textContent); // a > i:firstChild.textContent
-
+    if (isInternalLink) {
+      let pageIndex = isInternalLink.substr(1);
 
       loadDoc(pageIndex);
       updateLocation(pageIndex, null, pageIndex);

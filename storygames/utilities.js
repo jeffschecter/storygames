@@ -10,17 +10,28 @@ var currentPageIndex = 0;
 var showContent = false;
 
 var indexInput = null;
+var listIndexes = null;
 
-function googleSearch(keywords) {
+function googleSearch(event) {
   const API_KEY = 'AIzaSyCQmwK7JeBoXmmPiwROOf0G0ATkwEuRy30';
   const SEARCH_ENGINE_ID = '72ea68d1161039cae';
 
-  fetchData(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${keywords}`, function() {
-    if (this.readyState == 4 && this.status == 200 && this.responseText) {
-      let response = JSON.parse(this.responseText)
-      console.log('Google Search', response);
-    }
-  });
+  let searchInput = event.currentTarget;
+  let keywords = searchInput.value.trim();
+
+  if (keywords.length > 3) {
+    searchInput.placeholder = "Search";
+
+    fetchData(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${keywords}`, function() {
+      if (this.readyState == 4 && this.status == 200 && this.responseText) {
+        let response = JSON.parse(this.responseText)
+        console.log('Google Search', response);
+      }
+    });
+  } else {
+    searchInput.value = "";
+    searchInput.placeholder = "Too short. Min 4 characters."
+  }
 }
 
 function switchTab(event) {
@@ -28,8 +39,13 @@ function switchTab(event) {
   let showList = className == 'list';
   let state = (showList) ? LIST_INDEX : currentPageIndex;
   let index = (showList) ? '' : currentPageIndex
+  let firstTimeVisitedLoadingPage = !showList && headline == DEFAULT_HEADLINE && currentPageIndex;
 
-  setBodyClass(className);
+  if (firstTimeVisitedLoadingPage) {
+    loadDoc(currentPageIndex);
+  } else {
+    setBodyClass(className);
+  }
 
   updateLocation(state, null, index);
 }
@@ -40,11 +56,9 @@ function setBodyClass(className) {
   document.querySelector('body').classList.toggle('show-content', showContent);
   setDocumentTitle(showContent ? headline : DEFAULT_HEADLINE);
 
-  setTimeout(() => {
-    if (className == 'list' && currentPageIndex) {
-      scrollToListItem();
-    }
-  }, 1000)
+  if (className == 'list' && currentPageIndex) {
+    scrollToListItem();
+  }
 }
 
 function updateLocation(state, title, index) {
@@ -115,12 +129,17 @@ function loadDoc(pageIndex, increase) {
 }
 
 function scrollToListItem() {
-  let listIndexes = document.getElementById('list').querySelectorAll('.row > div:first-child');
+  const WAIT_FOR_DOM_TO_LOAD = 1000;
+  listIndexes = listIndexes || document.getElementById('list').querySelectorAll('a > i:first-child');
   var id = '';
+
   for (let indexEl of listIndexes) {
-    id = indexEl.textContent
+    id = indexEl.textContent;
+
     if (id.substring(0, id.length-1) == currentPageIndex) {
-      indexEl.scrollIntoView();
+      setTimeout(() => {
+        indexEl.scrollIntoView();
+      }, WAIT_FOR_DOM_TO_LOAD);
       break;
     }
   }
@@ -143,12 +162,12 @@ function replaceAnchorLink(text) {
 // (new) "http://story-games.com/forums/discussion/9214/p1" rel="nonsense"
 // (old) "http://www.story-games.com/forums/discussion/9214/p1" rel="nonsense"
 function changeInternalLinks(text) {
-  text = text.replaceAll(/\"http:\/\/(www\.)?story-games\.com\/forums\/discussion\/\d+\S+\"/g, (match) => {
+  text = text.replaceAll(/\"https?:\/\/(www\.)?story-games\.com\/forums\/discussion\/\d+\S+\"/g, (match) => {
       let pageIndex = match.match(/(?<=\/)\d+(?=\/)/);      // new internal links
       return `"?${pageIndex}"`
   });
 
-  text = text.replaceAll(/\"http:\/\/(www\.)?story-games\.com\/forums\/comments\.php\?DiscussionID=\d+\S+\"/g, (match) => {
+  text = text.replaceAll(/\"https?:\/\/(www\.)?story-games\.com\/forums\/comments\.php\?DiscussionID=\d+\S+\"/g, (match) => {
       let pageIndex = match.match(/(?<=DiscussionID=)\d+/); // old internal links
       return `"?${pageIndex}"`
   });
@@ -171,7 +190,7 @@ function getLinkedIndex() {
 
 function autoLoadDoc() {
   if (!loadDirectLink()) {
-    loadLastVisitedDoc()
+    setLastVisitedDocOnInput();
   }
 }
 
@@ -186,12 +205,14 @@ function loadDirectLink() {
   return false
 }
 
-function loadLastVisitedDoc() {
+function setLastVisitedDocOnInput() {
   let lastVisitedPage = parseInt(localStorage.getItem(LAST_VISITED));
 
   if (!isNaN(lastVisitedPage)) {
-    loadDoc(lastVisitedPage);
-    updateLocation(lastVisitedPage, null, lastVisitedPage);
+    currentPageIndex = lastVisitedPage;
+    indexInput.value = lastVisitedPage;
+    // loadDoc(lastVisitedPage);
+    // updateLocation(lastVisitedPage, null, lastVisitedPage);
   }
 }
 
@@ -202,11 +223,6 @@ function setClickListeners() {
   setMenuClickListeners();
 
   window.addEventListener('popstate', catchBrowserNavigation);
-
-  let googleSearchBar = document.querySelector('form input');
-  if (googleSearchBar) {
-    googleSearchBar.placeholder = "Search"
-  }
 }
 
 function catchBrowserNavigation(event) {
@@ -243,18 +259,19 @@ function catchBrowserNavigation(event) {
 }
 
 function setListClickListeners() {
-  const listItems = document.querySelectorAll('#list > div.row');
-  let lastIndexTextContent = listItems[listItems.length-1].textContent;
+  document.addEventListener('click', (event) => {
+    let target = event.target;
+    let aElem = (target.tagName == 'A') ? target : (target.parentNode && target.parentNode.tagName == 'A') ? target.parentNode : null;
+    let isInsideList = aElem && aElem.parentNode.id == 'list';
 
-  lastIndex = getIndexFrom(lastIndexTextContent);
-  indexInput.max = lastIndex;
+    if (isInsideList) {
+      let pageIndex = getIndexFrom(aElem.firstChild.textContent); // a > i:firstChild.textContent
 
-  listItems.forEach((listItem) => {
-    listItem.addEventListener('click', () => {
-      let pageIndex = getIndexFrom(listItem.textContent);
+
       loadDoc(pageIndex);
       updateLocation(pageIndex, null, pageIndex);
-    });
+      event.preventDefault();
+    }
   });
 }
 
@@ -277,7 +294,5 @@ function setMenuClickListeners() {
     updateLocation(newIndex, null, newIndex);
   });
 
-  searchBarInput.addEventListener('change', (event) => {
-    googleSearch(event.currentTarget.value);
-  });
+  searchBarInput.addEventListener('change', googleSearch);
 }

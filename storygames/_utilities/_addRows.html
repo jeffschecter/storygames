@@ -42,14 +42,12 @@
         if (rowStr) {
           row = new Row(rowStr);
 
-          tempStr += `https://raw.githubusercontent.com/Rickard80/storygames/master/storygames/${row.id}.html\n`
+          if (year != row.year) {
+            year = row.year;
+            tempStr += `<h2>${year}</h2>`;
+          }
 
-          // if (year != row.year) {
-          //   year = row.year;
-          //   tempStr += `<h2>${year}</h2>\n`;
-          // }
-          //
-          // tempStr += `<div class="row"><div>${row.id}.</div><div>${row.title}</div><div>${row.author}</div></div>\n`;
+          tempStr += `<a href="?${row.id}"><i>${row.id}.</i><i>${row.title}</i><i>${row.author}</i></a>`;
         }
       }
 

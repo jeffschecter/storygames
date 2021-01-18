@@ -61,8 +61,10 @@ content {
 }
 
 footer {
-  position: sticky;
+  position: fixed;
   bottom: 0px;
+  left: 0px;
+  right: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,7 +87,6 @@ footer > input {
 footer > #index::-webkit-inner-spin-button,
 footer > #index::-webkit-outer-spin-button {
    opacity: 1;
-
 }
 
 footer > .page {

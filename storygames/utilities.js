@@ -130,19 +130,20 @@ function loadDoc(pageIndex, increase) {
 
 function scrollToListItem() {
   const WAIT_FOR_DOM_TO_LOAD = 1000;
-  listIndexes = listIndexes || document.getElementById('list').querySelectorAll('a > i:first-child');
   var id = '';
 
   for (let indexEl of listIndexes) {
-    id = indexEl.textContent;
-
-    if (id.substring(0, id.length-1) == currentPageIndex) {
+    if (getIndex(indexEl.textContent) == currentPageIndex) {
       setTimeout(() => {
         indexEl.scrollIntoView();
       }, WAIT_FOR_DOM_TO_LOAD);
       break;
     }
   }
+}
+
+function getIndex(textContent) {
+  return textContent.substring(0, textContent.length-1);
 }
 
 function scrollToAnchor() {
@@ -218,6 +219,12 @@ function setLastVisitedDocOnInput() {
 
 function setClickListeners() {
   indexInput = document.getElementById('index');
+
+  listIndexes = document.getElementById('list').querySelectorAll('a > i:first-child');
+  indexInput.max = getIndex(listIndexes[listIndexes.length - 1].textContent);
+
+  console.log(indexInput.max)
+
 
   setListClickListeners();
   setMenuClickListeners();
